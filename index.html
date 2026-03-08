@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EduPath Uganda — A-Level Guide & AI Career Advisor</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════════ */
+:root{
+  --ink:#0d0f14;--ink2:#181c25;--ink3:#232836;
+  --surface:rgba(255,255,255,.04);--surface2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --txt:#e8eaf0;--muted:#6b7280;--muted2:#9ca3af;
+  --gold:#f5c842;--gold2:#fbbf24;
+  --teal:#2dd4bf;--teal2:#14b8a6;
+  --rose:#fb7185;--rose2:#f43f5e;
+  --violet:#a78bfa;--violet2:#7c3aed;
+  --sky:#38bdf8;--sky2:#0ea5e9;
+  --green:#4ade80;--green2:#16a34a;
+  --r:16px;--r2:12px;--r3:8px;
+  --shadow:0 4px 24px rgba(0,0,0,.5);
+  --shadow2:0 2px 12px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Instrument Sans',sans-serif;background:var(--ink);color:var(--txt);line-height:1.6;overflow-x:hidden;}
+h1,h2,h3,h4,.display{font-family:'Syne',sans-serif;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--ink2);}
+::-webkit-scrollbar-thumb{background:var(--ink3);border-radius:3px;}
+a{color:inherit;text-decoration:none;}
+button{font-family:'Instrument Sans',sans-serif;cursor:pointer;}
+input,select,textarea{font-family:'Instrument Sans',sans-serif;}
+
+/* ═══════════════ PAGES ═══════════════ */
+.page{display:none;min-height:100vh;}
+.page.active{display:block;animation:pgIn .4s cubic-bezier(.22,1,.36,1);}
+@keyframes pgIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ═══════════════ NAV ═══════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:60px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem;
+  background:rgba(13,15,20,.88);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);}
+.nav-brand{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;
+  display:flex;align-items:center;gap:.5rem;}
+.nav-brand .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;}
+.nav-center{display:flex;gap:.25rem;}
+.nav-link{padding:.35rem .85rem;border-radius:6px;font-size:.82rem;font-weight:500;color:var(--muted2);
+  background:none;border:none;transition:all .2s;}
+.nav-link:hover,.nav-link.on{color:var(--txt);background:var(--surface2);}
+.nav-right{display:flex;gap:.5rem;align-items:center;}
+.nbtn{padding:.38rem 1rem;border-radius:7px;font-size:.8rem;font-weight:600;border:none;transition:all .2s;}
+.nbtn-ghost{background:var(--surface);color:var(--muted2);border:1px solid var(--border);}
+.nbtn-ghost:hover{background:var(--surface2);color:var(--txt);}
+.nbtn-gold{background:var(--gold);color:var(--ink);font-weight:700;}
+.nbtn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:80px 2rem 4rem;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(245,200,66,.06) 0%,transparent 70%),
+             radial-gradient(ellipse 60% 40% at 20% 80%,rgba(45,212,191,.05) 0%,transparent 60%),
+             var(--ink);}
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:48px 48px;}
+.hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);
+  padding:.3rem .9rem;border-radius:100px;font-size:.76rem;font-weight:600;
+  color:var(--gold);margin-bottom:1.5rem;}
+.pulse{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(1.8);}}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;line-height:1.05;
+  letter-spacing:-.035em;margin-bottom:1.3rem;}
+.hero h1 .hl{color:var(--gold);}
+.hero h1 .hl2{color:var(--teal);}
+.hero-sub{color:var(--muted2);font-size:1rem;line-height:1.75;max-width:480px;margin-bottom:2rem;}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;}
+.hbtn{padding:.82rem 1.8rem;border-radius:10px;font-size:.92rem;font-weight:600;border:none;transition:all .3s;}
+.hbtn-primary{background:var(--gold);color:var(--ink);box-shadow:0 6px 20px rgba(245,200,66,.25);}
+.hbtn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,200,66,.35);}
+.hbtn-outline{background:transparent;color:var(--txt);border:1px solid var(--border2);}
+.hbtn-outline:hover{background:var(--surface2);border-color:var(--border2);}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.hstat-n{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;line-height:1;}
+.hstat-l{font-size:.75rem;color:var(--muted);margin-top:.2rem;}
+/* hero right */
+.hero-card-stack{display:flex;flex-direction:column;gap:.8rem;}
+.hcard{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem;
+  transition:transform .3s;}
+.hcard:hover{transform:translateY(-3px);}
+.hcard-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem;}
+.hcard-ico{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.hcard-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;}
+.hcard-sub{font-size:.74rem;color:var(--muted);}
+.combo-pills{display:flex;gap:.35rem;flex-wrap:wrap;}
+.cpill{padding:.2rem .6rem;border-radius:5px;font-size:.73rem;font-weight:600;}
+.cpill-gold{background:rgba(245,200,66,.12);color:var(--gold);border:1px solid rgba(245,200,66,.2);}
+.cpill-teal{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.18);}
+.cpill-violet{background:rgba(167,139,250,.1);color:var(--violet);border:1px solid rgba(167,139,250,.18);}
+.cpill-sky{background:rgba(56,189,248,.1);color:var(--sky);border:1px solid rgba(56,189,248,.18);}
+.bar-row{margin-top:.7rem;}
+.bar-label{display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:.3rem;}
+.bar-label span:last-child{font-weight:700;color:var(--teal);}
+.bar-track{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--sky));
+  animation:barLoad 1.4s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes barLoad{from{width:0;}to{width:var(--w);}}
+
+/* ═══════════════ LAYOUT SHELLS ═══════════════ */
+.app-shell{padding-top:60px;min-height:100vh;background:var(--ink);}
+.app-body{max-width:920px;margin:0 auto;padding:2.5rem 1.5rem;}
+.wide-body{max-width:1120px;margin:0 auto;padding:2.5rem 1.5rem;}
+
+/* ═══════════════ BREADCRUMB ═══════════════ */
+.bread{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;}
+.bread a{cursor:pointer;transition:color .2s;}.bread a:hover{color:var(--txt);}
+.bread-sep{color:var(--border2);}
+
+/* ═══════════════ PAGE HEADER ═══════════════ */
+.ph{margin-bottom:2rem;}
+.ph h2{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;letter-spacing:-.025em;}
+.ph p{color:var(--muted2);margin-top:.35rem;font-size:.9rem;}
+.ph-tag{display:inline-flex;align-items:center;gap:.4rem;padding:.22rem .75rem;border-radius:100px;
+  font-size:.73rem;font-weight:600;margin-bottom:.7rem;}
+.tag-gold{background:rgba(245,200,66,.1);color:var(--gold);border:1px solid rgba(245,200,66,.18);}
+.tag-teal{background:rgba(45,212,191,.08);color:var(--teal);border:1px solid rgba(45,212,191,.15);}
+.tag-rose{background:rgba(251,113,133,.08);color:var(--rose);border:1px solid rgba(251,113,133,.15);}
+.tag-violet{background:rgba(167,139,250,.08);color:var(--violet);border:1px solid rgba(167,139,250,.15);}
+
+/* ═══════════════ TABS ═══════════════ */
+.tabs{display:flex;gap:.2rem;background:rgba(255,255,255,.025);border-radius:10px;
+  padding:.25rem;margin-bottom:2rem;flex-wrap:wrap;}
+.tab{flex:1;min-width:110px;padding:.5rem .4rem;border-radius:8px;border:none;
+  background:none;color:var(--muted2);font-size:.8rem;font-weight:600;
+  transition:all .2s;cursor:pointer;text-align:center;}
+.tab.on{background:var(--ink3);color:var(--txt);}
+.tab-pane{display:none;}
+.tab-pane.on{display:block;animation:pgIn .3s ease;}
+
+/* ═══════════════ CARDS ═══════════════ */
+.card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.75rem;margin-bottom:1.1rem;}
+.card-sm{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r2);padding:1.25rem;}
+.card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:.5rem;}
+.card-title .ico{opacity:.7;}
+
+/* ═══════════════ FORMS ═══════════════ */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;}
+.fg-full{grid-column:1/-1;}
+.fld{display:flex;flex-direction:column;gap:.32rem;}
+.fld label{font-size:.78rem;font-weight:600;color:var(--muted2);letter-spacing:.02em;}
+.fld input,.fld select,.fld textarea{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r3);
+  padding:.6rem .85rem;color:var(--txt);font-size:.87rem;width:100%;transition:all .2s;}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none;border-color:var(--gold);background:rgba(245,200,66,.04);}
+.fld select option{background:var(--ink2);}
+.form-row{display:flex;gap:.65rem;justify-content:flex-end;margin-top:1.3rem;flex-wrap:wrap;}
+
+/* ═══════════════ BUTTONS ═══════════════ */
+.btn{padding:.58rem 1.35rem;border-radius:var(--r3);font-size:.84rem;font-weight:600;
+  border:none;transition:all .2s;cursor:pointer;}
+.btn-gold{background:var(--gold);color:var(--ink);}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-teal{background:var(--teal);color:var(--ink);}
+.btn-teal:hover{background:var(--teal2);}
+.btn-ghost{background:var(--surface);color:var(--muted2);border:1px solid var(--border);}
+.btn-ghost:hover{background:var(--surface2);color:var(--txt);}
+.btn-rose{background:var(--rose2);color:#fff;}
+.btn-violet{background:var(--violet2);color:#fff;}
+.btn-full{width:100%;padding:.75rem;}
+
+/* ═══════════════ ALERTS ═══════════════ */
+.alert{padding:.75rem 1rem;border-radius:var(--r3);font-size:.83rem;
+  display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.9rem;line-height:1.55;}
+.alert-gold{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.18);color:var(--gold);}
+.alert-teal{background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.15);color:var(--teal);}
+.alert-rose{background:rgba(251,113,133,.07);border:1px solid rgba(251,113,133,.15);color:var(--rose);}
+.alert-muted{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--muted2);}
+
+/* ═══════════════ BADGES ═══════════════ */
+.badge{display:inline-block;padding:.18rem .55rem;border-radius:100px;font-size:.71rem;font-weight:700;}
+.bg-green{background:rgba(74,222,128,.12);color:var(--green);}
+.bg-gold{background:rgba(245,200,66,.12);color:var(--gold);}
+.bg-rose{background:rgba(251,113,133,.12);color:var(--rose);}
+.bg-teal{background:rgba(45,212,191,.1);color:var(--teal);}
+.bg-sky{background:rgba(56,189,248,.1);color:var(--sky);}
+.bg-violet{background:rgba(167,139,250,.1);color:var(--violet);}
+.bg-muted{background:var(--surface);color:var(--muted2);}
+
+/* ═══════════════ COMBINATION RANKING ═══════════════ */
+.combo-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem;}
+.combo-item{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r2);
+  padding:1.2rem;display:flex;gap:1rem;align-items:flex-start;
+  animation:slideIn .4s cubic-bezier(.22,1,.36,1) both;}
+.combo-item:nth-child(1){animation-delay:.04s;}
+.combo-item:nth-child(2){animation-delay:.09s;}
+.combo-item:nth-child(3){animation-delay:.14s;}
+.combo-item:nth-child(4){animation-delay:.19s;}
+.combo-item:nth-child(5){animation-delay:.24s;}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:translateX(0);}}
+.combo-rank{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;
+  justify-content:center;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;flex-shrink:0;}
+.rk1{background:linear-gradient(135deg,#f5c842,#f59e0b);color:#78350f;}
+.rk2{background:linear-gradient(135deg,#94a3b8,#475569);color:#fff;}
+.rk3{background:linear-gradient(135deg,#b45309,#78350f);color:#fff;}
+.rkN{background:var(--ink3);color:var(--muted2);}
+.combo-body{flex:1;min-width:0;}
+.combo-code{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;
+  display:flex;align-items:center;gap:.55rem;margin-bottom:.25rem;}
+.combo-name{font-size:.8rem;color:var(--muted2);margin-bottom:.7rem;}
+.combo-subs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.65rem;}
+.sub-tag{background:rgba(255,255,255,.05);border:1px solid var(--border);
+  padding:.17rem .55rem;border-radius:5px;font-size:.74rem;color:var(--muted2);}
+.combo-score-row{display:flex;align-items:center;gap:.65rem;}
+.score-track{height:5px;background:rgba(255,255,255,.05);border-radius:3px;flex:1;overflow:hidden;}
+.score-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.22,1,.36,1);}
+.sf-hi{background:linear-gradient(90deg,var(--teal),var(--sky));}
+.sf-md{background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.sf-lo{background:linear-gradient(90deg,var(--rose),var(--rose2));}
+.score-pct{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;min-width:38px;text-align:right;}
+.combo-warn{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.15);
+  border-radius:6px;padding:.35rem .6rem;font-size:.76rem;color:var(--gold);margin-top:.5rem;}
+.combo-sub-note{background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.12);
+  border-radius:6px;padding:.35rem .6rem;font-size:.74rem;color:var(--sky);margin-top:.4rem;}
+
+/* ═══════════════ CAREER GRID ═══════════════ */
+.career-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));
+  gap:.75rem;margin-top:1rem;}
+.career-tile{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r2);
+  padding:1.1rem;text-align:center;cursor:pointer;transition:all .25s;
+  animation:slideIn .4s ease both;}
+.career-tile:hover{transform:translateY(-3px);border-color:var(--border2);}
+.career-tile.tier-best{border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.05);}
+.career-tile.tier-good{border-color:rgba(56,189,248,.25);}
+.career-tile.tier-possible{border-color:rgba(245,200,66,.2);}
+.career-tile.tier-stretch{opacity:.7;}
+.ct-ico{font-size:1.75rem;margin-bottom:.45rem;}
+.ct-name{font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;margin-bottom:.35rem;line-height:1.3;}
+.ct-pct{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+
+/* ═══════════════ COMPAT BOX ═══════════════ */
+.compat{border-radius:var(--r);padding:1.75rem;text-align:center;margin-top:1.2rem;
+  animation:pgIn .4s ease;}
+.compat-yes{background:rgba(45,212,191,.06);border:1px solid rgba(45,212,191,.2);}
+.compat-no{background:rgba(251,113,133,.06);border:1px solid rgba(251,113,133,.2);}
+.compat-ico{font-size:3rem;margin-bottom:.8rem;}
+.compat-title{font-family:'Syne',sans-serif;font-size:1.45rem;font-weight:800;margin-bottom:.5rem;}
+.compat-msg{color:var(--muted2);font-size:.9rem;line-height:1.65;}
+.issues{background:rgba(0,0,0,.2);border-radius:8px;padding:.85rem;margin-top:.9rem;text-align:left;}
+.issue-row{font-size:.81rem;color:var(--muted2);padding:.28rem 0;
+  border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:.5rem;}
+.issue-row:last-child{border:none;}
+.issue-dot{color:var(--rose);flex-shrink:0;}
+
+/* ═══════════════ UNIVERSITY CARDS ═══════════════ */
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem;}
+.uni-card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.3rem;transition:all .25s;cursor:pointer;}
+.uni-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.uni-card.featured{border-color:rgba(245,200,66,.25);}
+.uni-head{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.9rem;}
+.uni-ico{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.uni-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;line-height:1.3;}
+.uni-loc{font-size:.76rem;color:var(--muted);margin-top:.18rem;}
+.uni-progs{display:flex;gap:.35rem;flex-wrap:wrap;}
+.prog-tag{background:rgba(255,255,255,.04);border:1px solid var(--border);
+  padding:.16rem .5rem;border-radius:4px;font-size:.72rem;color:var(--muted2);}
+
+/* ═══════════════ AI CHAT ═══════════════ */
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:460px;
+  background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.chat-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:.75rem;flex-shrink:0;}
+.ai-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--teal),var(--sky));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+.chat-header-info .name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;}
+.chat-header-info .status{font-size:.74rem;color:var(--teal);display:flex;align-items:center;gap:.35rem;}
+.status-dot{width:5px;height:5px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite;}
+.chat-messages{flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:.85rem;}
+.msg{display:flex;gap:.65rem;max-width:88%;}
+.msg-ai{align-self:flex-start;}
+.msg-user{align-self:flex-end;flex-direction:row-reverse;}
+.msg-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:.8rem;flex-shrink:0;margin-top:2px;}
+.msg-av-ai{background:linear-gradient(135deg,var(--teal),var(--sky));}
+.msg-av-u{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);}
+.msg-bubble{padding:.75rem 1rem;border-radius:12px;font-size:.86rem;line-height:1.6;}
+.bubble-ai{background:var(--ink3);border:1px solid var(--border);}
+.bubble-user{background:linear-gradient(135deg,rgba(245,200,66,.18),rgba(245,200,66,.1));
+  border:1px solid rgba(245,200,66,.22);}
+.msg-time{font-size:.68rem;color:var(--muted);margin-top:.25rem;padding:0 .3rem;}
+.typing{display:flex;gap:.3rem;padding:.75rem 1rem;}
+.typing span{width:6px;height:6px;background:var(--muted);border-radius:50%;animation:bounce .9s infinite;}
+.typing span:nth-child(2){animation-delay:.15s;}
+.typing span:nth-child(3){animation-delay:.3s;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.chat-input-area{padding:.85rem 1rem;border-top:1px solid var(--border);flex-shrink:0;}
+.chat-input-row{display:flex;gap:.6rem;align-items:flex-end;}
+.chat-input-row textarea{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:10px;padding:.65rem .9rem;color:var(--txt);font-size:.87rem;
+  resize:none;max-height:120px;min-height:42px;overflow-y:auto;transition:border .2s;}
+.chat-input-row textarea:focus{outline:none;border-color:var(--gold);}
+.send-btn{width:40px;height:40px;border-radius:9px;background:var(--gold);border:none;
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--ink);
+  flex-shrink:0;transition:all .2s;}
+.send-btn:hover{background:var(--gold2);transform:scale(1.05);}
+.chat-suggestions{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.65rem;}
+.sug{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;
+  padding:.3rem .65rem;font-size:.75rem;color:var(--muted2);cursor:pointer;transition:all .2s;}
+.sug:hover{background:var(--surface2);color:var(--txt);border-color:var(--border2);}
+
+/* ═══════════════ SCHOOL AUTH ═══════════════ */
+.auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:5rem 1.5rem 2rem;
+  background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(167,139,250,.06) 0%,transparent 70%),var(--ink);}
+.auth-box{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:2.25rem;width:100%;max-width:420px;}
+.auth-logo{text-align:center;margin-bottom:1.8rem;}
+.auth-logo h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;}
+.auth-logo p{color:var(--muted);font-size:.82rem;margin-top:.3rem;}
+.auth-divider{position:relative;text-align:center;margin:1rem 0;font-size:.76rem;color:var(--muted);}
+.auth-divider::before,.auth-divider::after{content:'';position:absolute;top:50%;width:calc(50% - 24px);
+  height:1px;background:var(--border);}
+.auth-divider::before{left:0;}.auth-divider::after{right:0;}
+
+/* ═══════════════ SCHOOL DASHBOARD ═══════════════ */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:2rem;}
+.stat-box{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r2);
+  padding:1.2rem;text-align:center;}
+.stat-box .num{font-family:'Syne',sans-serif;font-size:1.85rem;font-weight:800;line-height:1;}
+.stat-box .lbl{font-size:.74rem;color:var(--muted);margin-top:.22rem;}
+.upload-zone{border:2px dashed var(--border);border-radius:var(--r);padding:2.5rem;
+  text-align:center;cursor:pointer;transition:all .3s;}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--gold);background:rgba(245,200,66,.03);}
+.upload-ico{font-size:2.5rem;margin-bottom:.75rem;}
+.prog-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-top:1rem;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));width:0;
+  transition:width .3s;border-radius:3px;}
+
+/* ═══════════════ TABLE ═══════════════ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r2);}
+table{width:100%;border-collapse:collapse;font-size:.83rem;}
+th{text-align:left;padding:.65rem .9rem;color:var(--muted);font-weight:600;
+  font-size:.75rem;border-bottom:1px solid var(--border);letter-spacing:.04em;}
+td{padding:.62rem .9rem;border-bottom:1px solid rgba(255,255,255,.03);}
+tr:last-child td{border:none;}
+tr:hover td{background:rgba(255,255,255,.018);}
+
+/* ═══════════════ LANDING SECTIONS ═══════════════ */
+.section{padding:5rem 2rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.stag{display:inline-flex;align-items:center;gap:.45rem;padding:.25rem .8rem;
+  border-radius:100px;font-size:.74rem;font-weight:600;margin-bottom:.9rem;}
+.stag-gold{background:rgba(245,200,66,.08);color:var(--gold);border:1px solid rgba(245,200,66,.16);}
+.stag-teal{background:rgba(45,212,191,.06);color:var(--teal);border:1px solid rgba(45,212,191,.14);}
+.section h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:800;letter-spacing:-.028em;margin-bottom:.85rem;}
+.section p.lead{color:var(--muted2);max-width:560px;font-size:.95rem;line-height:1.72;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;margin-top:2.5rem;}
+.feat-card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.6rem;transition:all .3s;cursor:pointer;}
+.feat-card:hover{border-color:var(--border2);transform:translateY(-3px);}
+.feat-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;
+  justify-content:center;font-size:1.3rem;margin-bottom:1.1rem;}
+.feat-card h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.feat-card p{color:var(--muted);font-size:.82rem;line-height:1.6;}
+.roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.5rem;}
+.role-card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.75rem;text-align:center;transition:all .3s;}
+.role-card:hover{transform:translateY(-4px);}
+.role-av{width:64px;height:64px;border-radius:50%;margin:0 auto 1rem;
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+.role-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.45rem;}
+.role-card p{color:var(--muted);font-size:.82rem;line-height:1.6;}
+.role-btn{margin-top:1.25rem;width:100%;padding:.58rem;border-radius:8px;font-size:.82rem;
+  font-weight:600;background:transparent;border:1px solid var(--border);color:var(--muted2);
+  transition:all .2s;}
+.role-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+
+/* ═══════════════ FOOTER ═══════════════ */
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem 2rem;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;}
+.footer-brand h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:.5rem;}
+.footer-brand p{color:var(--muted);font-size:.8rem;line-height:1.65;}
+.footer-col h4{font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:.85rem;
+  letter-spacing:.07em;text-transform:uppercase;}
+.footer-col a{display:block;color:var(--muted2);font-size:.8rem;margin-bottom:.45rem;cursor:pointer;transition:color .2s;}
+.footer-col a:hover{color:var(--txt);}
+.footer-bot{border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.25rem;
+  text-align:center;color:var(--muted);font-size:.76rem;}
+
+/* ═══════════════ MISC ═══════════════ */
+.loader-overlay{position:fixed;inset:0;background:rgba(13,15,20,.9);z-index:500;
+  display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.loader-overlay.on{display:flex;}
+.spin{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--gold);
+  border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loader-txt{font-size:.85rem;color:var(--muted2);}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:400;
+  display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-bg.on{display:flex;}
+.modal{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.75rem;max-width:600px;width:100%;max-height:82vh;overflow-y:auto;animation:pgIn .3s ease;}
+.modal-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;}
+pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
+  overflow-x:auto;color:#86efac;line-height:1.7;white-space:pre-wrap;}
+.divider-line{height:1px;background:var(--border);margin:1.5rem 0;}
+.empty-state{text-align:center;padding:2.5rem 1rem;}
+.empty-state .ico{font-size:2.5rem;margin-bottom:.75rem;}
+.empty-state h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.35rem;}
+.empty-state p{color:var(--muted);font-size:.83rem;}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-vis{display:none;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .roles-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .nav-center{display:none;}
+  .fg{grid-template-columns:1fr;}
+  .fg3{grid-template-columns:1fr 1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .tabs{flex-direction:column;}
+  .tab{text-align:left;}
+  .hero-stats{gap:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+  <div class="spin"></div>
+  <div class="loader-txt" id="loaderTxt">Processing…</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal"><button class="modal-close" onclick="closeModal()">✕</button><div id="modalBody"></div></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><div class="dot"></div>EduPath</div>
+  <div class="nav-center">
+    <button class="nav-link" onclick="go('landing')">Home</button>
+    <button class="nav-link" onclick="go('student')">Students</button>
+    <button class="nav-link" onclick="go('parent')">Parents</button>
+    <button class="nav-link" onclick="go('universities')">Universities</button>
+    <button class="nav-link" onclick="go('ai-advisor')">AI Advisor</button>
+  </div>
+  <div class="nav-right">
+    <button class="nbtn nbtn-ghost" onclick="go('student')">Student Portal</button>
+    <button class="nbtn nbtn-gold" onclick="go('school-auth')">🏫 Schools</button>
+  </div>
+</nav>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║              LANDING PAGE                    ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="landing" class="page active">
+  <div class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow"><span class="pulse"></span>Based on Kaziba Stephen's Combination Guide · PUJAB Aligned</div>
+        <h1>Uganda's Smartest<br/><span class="hl">A-Level Guide</span><br/>+ <span class="hl2">AI Advisor</span></h1>
+        <p class="hero-sub">Enter your S.4 O-Level results and get ranked A-Level combinations, career paths, Uganda university programmes, and an AI that answers all your questions about the job market.</p>
+        <div class="hero-actions">
+          <button class="hbtn hbtn-primary" onclick="go('student')">🎓 Get My Combinations</button>
+          <button class="hbtn hbtn-outline" onclick="go('ai-advisor')">🤖 Ask AI Advisor</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hstat-n" style="color:var(--gold)">30+</div><div class="hstat-l">Combinations</div></div>
+          <div><div class="hstat-n" style="color:var(--teal)">60+</div><div class="hstat-l">Degree Programmes</div></div>
+          <div><div class="hstat-n" style="color:var(--violet)">15+</div><div class="hstat-l">Uganda Universities</div></div>
+          <div><div class="hstat-n" style="color:var(--sky)">AI</div><div class="hstat-l">Career Advisor</div></div>
+        </div>
+      </div>
+      <div class="hero-card-stack" id="hcards">
+        <div class="hcard">
+          <div class="hcard-top">
+            <div class="hcard-ico" style="background:rgba(245,200,66,.1)">📋</div>
+            <div><div class="hcard-title">O-Level Results Entered</div><div class="hcard-sub">Grace Akello · S.4 2025</div></div>
+          </div>
+          <div class="combo-pills">
+            <span class="cpill cpill-gold">Physics — A</span>
+            <span class="cpill cpill-gold">Chemistry — A</span>
+            <span class="cpill cpill-teal">Biology — B</span>
+            <span class="cpill cpill-sky">Mathematics — B</span>
+          </div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-top">
+            <div class="hcard-ico" style="background:rgba(45,212,191,.1)">🏆</div>
+            <div><div class="hcard-title">Top Combinations Ranked</div><div class="hcard-sub">Based on Kaziba Guide · PUJAB</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>PCB/Sub-Math</span><span>96%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:96%"></div></div>
+          </div>
+          <div class="bar-row" style="margin-top:.55rem">
+            <div class="bar-label"><span>PCM/ICT</span><span>88%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:88%;animation-delay:.3s"></div></div>
+          </div>
+          <div class="bar-row" style="margin-top:.55rem">
+            <div class="bar-label"><span>BCM/ICT</span><span>81%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:81%;animation-delay:.6s"></div></div>
+          </div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-top">
+            <div class="hcard-ico" style="background:rgba(167,139,250,.1)">💼</div>
+            <div><div class="hcard-title">Best Career Matches</div><div class="hcard-sub">AI-powered job market analysis</div></div>
+          </div>
+          <div class="combo-pills">
+            <span class="cpill cpill-teal">🩺 Medicine</span>
+            <span class="cpill cpill-sky">⚙️ Engineering</span>
+            <span class="cpill cpill-violet">💊 Pharmacy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section" style="background:var(--ink2);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="stag stag-gold">Core Features</div>
+      <h2>Built on Kaziba Stephen's Expert Guide</h2>
+      <p class="lead">Every combination, degree programme and career pathway is sourced directly from the official PUJAB-aligned guidance document.</p>
+      <div class="feat-grid">
+        <div class="feat-card" onclick="go('student')"><div class="feat-ico" style="background:rgba(245,200,66,.1)">🏆</div><h3>Ranked Combinations</h3><p>30+ combinations from PCB/Sub-Math to HEG/Sub-Math ranked against your O-Level grades.</p></div>
+        <div class="feat-card" onclick="go('student')"><div class="feat-ico" style="background:rgba(45,212,191,.1)">💡</div><h3>60+ Degree Programmes</h3><p>Medicine, Engineering, Law, Commerce, Education and Emerging Courses all mapped to your results.</p></div>
+        <div class="feat-card" onclick="go('ai-advisor')"><div class="feat-ico" style="background:rgba(167,139,250,.1)">🤖</div><h3>AI Career Advisor</h3><p>Ask anything about Uganda's job market, salary expectations, career trends, and which path suits you.</p></div>
+        <div class="feat-card" onclick="go('universities')"><div class="feat-ico" style="background:rgba(56,189,248,.1)">🏛️</div><h3>Uganda Universities</h3><p>Makerere, Mbarara, Gulu, Arua-based and other institutions with programmes matching your combination.</p></div>
+        <div class="feat-card" onclick="go('school-auth')"><div class="feat-ico" style="background:rgba(251,113,133,.1)">📤</div><h3>School Reports</h3><p>Schools upload bulk student records and generate comprehensive evaluation and guidance reports.</p></div>
+        <div class="feat-card" onclick="go('parent')"><div class="feat-ico" style="background:rgba(74,222,128,.1)">👨‍👩‍👧</div><h3>Parent Profiles</h3><p>Parents view child's recommended combinations, degree options and career paths instantly — no login.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="section">
+    <div class="section-inner">
+      <div class="stag stag-teal">Who Uses EduPath?</div>
+      <h2>Designed for Every Stakeholder</h2>
+      <div class="roles-grid">
+        <div class="role-card"><div class="role-av" style="background:rgba(245,200,66,.1)">🎓</div><h3>Students</h3><p>No login needed. Enter grades, get ranked combinations, best careers, university options and talk to the AI Advisor.</p><button class="role-btn" onclick="go('student')">Open Student Portal →</button></div>
+        <div class="role-card"><div class="role-av" style="background:rgba(45,212,191,.1)">👨‍👩‍👧</div><h3>Parents</h3><p>No login needed. Search your child's name to see full guidance, combination recommendations and university programmes.</p><button class="role-btn" onclick="go('parent')">Open Parent Portal →</button></div>
+        <div class="role-card"><div class="role-av" style="background:rgba(167,139,250,.1)">🏫</div><h3>Schools</h3><p>School login required. Upload student records, run bulk evaluations, generate PDF/Excel reports for counseling sessions.</p><button class="role-btn" onclick="go('school-auth')">School Login →</button></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><h3>EduPath Uganda</h3><p>A-Level Combination Guide powered by Kaziba Stephen's expert document and PUJAB guidelines. Helping students in Arua City and across Uganda make smarter academic choices.</p></div>
+      <div class="footer-col"><h4>Portals</h4><a onclick="go('student')">Student Portal</a><a onclick="go('parent')">Parent Portal</a><a onclick="go('school-auth')">School Login</a></div>
+      <div class="footer-col"><h4>Tools</h4><a onclick="go('ai-advisor')">AI Advisor</a><a onclick="go('universities')">Universities</a></div>
+      <div class="footer-col"><h4>Credit</h4><a>Kaziba Stephen (Guide)</a><a>NCDC Framework</a><a>PUJAB Guidelines</a></div>
+    </div>
+    <div class="footer-bot">© 2025 EduPath Uganda · Credit: Kaziba Stephen Educator · kazibastephen22@gmail.com</div>
+  </footer>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            STUDENT PORTAL                    ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="student" class="page">
+  <div class="app-shell">
+    <div class="app-body">
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Student Portal</span></div>
+      <div class="ph"><div class="ph-tag tag-gold">🎓 Free — No Login Required</div><h2>Student Portal</h2><p>Enter your O-Level results to get ranked A-Level combinations, degree programmes and career guidance.</p></div>
+      <div class="tabs">
+        <button class="tab on" onclick="switchTab('st','st-grades',this)">📋 Enter Grades</button>
+        <button class="tab" onclick="switchTab('st','st-combos',this)">🏆 My Combinations</button>
+        <button class="tab" onclick="switchTab('st','st-careers',this)">💼 Best Careers</button>
+        <button class="tab" onclick="switchTab('st','st-check',this)">🎯 Career Check</button>
+        <button class="tab" onclick="switchTab('st','st-degrees',this)">🎓 Degree Programmes</button>
+        <button class="tab" onclick="switchTab('st','st-guide',this)">📚 Study Guide</button>
+      </div>
+
+      <!-- GRADES -->
+      <div id="st-grades" class="tab-pane on">
+        <div class="card">
+          <div class="card-title"><span class="ico">📝</span>Your O-Level Subject Grades</div>
+          <div id="gradesForm"></div>
+          <div class="divider-line"></div>
+          <div class="fld" style="max-width:320px;margin-bottom:1rem;">
+            <label>Your Name (optional)</label>
+            <input id="st-name" type="text" placeholder="e.g. Grace Akello"/>
+          </div>
+          <div class="form-row">
+            <button class="btn btn-ghost" onclick="resetGrades()">↺ Reset</button>
+            <button class="btn btn-gold" onclick="analyseAll()">Analyse My Results →</button>
+          </div>
+        </div>
+        <div class="alert alert-muted">📌 Grade scale: <strong>A=6 · B=5 · C=4 · D=3 · E=2 · F=1</strong>. Enter at least 4 subjects. All NCDC Lower Secondary subjects are listed below.</div>
+        <div class="alert alert-gold">⭐ <strong>Tip:</strong> For best results, enter grades for all subjects you sat. The system uses your top-performing subjects to rank combinations from Kaziba Stephen's official guide.</div>
+      </div>
+
+      <!-- COMBINATIONS -->
+      <div id="st-combos" class="tab-pane">
+        <div id="combosOut">
+          <div class="empty-state"><div class="ico">📋</div><h3>No results yet</h3><p>Enter and analyse your O-Level grades in Tab 1 first.</p></div>
+        </div>
+      </div>
+
+      <!-- BEST CAREERS -->
+      <div id="st-careers" class="tab-pane">
+        <div id="careersOut">
+          <div class="empty-state"><div class="ico">💼</div><h3>No results yet</h3><p>Enter and analyse your O-Level grades in Tab 1 first.</p></div>
+        </div>
+      </div>
+
+      <!-- CAREER CHECK -->
+      <div id="st-check" class="tab-pane">
+        <div class="card">
+          <div class="card-title"><span class="ico">🎯</span>Career Compatibility Check</div>
+          <div class="fg">
+            <div class="fld"><label>Select Career / Degree Programme</label><select id="cc-career"><option value="">— Choose —</option></select></div>
+            <div class="fld"><label>Your Name</label><input id="cc-name" type="text" placeholder="Optional"/></div>
+          </div>
+          <div class="form-row"><button class="btn btn-gold" onclick="doCareerCheck()">Check Compatibility →</button></div>
+        </div>
+        <div id="checkOut"></div>
+      </div>
+
+      <!-- DEGREE PROGRAMMES -->
+      <div id="st-degrees" class="tab-pane">
+        <div id="degreesOut">
+          <div class="empty-state"><div class="ico">🎓</div><h3>No grades entered</h3><p>Enter your grades first to see which degree programmes you qualify for.</p></div>
+        </div>
+      </div>
+
+      <!-- STUDY GUIDE -->
+      <div id="st-guide" class="tab-pane">
+        <div class="card">
+          <div class="card-title"><span class="ico">📚</span>Pre-O-Level Study Guide</div>
+          <p style="color:var(--muted2);font-size:.87rem;margin-bottom:1.1rem;line-height:1.65;">Not yet done O-Level? Select your target combination or career to get a subject-specific preparation plan.</p>
+          <div class="fg">
+            <div class="fld"><label>Target Combination</label><select id="g-combo" onchange="renderGuide()"><option value="">— Select Combination —</option></select></div>
+            <div class="fld"><label>Or Target Career</label><select id="g-career" onchange="renderGuide()"><option value="">— Select Career —</option></select></div>
+          </div>
+        </div>
+        <div id="guideOut"></div>
+        <div class="card" style="margin-top:1.1rem;">
+          <div class="card-title"><span class="ico">💡</span>25 Success Tips from Kaziba Stephen</div>
+          <div id="tipsOut"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            PARENT PORTAL                     ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="parent" class="page">
+  <div class="app-shell">
+    <div class="app-body">
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Parent Portal</span></div>
+      <div class="ph"><div class="ph-tag tag-teal">👨‍👩‍👧 Free — No Login Required</div><h2>Parent Portal</h2><p>Find your child's academic profile and combination guidance instantly.</p></div>
+      <div class="card">
+        <div class="card-title"><span class="ico">🔍</span>Find a Student Profile</div>
+        <div class="fg">
+          <div class="fld"><label>Child's Name</label><input id="p-name" type="text" placeholder="Full name"/></div>
+          <div class="fld"><label>School Name (optional)</label><input id="p-school" type="text" placeholder="e.g. Arua Public S.S.S"/></div>
+        </div>
+        <div class="form-row">
+          <button class="btn btn-ghost" onclick="loadDemoParent()">📋 Load Demo Profile</button>
+          <button class="btn btn-gold" onclick="viewParent()">View Profile →</button>
+        </div>
+      </div>
+      <div id="parentOut"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            UNIVERSITIES PAGE                 ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="universities" class="page">
+  <div class="app-shell">
+    <div class="wide-body">
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Universities</span></div>
+      <div class="ph"><div class="ph-tag tag-violet">🏛️ Uganda Universities</div><h2>Universities & Programmes</h2><p>Major universities in Uganda offering programmes aligned to A-Level combinations.</p></div>
+      <div class="fg" style="margin-bottom:1.5rem;max-width:500px;">
+        <div class="fld"><label>Filter by Subject Area</label>
+          <select id="uni-filter" onchange="renderUnis()">
+            <option value="">All Universities</option>
+            <option value="science">Sciences / Medicine</option>
+            <option value="engineering">Engineering / Tech</option>
+            <option value="arts">Arts / Humanities</option>
+            <option value="business">Business / Economics</option>
+            <option value="education">Education</option>
+          </select>
+        </div>
+      </div>
+      <div id="uniOut"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            AI ADVISOR                        ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="ai-advisor" class="page">
+  <div class="app-shell">
+    <div class="app-body">
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>AI Career Advisor</span></div>
+      <div class="ph"><div class="ph-tag tag-teal">🤖 Powered by Claude AI</div><h2>AI Career Advisor</h2><p>Ask anything about Uganda's job market, A-Level combinations, universities and your future career.</p></div>
+      <div class="chat-wrap">
+        <div class="chat-header">
+          <div class="ai-avatar">🤖</div>
+          <div class="chat-header-info">
+            <div class="name">EduPath AI Advisor</div>
+            <div class="status"><span class="status-dot"></span>Online · Powered by Claude</div>
+          </div>
+          <div style="margin-left:auto;display:flex;gap:.5rem;">
+            <button class="btn btn-ghost" style="font-size:.76rem;padding:.32rem .7rem;" onclick="clearChat()">Clear</button>
+          </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-ai">
+            <div class="msg-av msg-av-ai">🤖</div>
+            <div>
+              <div class="msg-bubble bubble-ai">👋 Hello! I'm your EduPath AI Advisor for Uganda. I can help you with:<br/><br/>
+                • <strong>A-Level combination advice</strong> based on your O-Level grades<br/>
+                • <strong>Uganda job market trends</strong> — which careers are in demand in 2025<br/>
+                • <strong>Salary expectations</strong> for different professions in Uganda<br/>
+                • <strong>University programme requirements</strong> at Makerere, Mbarara, Gulu and more<br/>
+                • <strong>Career path guidance</strong> for any field you're interested in<br/><br/>
+                What would you like to know?
+              </div>
+              <div class="msg-time">Now</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-suggestions" id="chatSugs">
+            <span class="sug" onclick="sendSuggestion(this)">Which A-Level combos suit Medicine?</span>
+            <span class="sug" onclick="sendSuggestion(this)">What jobs are in demand in Uganda 2025?</span>
+            <span class="sug" onclick="sendSuggestion(this)">Tell me about Makerere University programmes</span>
+            <span class="sug" onclick="sendSuggestion(this)">PCB or PCM — which is better?</span>
+            <span class="sug" onclick="sendSuggestion(this)">What is the salary for an Engineer in Uganda?</span>
+          </div>
+          <div class="chat-input-row">
+            <textarea id="chatInput" placeholder="Ask about combinations, careers, universities, job market…" rows="1"
+              onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
+            <button class="send-btn" onclick="sendChat()">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            SCHOOL AUTH                       ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="school-auth" class="page">
+  <div class="auth-screen">
+    <div class="auth-box">
+      <div class="auth-logo"><h2>🏫 School Portal</h2><p>Administrator access — login required</p></div>
+      <div class="alert alert-muted" style="font-size:.79rem;margin-bottom:1.2rem;">🔒 Students & Parents use their free portals without login. School login is for administrators generating bulk reports.</div>
+      <div class="fld" style="margin-bottom:.85rem;"><label>School Email</label><input type="email" id="s-email" placeholder="admin@school.ug"/></div>
+      <div class="fld" style="margin-bottom:.85rem;"><label>School Name</label><input type="text" id="s-school-name" placeholder="e.g. Arua Public S.S.S"/></div>
+      <div class="fld" style="margin-bottom:1.2rem;"><label>Password</label><input type="password" id="s-pass" placeholder="••••••••"/></div>
+      <button class="btn btn-gold btn-full" onclick="schoolLogin()">Sign In to School Portal</button>
+      <div class="auth-divider">or</div>
+      <button class="btn btn-ghost btn-full" onclick="go('school')">🚀 Demo Mode — Enter Without Login</button>
+      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;color:var(--muted);">Students & Parents: <a onclick="go('student')" style="color:var(--gold);cursor:pointer">use free portals →</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════╗
+     ║            SCHOOL DASHBOARD                  ║
+     ╚══════════════════════════════════════════════╝ -->
+<div id="school" class="page">
+  <div class="app-shell">
+    <div class="app-body">
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><a onclick="go('school-auth')">Login</a><span class="bread-sep">›</span><span id="schName">School Dashboard</span></div>
+      <div class="ph"><div class="ph-tag tag-violet">🏫 School Administrator</div><h2>School Dashboard</h2><p>Upload student records and generate combination guidance reports.</p></div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="num" style="color:var(--sky)" id="d-total">0</div><div class="lbl">Students</div></div>
+        <div class="stat-box"><div class="num" style="color:var(--teal)" id="d-ok">0</div><div class="lbl">Compatible</div></div>
+        <div class="stat-box"><div class="num" style="color:var(--gold)" id="d-guid">0</div><div class="lbl">Need Guidance</div></div>
+        <div class="stat-box"><div class="num" style="color:var(--rose)" id="d-no">0</div><div class="lbl">Needs Change</div></div>
+      </div>
+      <div class="tabs">
+        <button class="tab on" onclick="switchTab('sc','sc-upload',this)">📤 Upload Records</button>
+        <button class="tab" onclick="switchTab('sc','sc-manual',this)">✏️ Manual Entry</button>
+        <button class="tab" onclick="switchTab('sc','sc-report',this)">📊 Report</button>
+      </div>
+
+      <!-- UPLOAD TAB -->
+      <div id="sc-upload" class="tab-pane on">
+        <div class="card">
+          <div class="upload-zone" id="dropZone" onclick="document.getElementById('fileIn').click()">
+            <div class="upload-ico">📂</div>
+            <h3 style="font-family:'Syne',sans-serif;font-size:1rem;margin-bottom:.35rem;">Drop student records here or click to browse</h3>
+            <p style="color:var(--muted);font-size:.83rem;">Accepts .xlsx · .docx · .pdf · .csv</p>
+            <input type="file" id="fileIn" accept=".xlsx,.docx,.pdf,.csv" style="display:none" onchange="handleUpload(this)"/>
+          </div>
+          <div id="upProg" style="display:none;margin-top:1rem;">
+            <div style="font-size:.82rem;color:var(--muted2);margin-bottom:.4rem;" id="upStatus">Processing…</div>
+            <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+          </div>
+        </div>
+        <div class="alert alert-muted" style="margin-top:.5rem;">📋 Expected columns: Name · Math · Physics · Chemistry · Biology · English · Geography · History · Economics · Career Interest</div>
+        <button class="btn btn-ghost" style="margin-top:.5rem;font-size:.81rem;" onclick="loadDemoStudents()">🚀 Load 10 Demo Students</button>
+      </div>
+
+      <!-- MANUAL TAB -->
+      <div id="sc-manual" class="tab-pane">
+        <div class="card">
+          <div class="card-title"><span class="ico">✏️</span>Add Student Manually</div>
+          <div class="fg">
+            <div class="fld"><label>Full Name</label><input id="m-name" type="text" placeholder="Student full name"/></div>
+            <div class="fld"><label>Career Interest</label><select id="m-career"><option value="">— Select —</option></select></div>
+          </div>
+          <div class="fg3" style="margin-top:.85rem;">
+            <div class="fld"><label>Mathematics</label><select id="m-math"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Physics</label><select id="m-phys"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Chemistry</label><select id="m-chem"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Biology</label><select id="m-bio"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>English Language</label><select id="m-eng"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Geography</label><select id="m-geo"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>History & Pol Ed</label><select id="m-hist"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Economics</label><select id="m-econ"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+            <div class="fld"><label>Literature</label><select id="m-lit"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+          </div>
+          <div class="form-row"><button class="btn btn-gold" onclick="addManual()">+ Add Student</button></div>
+        </div>
+      </div>
+
+      <!-- REPORT TAB -->
+      <div id="sc-report" class="tab-pane">
+        <div id="schoolReport">
+          <div class="empty-state"><div class="ico">📊</div><h3>No data yet</h3><p>Upload a file or add students manually to generate a report.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!--                  JAVASCRIPT ENGINE            -->
+<!-- ══════════════════════════════════════════════ -->
+<script>
+// ═══════════════════ DATA ═══════════════════
+const GP={A:6,B:5,C:4,D:3,E:2,F:1};
+
+// O-Level subjects for grade entry form
+const O_SUBJECTS=[
+  'Mathematics','Physics','Chemistry','Biology','English Language',
+  'Geography','History & Political Education','Economics',
+  'Literature in English','Entrepreneurship','Agriculture',
+  'Physical Education','Kiswahili','Art and Design',
+  'Nutrition & Food Technology','ICT','Performing Arts',
+  'Technology and Design','Religious Education','Technical Drawing',
+  'Fine Art','Music','Clothing and Textiles'
+];
+
+// ─── A-LEVEL COMBINATIONS (from Kaziba Stephen document) ───
+const COMBOS=[
+  // SCIENCE
+  {code:'PCB',full:'Physics, Chemistry, Biology',subs:['Physics','Chemistry','Biology'],sub_req:'Sub-Math',type:'Science',icon:'🔬'},
+  {code:'PCM',full:'Physics, Chemistry, Mathematics',subs:['Physics','Chemistry','Mathematics'],sub_req:'ICT',type:'Science',icon:'⚗️'},
+  {code:'BCM',full:'Biology, Chemistry, Mathematics',subs:['Biology','Chemistry','Mathematics'],sub_req:'ICT',type:'Science',icon:'🧬'},
+  {code:'PEM',full:'Physics, Economics, Mathematics',subs:['Physics','Economics','Mathematics'],sub_req:'ICT',type:'Science',icon:'📐'},
+  {code:'PMTD',full:'Physics, Mathematics, Technical Drawing',subs:['Physics','Mathematics','Technical Drawing'],sub_req:'ICT',type:'Science',icon:'✏️'},
+  {code:'PAM',full:'Physics, Fine Art, Mathematics',subs:['Physics','Fine Art','Mathematics'],sub_req:'ICT',type:'Science',icon:'🎨'},
+  {code:'PEntM',full:'Physics, Entrepreneurship, Mathematics',subs:['Physics','Entrepreneurship','Mathematics'],sub_req:'ICT',type:'Science',icon:'💡'},
+  {code:'PAGM',full:'Physics, Agriculture, Mathematics',subs:['Physics','Agriculture','Mathematics'],sub_req:'ICT',type:'Science',icon:'🌾'},
+  {code:'BCFN',full:'Biology, Chemistry, Foods and Nutrition',subs:['Biology','Chemistry','Nutrition & Food Technology'],sub_req:'Sub-Math',type:'Science',icon:'🥗'},
+  {code:'BCA',full:'Biology, Chemistry, Agriculture',subs:['Biology','Chemistry','Agriculture'],sub_req:'Sub-Math',type:'Science',icon:'🌿'},
+  {code:'BAG',full:'Biology, Agriculture, Geography',subs:['Biology','Agriculture','Geography'],sub_req:'Sub-Math',type:'Science',icon:'🌍'},
+  // ARTS
+  {code:'HEG',full:'History, Economics, Geography',subs:['History & Political Education','Economics','Geography'],sub_req:'Sub-Math',type:'Arts',icon:'🗺️'},
+  {code:'HEntG',full:'History, Entrepreneurship, Geography',subs:['History & Political Education','Entrepreneurship','Geography'],sub_req:'ICT',type:'Arts',icon:'🌐'},
+  {code:'HDG',full:'History, CRE/IRE, Geography',subs:['History & Political Education','Religious Education','Geography'],sub_req:'ICT',type:'Arts',icon:'✝️'},
+  {code:'HED',full:'History, Economics, CRE/IRE',subs:['History & Political Education','Economics','Religious Education'],sub_req:'Sub-Math',type:'Arts',icon:'📖'},
+  {code:'HEL',full:'History, Economics, Literature',subs:['History & Political Education','Economics','Literature in English'],sub_req:'Sub-Math',type:'Arts',icon:'📚'},
+  {code:'HLD',full:'History, Literature, CRE/IRE',subs:['History & Political Education','Literature in English','Religious Education'],sub_req:'ICT',type:'Arts',icon:'📜'},
+  {code:'DEG',full:'CRE/IRE, Entrepreneurship, Geography',subs:['Religious Education','Entrepreneurship','Geography'],sub_req:'ICT',type:'Arts',icon:'🙏'},
+  {code:'LED',full:'Literature, Entrepreneurship, CRE/IRE',subs:['Literature in English','Entrepreneurship','Religious Education'],sub_req:'ICT',type:'Arts',icon:'✍️'},
+  {code:'GEA',full:'Geography, Economics, Art',subs:['Geography','Economics','Art and Design'],sub_req:'Sub-Math',type:'Arts',icon:'🎭'},
+  {code:'MEG',full:'Mathematics, Economics, Geography',subs:['Mathematics','Economics','Geography'],sub_req:'Sub-Math',type:'Arts',icon:'📊'},
+  {code:'MEA',full:'Mathematics, Economics, Art',subs:['Mathematics','Economics','Art and Design'],sub_req:'ICT',type:'Arts',icon:'🖌️'},
+  {code:'MEE',full:'Mathematics, Economics, Entrepreneurship',subs:['Mathematics','Economics','Entrepreneurship'],sub_req:'ICT',type:'Arts',icon:'💼'},
+  {code:'LEE',full:'Literature, Economics, Entrepreneurship',subs:['Literature in English','Economics','Entrepreneurship'],sub_req:'ICT',type:'Arts',icon:'📰'},
+  {code:'HEI',full:'History, Economics, IRE',subs:['History & Political Education','Economics','Religious Education'],sub_req:'Sub-Math',type:'Arts',icon:'☪️'},
+  {code:'HEEnt',full:'History, Economics, Entrepreneurship',subs:['History & Political Education','Economics','Entrepreneurship'],sub_req:'Sub-Math',type:'Arts',icon:'🏛️'},
+  {code:'HLG',full:'History, Literature, Geography',subs:['History & Political Education','Literature in English','Geography'],sub_req:'ICT',type:'Arts',icon:'🗺️'},
+  {code:'HLI',full:'History, Literature, IRE',subs:['History & Political Education','Literature in English','Religious Education'],sub_req:'ICT',type:'Arts',icon:'🕌'},
+  {code:'FEL',full:'French, Entrepreneurship, Literature',subs:['Kiswahili','Entrepreneurship','Literature in English'],sub_req:'ICT',type:'Arts',icon:'🇫🇷'},
+  {code:'HDCT',full:'History, CRE, Clothing & Textile',subs:['History & Political Education','Religious Education','Clothing and Textiles'],sub_req:'ICT',type:'Arts',icon:'🧵'},
+];
+
+// ─── DEGREE PROGRAMMES (from Kaziba document) ───
+const DEGREES=[
+  // Health Sciences
+  {prog:'Bachelor of Medicine & Surgery (MBChB)',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Medical Doctor','Surgeon','General Practitioner','Medical Researcher'],combos:['PCB','BCA','BCM'],icon:'🩺'},
+  {prog:'Bachelor of Pharmacy',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Pharmacist','Clinical Researcher','Pharmaceutical Scientist'],combos:['PCB','BCM','BCA'],icon:'💊'},
+  {prog:'Bachelor of Nursing Science',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Agriculture','Mathematics','Physics','Nutrition & Food Technology'],careers:['Registered Nurse','Midwife','Public Health Nurse'],combos:['PCB','BCFN','BCA'],icon:'👩‍⚕️'},
+  {prog:'Bachelor of Dental Surgery',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Dentist','Oral Surgeon','Orthodontist'],combos:['PCB','BCM'],icon:'🦷'},
+  {prog:'BSc. Biomedical Sciences',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Physics','Mathematics'],careers:['Biomedical Scientist','Laboratory Technician','Geneticist'],combos:['PCB','BCM','BCFN'],icon:'🧬'},
+  {prog:'BSc. Medical Radiography',cat:'Health Science',essential:['Biology','Physics'],relevant:['Mathematics','Chemistry'],careers:['Radiographer','Sonographer','Medical Imaging Specialist'],combos:['PCB','PCM'],icon:'🔬'},
+  {prog:'BSc. Biomedical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Biology','Chemistry'],careers:['Biomedical Engineer','Medical Equipment Designer','Healthcare Technologist'],combos:['PCM','PEM'],icon:'⚕️'},
+  {prog:'BSc. Optometry',cat:'Health Science',essential:['Biology','Physics'],relevant:['Chemistry','Mathematics'],careers:['Optometrist','Vision Scientist'],combos:['PCB','PCM'],icon:'👁️'},
+  // Engineering
+  {prog:'BSc. Civil Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Civil Engineer','Structural Engineer','Construction Manager'],combos:['PCM','PEM','PMTD'],icon:'🏗️'},
+  {prog:'BSc. Electrical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Electrical Engineer','Power Systems Engineer','Telecommunications Engineer'],combos:['PCM','PEM'],icon:'⚡'},
+  {prog:'BSc. Mechanical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Mechanical Engineer','Automotive Engineer','Manufacturing Engineer'],combos:['PCM','PEM','PMTD'],icon:'⚙️'},
+  {prog:'BSc. Computer Science',cat:'Computing',essential:['Mathematics'],relevant:['Physics','Chemistry','Economics'],careers:['Software Developer','Data Scientist','Cybersecurity Specialist','AI Engineer'],combos:['PCM','PEM','MEG','MEE'],icon:'💻'},
+  {prog:'BSc. Software Engineering',cat:'Computing',essential:['Mathematics'],relevant:['Physics','Economics','Geography'],careers:['Software Engineer','App Developer','Systems Analyst'],combos:['PCM','PEM','MEE'],icon:'👨‍💻'},
+  {prog:'Bachelor of Information Systems & Technology',cat:'Computing',essential:['Mathematics','Economics'],relevant:['Physics','Geography'],careers:['IT Manager','Systems Administrator','Business Analyst'],combos:['MEE','PEM','MEG'],icon:'🖥️'},
+  {prog:'BSc. Agricultural Engineering',cat:'Agriculture',essential:['Mathematics','Physics'],relevant:['Chemistry','Agriculture'],careers:['Agricultural Engineer','Irrigation Engineer','Farm Equipment Designer'],combos:['PCM','PAGM','PEM'],icon:'🚜'},
+  {prog:'BSc. Agriculture',cat:'Agriculture',essential:['Biology','Chemistry','Agriculture'],relevant:['Mathematics','Geography'],careers:['Agronomist','Crop Scientist','Farm Manager'],combos:['BCA','BAG','BCFN'],icon:'🌾'},
+  {prog:'Bachelor of Agribusiness Management',cat:'Agriculture',essential:['Mathematics','Biology','Chemistry'],relevant:['Economics','Geography'],careers:['Agribusiness Manager','Agricultural Economist','Farm Business Consultant'],combos:['BCM','BCA','MEG'],icon:'🌱'},
+  {prog:'BSc. Food Science & Technology',cat:'Agriculture',essential:['Biology','Chemistry'],relevant:['Physics','Nutrition & Food Technology'],careers:['Food Scientist','Quality Control Officer','Nutritionist'],combos:['BCFN','BCA','PCB'],icon:'🍽️'},
+  {prog:'BSc. Human Nutrition & Dietetics',cat:'Health Science',essential:['Biology','Chemistry','Nutrition & Food Technology'],relevant:['Agriculture','Physics'],careers:['Dietitian','Clinical Nutritionist','Public Health Nutritionist'],combos:['BCFN','BCA','PCB'],icon:'🥗'},
+  {prog:'Bachelor of Environmental Science',cat:'Agriculture',essential:['Biology','Chemistry','Physics'],relevant:['Mathematics','Geography'],careers:['Environmental Scientist','Conservation Specialist','Climate Change Analyst'],combos:['PCB','BCA','BAG'],icon:'🌍'},
+  {prog:'Bachelor of Veterinary Medicine',cat:'Agriculture',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics','Agriculture'],careers:['Veterinary Doctor','Animal Health Specialist','Wildlife Conservationist'],combos:['PCB','BCA','BCFN'],icon:'🐾'},
+  // Business
+  {prog:'Bachelor of Commerce',cat:'Business',essential:['Economics','Mathematics'],relevant:['Physics','Geography'],careers:['Accountant','Auditor','Business Consultant','Investment Banker'],combos:['MEG','HEG','PEM','MEE'],icon:'💼'},
+  {prog:'Bachelor of Business Administration',cat:'Business',essential:['Economics','Entrepreneurship'],relevant:['Mathematics','History'],careers:['Business Manager','Entrepreneur','Marketing Executive','HR Manager'],combos:['MEE','HEEnt','HEntG','LEE'],icon:'📊'},
+  {prog:'Bachelor of Arts (Economics)',cat:'Business',essential:['Economics'],relevant:['Mathematics','Geography'],careers:['Economist','Policy Advisor','Financial Planner','Market Analyst'],combos:['HEG','MEG','MEE','HEL'],icon:'📈'},
+  {prog:'BSc. Actuarial Science',cat:'Business',essential:['Mathematics'],relevant:['Physics','Economics'],careers:['Actuary','Risk Manager','Financial Analyst','Insurance Analyst'],combos:['PCM','PEM','MEG'],icon:'🔢'},
+  {prog:'BSc. Quantitative Economics',cat:'Business',essential:['Mathematics','Economics'],relevant:['Physics','Geography'],careers:['Economist','Financial Consultant','Data Scientist'],combos:['MEG','PEM','MEE'],icon:'📉'},
+  {prog:'BSc. Statistics',cat:'Business',essential:['Mathematics'],relevant:['Economics','Physics'],careers:['Statistician','Data Analyst','Market Researcher'],combos:['PCM','PEM','MEG'],icon:'📐'},
+  // Law
+  {prog:'Bachelor of Laws (LLB)',cat:'Law',essential:['Any two A-Level subjects'],relevant:['History','Literature','Economics'],careers:['Lawyer','Judge','Legal Consultant','Human Rights Advocate'],combos:['HEL','HED','HLG','HEG'],icon:'⚖️'},
+  // Arts/Humanities
+  {prog:'Bachelor of Journalism & Communication',cat:'Arts',essential:['History','Literature','Economics'],relevant:['Geography','CRE/IRE','Languages'],careers:['Journalist','Media Analyst','Public Relations Officer','News Editor'],combos:['HEL','LEE','HLG','FEL'],icon:'📰'},
+  {prog:'Bachelor of Arts (Education)',cat:'Education',essential:['History','Literature','Geography','Economics'],relevant:['Languages','Music','Art'],careers:['Secondary School Teacher','Curriculum Developer','Education Consultant'],combos:['HEG','HEL','HLD','HLG'],icon:'👩‍🏫'},
+  {prog:'BSc. Education (Biological)',cat:'Education',essential:['Biology','Chemistry'],relevant:['Physics','Mathematics'],careers:['Science Teacher','Lab Technician','Research Scientist'],combos:['PCB','BCA','BCM'],icon:'🔬'},
+  {prog:'BSc. Education (Physical)',cat:'Education',essential:['Mathematics','Physics'],relevant:['Chemistry','Biology'],careers:['Physics/Chemistry Teacher','Curriculum Designer'],combos:['PCM','PEM'],icon:'⚛️'},
+  {prog:'BSc. Education (Economics)',cat:'Education',essential:['Mathematics','Economics'],relevant:['Chemistry','Biology'],careers:['Economics Teacher','Financial Analyst','Business Consultant'],combos:['MEG','PEM','MEE'],icon:'📊'},
+  {prog:'Bachelor of Applied Psychology',cat:'Arts',essential:['Any two A-Level subjects'],relevant:['Biology','History','Economics'],careers:['Clinical Psychologist','Counsellor','Human Resource Specialist'],combos:['HEG','HEL','HED','PCB'],icon:'🧠'},
+  {prog:'Bachelor of Tourism & Hospitality Management',cat:'Arts',essential:['Economics','Geography'],relevant:['Biology','Entrepreneurship'],careers:['Hotel Manager','Tour Operator','Travel Consultant'],combos:['HEntG','HEG','GEA','MEG'],icon:'✈️'},
+  {prog:'Bachelor of Architecture',cat:'Engineering',essential:['Mathematics','Fine Art'],relevant:['Physics','Economics'],careers:['Architect','Urban Planner','Interior Designer'],combos:['PAM','PCM','PEM','PMTD'],icon:'🏛️'},
+  {prog:'BSc. AI & Machine Learning',cat:'Computing',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['AI Research Scientist','Machine Learning Engineer','Robotics Engineer','Data Scientist'],combos:['PCM','PEM','BCM'],icon:'🤖'},
+  {prog:'BSc. Networking & Cyber Security',cat:'Computing',essential:['Mathematics','Physics'],relevant:['Economics'],careers:['Cybersecurity Analyst','Network Engineer','Penetration Tester'],combos:['PCM','PEM','MEE'],icon:'🔐'},
+  {prog:'BSc. Industrial Chemistry',cat:'Science',essential:['Chemistry','Mathematics'],relevant:['Biology','Physics'],careers:['Industrial Chemist','Chemical Engineer','Quality Control Analyst'],combos:['PCM','BCM','PCB'],icon:'⚗️'},
+  {prog:'BSc. Biotechnology',cat:'Science',essential:['Biology','Chemistry','Agriculture'],relevant:['Mathematics','Physics'],careers:['Biotechnologist','Genetic Engineer','Biomedical Researcher'],combos:['BCA','BCM','BCFN','PCB'],icon:'🧫'},
+  {prog:'BSc. Petroleum Geoscience & Production',cat:'Science',essential:['Chemistry','Physics','Mathematics'],relevant:['Biology','Economics'],careers:['Petroleum Geologist','Oil & Gas Engineer','Environmental Consultant'],combos:['PCM','PCB','PEM'],icon:'⛽'},
+];
+
+// ─── UGANDA UNIVERSITIES ───
+const UNIS=[
+  {name:'Makerere University',abbr:'MAK',loc:'Kampala',type:'Public',icon:'🏛️',category:['science','engineering','arts','business','education'],featured:true,
+   progs:['Medicine & Surgery','Engineering (Civil, Electrical, Mechanical)','Computer Science','Law','Economics','Education','Agriculture','Nursing','Pharmacy','Architecture','Fine Art','Social Sciences']},
+  {name:'Mbarara University of Science & Technology',abbr:'MUST',loc:'Mbarara',type:'Public',icon:'🔬',category:['science','engineering'],featured:true,
+   progs:['Medicine & Surgery','Nursing','Pharmacy','Computer Science','Environmental Health','Biomedical Sciences','Software Engineering']},
+  {name:'Gulu University',abbr:'GU',loc:'Gulu',type:'Public',icon:'📚',category:['arts','business','education','science'],featured:true,
+   progs:['Medicine & Surgery','Education (Arts & Science)','Business Administration','Agriculture','Social Sciences','Law','Computer Science']},
+  {name:'Busitema University',abbr:'BUBU',loc:'Tororo/Busia',type:'Public',icon:'⚙️',category:['engineering','science'],featured:false,
+   progs:['Civil Engineering','Electrical Engineering','Agricultural Engineering','Computer Science','Nursing','Fisheries & Aquaculture']},
+  {name:'Mountains of the Moon University',abbr:'MMU',loc:'Fort Portal',type:'Private',icon:'🏔️',category:['arts','business','education'],featured:false,
+   progs:['Tourism & Hospitality','Business Administration','Education','Community Psychology','Agriculture']},
+  {name:'Uganda Christian University',abbr:'UCU',loc:'Mukono',type:'Private',icon:'⛪',category:['arts','business','education'],featured:true,
+   progs:['Law','Business Administration','Social Sciences','Journalism & Communication','Education','Computer Science','Nursing']},
+  {name:'Kyambogo University',abbr:'KYU',loc:'Kampala',type:'Public',icon:'🏫',category:['education','engineering','arts'],featured:true,
+   progs:['Education (BSc, BA, BEd)','Engineering','Vocational Studies','Fine Art & Industrial Design','Music, Dance & Drama','Social Sciences']},
+  {name:'Islamic University in Uganda',abbr:'IUIU',loc:'Mbale/Kampala',type:'Private',icon:'🕌',category:['arts','business','education','science'],featured:false,
+   progs:['Law','Business Administration','Education','Medicine & Surgery','Agriculture','Computer Science','Islamic Studies']},
+  {name:'Uganda Martyrs University',abbr:'UMU',loc:'Nkozi/Kampala',type:'Private',icon:'✝️',category:['arts','business','education','science'],featured:false,
+   progs:['Public Health','Social Sciences','Business Administration','Education','Computer Science','Agriculture']},
+  {name:'Nkumba University',abbr:'NU',loc:'Entebbe',type:'Private',icon:'✈️',category:['business','arts'],featured:false,
+   progs:['Tourism & Hospitality','Business Administration','Computer Science','Social Sciences','Education','Library & Information Science']},
+  {name:'Ndejje University',abbr:'NDU',loc:'Ndejje',type:'Private',icon:'🌿',category:['arts','business','education'],featured:false,
+   progs:['Education','Business Administration','Computer Science','Agriculture','Social Sciences']},
+  {name:'Lira University',abbr:'LU',loc:'Lira',type:'Public',icon:'🌾',category:['arts','education','science'],featured:false,
+   progs:['Medicine & Surgery','Education','Business Administration','Computer Science','Agriculture','Public Health']},
+  {name:'Kabale University',abbr:'KAB',loc:'Kabale',type:'Public',icon:'🏡',category:['arts','business','education'],featured:false,
+   progs:['Education','Business Administration','Computer Science','Agriculture','Social Sciences','Nursing']},
+  {name:'Bishop Stuart University',abbr:'BSU',loc:'Mbarara',type:'Private',icon:'📖',category:['arts','business','education'],featured:false,
+   progs:['Business Administration','Education','Social Sciences','Computer Science','Agriculture']},
+  {name:'Kampala International University',abbr:'KIU',loc:'Kampala/Ishaka',type:'Private',icon:'🌍',category:['science','business','arts','education'],featured:true,
+   progs:['Medicine & Surgery','Nursing','Pharmacy','Business Administration','Computer Science','Law','Education','Engineering']},
+];
+
+// ─── CAREER → COMBO MAPPING ───
+const CAREER_MAP={
+  'Medicine':['PCB','BCA','BCM'],
+  'Engineering (Civil/Electrical/Mechanical)':['PCM','PEM','PMTD'],
+  'Computer Science / Software Engineering':['PCM','PEM','BCM','MEE'],
+  'Pharmacy':['PCB','BCM','BCA'],
+  'Nursing':['PCB','BCFN','BCA'],
+  'Agriculture / Agribusiness':['BCA','BAG','BCFN','PAGM'],
+  'Law':['HEL','HEG','HED','HLG'],
+  'Journalism / Communication':['HEL','LEE','HLG','FEL'],
+  'Business / Commerce / Accounting':['MEG','MEE','HEG','HEEnt'],
+  'Education (Science)':['PCM','PCB','BCM'],
+  'Education (Arts)':['HEG','HEL','HLD','HLG'],
+  'Architecture':['PAM','PCM','PMTD'],
+  'Food Science / Nutrition':['BCFN','BCA','PCB'],
+  'Environmental Science':['PCB','BCA','BAG'],
+  'Veterinary Medicine':['PCB','BCA','BCFN'],
+  'AI / Machine Learning / Data Science':['PCM','PEM','BCM'],
+  'Tourism & Hospitality':['HEntG','HEG','GEA'],
+  'Psychology / Social Work':['HEG','HEL','HED'],
+  'Economics / Finance':['MEG','MEE','PEM','HEG'],
+  'Fine Art / Design / Multimedia':['PAM','MEA','GEA'],
+  'Industrial Chemistry':['PCM','BCM','PCB'],
+  'Biotechnology':['BCA','BCM','BCFN'],
+};
+
+const TIPS=[
+  'Have the Right Mindset — approach subjects with focus and motivation.',
+  'Attitude is Key — cultivate a growth mindset. A positive attitude helps you stay resilient.',
+  'Choose Subjects Aligned with Career Goals — not just peer influence.',
+  'Follow Your Heart, Not the Crowd — choose subjects matching your interests and strengths.',
+  'Prioritise Learning a Skill — critical thinking, research, and time management matter.',
+  'Plan and Be Self-Driven — develop a study schedule and stay disciplined.',
+  'Utilise Textbooks — make notes, summarise key points, and revisit difficult topics.',
+  'Engage in Research — explore online platforms, academic journals, and peer discussions.',
+  'Master Time Management — create a timetable that balances study, breaks and revision.',
+  'Seek Help When Needed — ask teachers, classmates or tutors about difficult topics.',
+  'Stay Consistent with Revision — start early and avoid cramming.',
+  'Build Exam Techniques — practice past papers and mock exams regularly.',
+  'Stay Physically and Mentally Healthy — eat well, sleep enough, and recharge.',
+  'Stay Positive and Believe in Yourself — confidence enhances performance.',
+  'Engage with Learning Beyond the Classroom — extracurriculars expand knowledge.',
+  'Develop Critical Thinking Skills — analyse, evaluate, and apply information critically.',
+  'Stay Organised — keep study materials and notes well-organised.',
+  'Set Realistic Goals — break long-term goals into smaller achievable steps.',
+  'Balance Social Life and Studies — maintain a healthy work-life balance.',
+  'Be Adaptable to Changes — if something is not working, try a new approach.',
+  'Track Your Progress — regularly assess each subject and adjust your study plan.',
+  'Build Confidence — recognise your strengths and acknowledge your progress.',
+  'Avoid Procrastination — break tasks down and use techniques like Pomodoro.',
+  'Stay Informed and Updated — keep up with news relevant to your subjects.',
+  'Reflect on Your Learning — identify areas for improvement regularly.',
+];
+
+// ═══════════════════ STATE ═══════════════════
+let GRADES={};
+let schoolStudents=[];
+let chatHistory=[];
+let schoolName='';
+
+// ═══════════════════ NAVIGATION ═══════════════════
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('on'));
+  window.scrollTo(0,0);
+  if(id==='universities') renderUnis();
+  if(id==='student') buildGradeForm();
+}
+
+function switchTab(scope,paneId,btn){
+  const wrap=document.getElementById(scope)||document;
+  wrap.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  wrap.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('on'));
+  document.getElementById(paneId).classList.add('on');
+}
+
+function schoolLogin(){
+  const e=document.getElementById('s-email').value;
+  const p=document.getElementById('s-pass').value;
+  const sn=document.getElementById('s-school-name').value||'School';
+  if(!e||!p){alert('Please enter email and password.');return;}
+  schoolName=sn;
+  document.getElementById('schName').textContent=sn+' — Dashboard';
+  go('school');
+}
+
+// ═══════════════════ GRADE FORM ═══════════════════
+function buildGradeForm(){
+  const el=document.getElementById('gradesForm');
+  if(!el||el.innerHTML.trim()) return;
+  let h='<div class="fg">';
+  O_SUBJECTS.forEach(s=>{
+    const id='gr_'+s.replace(/\W/g,'_');
+    h+=`<div class="fld"><label>${s}</label>
+      <select id="${id}">
+        <option value="">— not sat —</option>
+        <option value="A">A · Distinction (6)</option>
+        <option value="B">B · Credit (5)</option>
+        <option value="C">C · Credit (4)</option>
+        <option value="D">D · Pass (3)</option>
+        <option value="E">E · Pass (2)</option>
+        <option value="F">F · Fail (1)</option>
+      </select></div>`;
+  });
+  h+='</div>';
+  el.innerHTML=h;
+}
+
+function collectGrades(){
+  let g={};
+  O_SUBJECTS.forEach(s=>{
+    const el=document.getElementById('gr_'+s.replace(/\W/g,'_'));
+    if(el&&el.value) g[s]=el.value;
+  });
+  return g;
+}
+
+function resetGrades(){
+  GRADES={};
+  document.getElementById('gradesForm').innerHTML='';
+  buildGradeForm();
+  ['combosOut','careersOut','degreesOut','checkOut'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML='<div class="empty-state"><div class="ico">📋</div><h3>No results yet</h3><p>Enter grades first.</p></div>';
+  });
+}
+
+function analyseAll(){
+  const g=collectGrades();
+  if(Object.keys(g).length<4){alert('Please enter at least 4 subject grades.');return;}
+  GRADES=g;
+  showLoader('Analysing your O-Level results…');
+  setTimeout(()=>{
+    hideLoader();
+    renderCombos();
+    renderBestCareers();
+    renderDegrees();
+    // jump to combos tab
+    const tabs=document.querySelectorAll('#student .tab');
+    tabs.forEach(t=>t.classList.remove('on'));
+    tabs[1].classList.add('on');
+    document.querySelectorAll('#student .tab-pane').forEach(p=>p.classList.remove('on'));
+    document.getElementById('st-combos').classList.add('on');
+  },1500);
+}
+
+// ═══════════════════ RANKING ENGINE ═══════════════════
+function gp(s,g=GRADES){return GP[g[s]]||0;}
+
+function scoreCombo(c,g=GRADES){
+  let total=0,weak=[],missing=[];
+  c.subs.forEach(s=>{
+    if(!g[s]) missing.push(s);
+    else{const p=GP[g[s]];total+=p;if(p<4)weak.push(s);}
+  });
+  const max=c.subs.length*6;
+  const pct=Math.round((total/max)*100);
+  return{...c,score:total,pct,weak,missing};
+}
+
+function rankCombos(g=GRADES){
+  return COMBOS.map(c=>scoreCombo(c,g)).sort((a,b)=>b.score-a.score);
+}
+
+function renderCombos(){
+  const ranked=rankCombos();
+  const name=document.getElementById('st-name').value||'Student';
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;">
+    <div><strong style="font-family:'Syne',sans-serif">Ranked A-Level Combinations</strong> <span style="color:var(--muted);font-size:.8rem;">for ${name}</span></div>
+    <button class="btn btn-ghost" style="font-size:.79rem;" onclick="switchTabById('st','st-grades')">✏️ Edit Grades</button>
+  </div>`;
+  h+='<div class="combo-list">';
+  ranked.forEach((c,i)=>{
+    const rkCls=i===0?'rk1':i===1?'rk2':i===2?'rk3':'rkN';
+    const rkLbl=i===0?'1st':i===1?'2nd':i===2?'3rd':`${i+1}`;
+    const sfCls=c.pct>=70?'sf-hi':c.pct>=50?'sf-md':'sf-lo';
+    const pctCol=c.pct>=70?'var(--teal)':c.pct>=50?'var(--gold)':'var(--rose)';
+    const typeBadge=c.type==='Science'?'bg-sky':'bg-violet';
+    const subNote=`Subsidiary: <strong>${c.sub_req}</strong> + General Paper required`;
+    const warnHtml=c.weak.length?`<div class="combo-warn">⚠ Weak in: ${c.weak.join(', ')} — consider strengthening these before A-Level</div>`:'';
+    const missHtml=c.missing.length?`<div class="combo-sub-note">ℹ No grade entered for: ${c.missing.join(', ')}</div>`:'';
+    h+=`<div class="combo-item">
+      <div class="combo-rank ${rkCls}">${rkLbl}</div>
+      <div class="combo-body">
+        <div class="combo-code">${c.icon} ${c.code}<span class="badge ${typeBadge}" style="font-size:.68rem;margin-left:.4rem;">${c.type}</span></div>
+        <div class="combo-name">${c.full}</div>
+        <div class="combo-subs">${c.subs.map(s=>`<span class="sub-tag">${s}</span>`).join('')}</div>
+        <div class="combo-score-row">
+          <div class="score-track"><div class="score-fill ${sfCls}" style="width:${c.pct}%"></div></div>
+          <div class="score-pct" style="color:${pctCol}">${c.pct}%</div>
+        </div>
+        <div class="combo-sub-note" style="margin-top:.45rem;">${subNote}</div>
+        ${warnHtml}${missHtml}
+      </div></div>`;
+  });
+  h+='</div>';
+  h+=`<div class="alert alert-gold" style="margin-top:1rem;">📌 <strong>Note from Kaziba:</strong> All candidates with Principal Mathematics must register Subsidiary ICT. Combinations with Economics (no Math) require Sub-Math. Science combos without Principal Math also need Sub-Math.</div>`;
+  document.getElementById('combosOut').innerHTML=h;
+}
+
+// ═══════════════════ CAREER ENGINE ═══════════════════
+function evalCareerByGrades(career,g=GRADES){
+  const combos=CAREER_MAP[career]||[];
+  const ranked=rankCombos(g);
+  const best=ranked[0];
+  const matchScore=ranked.filter(c=>combos.includes(c.code)).reduce((mx,c)=>Math.max(mx,c.pct),0);
+  const hasGoodCombo=combos.some(code=>{
+    const c=COMBOS.find(x=>x.code===code);
+    if(!c) return false;
+    const scored=scoreCombo(c,g);
+    return scored.pct>=55&&scored.weak.length===0;
+  });
+  if(matchScore>=70&&hasGoodCombo) return{status:'YES',score:matchScore,bestCombo:best.code};
+  if(matchScore>=45) return{status:'GUIDANCE',score:matchScore,bestCombo:best.code};
+  return{status:'NO',score:matchScore,bestCombo:best.code};
+}
+
+function renderBestCareers(){
+  const careers=Object.keys(CAREER_MAP);
+  const results=careers.map(c=>{const ev=evalCareerByGrades(c);return{career:c,...ev};})
+    .sort((a,b)=>b.score-a.score);
+  const yes=results.filter(r=>r.status==='YES');
+  const guide=results.filter(r=>r.status==='GUIDANCE');
+  const no=results.filter(r=>r.status==='NO');
+  const icons={'Medicine':'🩺','Engineering (Civil/Electrical/Mechanical)':'⚙️','Computer Science / Software Engineering':'💻',
+    'Pharmacy':'💊','Nursing':'👩‍⚕️','Agriculture / Agribusiness':'🌾','Law':'⚖️',
+    'Journalism / Communication':'📰','Business / Commerce / Accounting':'💼',
+    'Education (Science)':'🔬','Education (Arts)':'📖','Architecture':'🏛️',
+    'Food Science / Nutrition':'🍽️','Environmental Science':'🌍','Veterinary Medicine':'🐾',
+    'AI / Machine Learning / Data Science':'🤖','Tourism & Hospitality':'✈️',
+    'Psychology / Social Work':'🧠','Economics / Finance':'📈','Fine Art / Design / Multimedia':'🎨',
+    'Industrial Chemistry':'⚗️','Biotechnology':'🧬'};
+  let h='';
+  if(yes.length){
+    h+=`<div class="card" style="border-color:rgba(45,212,191,.2);">
+      <div class="card-title" style="color:var(--teal);">✅ Careers You Are Well-Suited For (${yes.length})</div>
+      <p style="color:var(--muted2);font-size:.84rem;margin-bottom:1rem;">Your O-Level grades meet the requirements for these careers. <strong style="color:var(--txt)">Click any to run a full compatibility check.</strong></p>
+      <div class="career-grid">`;
+    yes.forEach((r,i)=>{
+      const delay=i*0.05;
+      h+=`<div class="career-tile tier-best" style="animation-delay:${delay}s" onclick="pickCareerCheck('${r.career}')">
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
+        <div class="ct-name">${r.career}</div>
+        <span class="badge bg-teal">✓ Qualified</span>
+        <div class="ct-pct">${r.score}% match</div>
+      </div>`;
+    });
+    h+='</div></div>';
+  }
+  if(guide.length){
+    h+=`<div class="card">
+      <div class="card-title" style="color:var(--gold);">⚡ Careers Within Reach With More Work (${guide.length})</div>
+      <div class="career-grid">`;
+    guide.forEach((r,i)=>{
+      h+=`<div class="career-tile tier-possible" style="animation-delay:${i*0.05}s" onclick="pickCareerCheck('${r.career}')">
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
+        <div class="ct-name">${r.career}</div>
+        <span class="badge bg-gold">⚡ Possible</span>
+        <div class="ct-pct">${r.score}% match</div>
+      </div>`;
+    });
+    h+='</div></div>';
+  }
+  if(no.length){
+    h+=`<div class="card">
+      <div class="card-title" style="color:var(--muted2);">❌ Careers Needing Different Subjects (${no.length})</div>
+      <div class="career-grid">`;
+    no.forEach((r,i)=>{
+      h+=`<div class="career-tile tier-stretch" style="animation-delay:${i*0.05}s" onclick="pickCareerCheck('${r.career}')">
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
+        <div class="ct-name">${r.career}</div>
+        <span class="badge bg-rose">Needs work</span>
+        <div class="ct-pct">${r.score}% match</div>
+      </div>`;
+    });
+    h+='</div></div>';
+  }
+  document.getElementById('careersOut').innerHTML=h;
+}
+
+function renderDegrees(){
+  const ranked=rankCombos();
+  const topComboCodes=ranked.slice(0,5).map(c=>c.code);
+  const scored=DEGREES.map(d=>{
+    const match=d.combos.filter(c=>topComboCodes.includes(c)).length;
+    const score=match*20+ranked.filter(c=>d.combos.includes(c.code)).reduce((s,c)=>s+(c.pct||0),0)/Math.max(d.combos.length,1);
+    return{...d,score};
+  }).sort((a,b)=>b.score-a.score);
+  const cats=[...new Set(scored.map(d=>d.cat))];
+  let h='<div class="alert alert-gold" style="margin-bottom:1rem;">🎓 <strong>Degree Programmes</strong> ranked by how well your O-Level results match university entry requirements (from PUJAB booklet via Kaziba Stephen).</div>';
+  cats.forEach(cat=>{
+    const catDegrees=scored.filter(d=>d.cat===cat);
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div class="card-title">${cat}</div>
+      <div style="display:flex;flex-direction:column;gap:.7rem;">`;
+    catDegrees.forEach(d=>{
+      const matchCls=d.score>60?'bg-teal':d.score>30?'bg-gold':'bg-muted';
+      h+=`<div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:.9rem;display:flex;gap:.9rem;align-items:flex-start;">
+        <div style="font-size:1.4rem;flex-shrink:0;">${d.icon}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:.25rem;">${d.prog}</div>
+          <div style="font-size:.78rem;color:var(--muted2);margin-bottom:.5rem;">${d.careers.slice(0,3).join(' · ')}</div>
+          <div style="display:flex;gap:.35rem;flex-wrap:wrap;">
+            ${d.combos.map(c=>`<span class="cpill ${topComboCodes.includes(c)?'cpill-teal':'cpill-sky'}">${c}</span>`).join('')}
+          </div>
+        </div>
+        <div style="flex-shrink:0;text-align:right;">
+          <span class="badge ${matchCls}">${d.score>60?'Strong Match':d.score>30?'Possible':'Indirect'}</span>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:.25rem;">Essential: ${d.essential.join(', ')}</div>
+        </div>
+      </div>`;
+    });
+    h+='</div></div>';
+  });
+  document.getElementById('degreesOut').innerHTML=h;
+}
+
+function pickCareerCheck(career){
+  document.getElementById('cc-career').value=career;
+  const tabs=document.querySelectorAll('#student .tab');
+  tabs.forEach(t=>t.classList.remove('on'));
+  tabs[3].classList.add('on');
+  document.querySelectorAll('#student .tab-pane').forEach(p=>p.classList.remove('on'));
+  document.getElementById('st-check').classList.add('on');
+  doCareerCheck();
+  window.scrollTo(0,300);
+}
+
+function doCareerCheck(){
+  const career=document.getElementById('cc-career').value;
+  const name=document.getElementById('cc-name').value||document.getElementById('st-name')?.value||'Student';
+  if(!career){alert('Please select a career.');return;}
+  if(Object.keys(GRADES).length<4){
+    document.getElementById('checkOut').innerHTML='<div class="alert alert-gold">⚠ Please enter and analyse your O-Level grades first (Tab 1).</div>';return;
+  }
+  showLoader('Checking career compatibility…');
+  setTimeout(()=>{
+    hideLoader();
+    const ev=evalCareerByGrades(career);
+    const ranked=rankCombos();
+    const reqCombos=(CAREER_MAP[career]||[]).map(code=>{
+      const c=COMBOS.find(x=>x.code===code);
+      const sc=c?scoreCombo(c):{pct:0};
+      return{code,pct:sc.pct,full:c?c.full:'Unknown'};
+    }).sort((a,b)=>b.pct-a.pct);
+    if(ev.status==='YES'){
+      const bestReq=reqCombos[0];
+      document.getElementById('checkOut').innerHTML=`<div class="compat compat-yes">
+        <div class="compat-ico">✅</div>
+        <div class="compat-title" style="color:var(--teal)">Yes — You Qualify!</div>
+        <div class="compat-msg"><strong>${name}</strong>, your O-Level results meet the requirements for <strong>${career}</strong>.</div>
+        <div style="margin-top:1rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;">
+          ${reqCombos.map(c=>`<span class="cpill cpill-teal">${c.code} · ${c.pct}%</span>`).join('')}
+        </div>
+        <div style="margin-top:.9rem;font-size:.84rem;color:var(--muted2);">Best combination to pursue: <strong style="color:var(--txt)">${bestReq.code} — ${bestReq.full}</strong></div>
+      </div>`;
+    } else {
+      const altCareers=Object.keys(CAREER_MAP).filter(c=>{const e=evalCareerByGrades(c);return e.status==='YES';}).slice(0,3);
+      const issues=reqCombos.map(c=>`Your score for ${c.code} is ${c.pct}% — need 70%+ for strong qualification`);
+      document.getElementById('checkOut').innerHTML=`<div class="compat compat-no">
+        <div class="compat-ico">${ev.status==='GUIDANCE'?'⚡':'❌'}</div>
+        <div class="compat-title" style="color:${ev.status==='GUIDANCE'?'var(--gold)':'var(--rose)'}">${ev.status==='GUIDANCE'?'Possible — But Needs Work':'Not Yet Compatible'}</div>
+        <div class="compat-msg"><strong>${name}</strong>, your current O-Level grades ${ev.status==='GUIDANCE'?'partially meet':'do not meet'} requirements for <strong>${career}</strong>.</div>
+        <div class="issues">${issues.slice(0,3).map(i=>`<div class="issue-row"><span class="issue-dot">•</span>${i}</div>`).join('')}</div>
+        ${altCareers.length?`<div style="margin-top:.9rem;font-size:.85rem;color:var(--muted2);">
+          You do qualify for: <strong style="color:var(--teal)">${altCareers.join(' · ')}</strong>
+        </div>`:''}
+      </div>`;
+    }
+  },900);
+}
+
+function switchTabById(scope,id){
+  const tabs=document.querySelectorAll(`#${scope} .tab`);
+  const panes=document.querySelectorAll(`#${scope} .tab-pane`);
+  tabs.forEach(t=>t.classList.remove('on'));
+  panes.forEach(p=>p.classList.remove('on'));
+  const idx=['st-grades','st-combos','st-careers','st-check','st-degrees','st-guide'].indexOf(id);
+  if(tabs[idx]) tabs[idx].classList.add('on');
+  const el=document.getElementById(id);
+  if(el) el.classList.add('on');
+}
+
+// ═══════════════════ STUDY GUIDE ═══════════════════
+function populateGuideSelects(){
+  const gc=document.getElementById('g-combo');
+  const gcr=document.getElementById('g-career');
+  if(!gc||gc.options.length>1) return;
+  COMBOS.forEach(c=>{
+    const o=new Option(`${c.code} — ${c.full}`,c.code);
+    gc.appendChild(o);
+  });
+  Object.keys(CAREER_MAP).forEach(c=>{
+    const o=new Option(c,c);
+    gcr.appendChild(o);
+  });
+}
+
+function renderGuide(){
+  const combo=document.getElementById('g-combo').value;
+  const career=document.getElementById('g-career').value;
+  let h='';
+  if(combo){
+    const c=COMBOS.find(x=>x.code===combo);
+    if(c){
+      const relCareers=Object.entries(CAREER_MAP).filter(([,codes])=>codes.includes(combo)).map(([k])=>k);
+      h+=`<div class="card"><div class="card-title"><span>${c.icon}</span> ${c.code} — ${c.full}</div>
+        <p style="color:var(--muted2);font-size:.87rem;margin-bottom:1rem;">To qualify for <strong style="color:var(--txt)">${c.code}</strong>, focus on these O-Level subjects:</p>
+        ${c.subs.map((s,i)=>`<div style="display:flex;align-items:center;gap:.7rem;padding:.52rem 0;border-bottom:1px solid var(--border);">
+          <div style="width:24px;height:24px;background:rgba(245,200,66,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:var(--gold);flex-shrink:0;">${i+1}</div>
+          <div style="font-size:.87rem;font-weight:600;">${s}</div>
+          <div style="margin-left:auto;font-size:.78rem;color:var(--muted);">Minimum Grade: <strong style="color:var(--txt)">B or better</strong></div>
+        </div>`).join('')}
+        <div class="combo-sub-note" style="margin-top:.9rem;">📋 Subsidiary: <strong>${c.sub_req}</strong> + General Paper required</div>
+        ${relCareers.length?`<div style="margin-top:.9rem;font-size:.84rem;color:var(--muted2);">Career pathways: <strong style="color:var(--txt)">${relCareers.join(', ')}</strong></div>`:''}
+      </div>`;
+    }
+  }
+  if(career&&CAREER_MAP[career]){
+    const codes=CAREER_MAP[career];
+    h+=`<div class="card"><div class="card-title">💼 ${career} — Subject Requirements</div>
+      <p style="color:var(--muted2);font-size:.87rem;margin-bottom:1rem;">Recommended A-Level combinations and O-Level subjects to prioritise:</p>
+      ${codes.map(code=>{const c=COMBOS.find(x=>x.code===code);return c?`<div style="background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:9px;padding:.75rem;margin-bottom:.55rem;">
+        <div style="font-family:'Syne',sans-serif;font-size:.86rem;font-weight:700;margin-bottom:.35rem;">${code} — ${c.full}</div>
+        <div style="display:flex;gap:.3rem;flex-wrap:wrap;">${c.subs.map(s=>`<span class="sub-tag">${s}</span>`).join('')}</div>
+      </div>`:'';}).join('')}
+    </div>`;
+  }
+  if(!h) h='<div class="empty-state"><div class="ico">📚</div><h3>Select a combination or career above</h3></div>';
+  document.getElementById('guideOut').innerHTML=h;
+}
+
+function renderTips(){
+  document.getElementById('tipsOut').innerHTML=TIPS.map((t,i)=>`
+    <div style="display:flex;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.84rem;">
+      <div style="width:22px;height:22px;background:rgba(245,200,66,.1);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--gold);flex-shrink:0;">${i+1}</div>
+      <div style="color:var(--muted2);line-height:1.55;">${t}</div>
+    </div>`).join('');
+}
+
+// ═══════════════════ PARENT PORTAL ═══════════════════
+function viewParent(){
+  const name=document.getElementById('p-name').value.trim();
+  if(!name){alert('Enter child\'s name.');return;}
+  showLoader('Loading student profile…');
+  setTimeout(()=>{
+    hideLoader();
+    const demoGrades={'Mathematics':'B','Physics':'B','Chemistry':'A','Biology':'A','English Language':'B','Geography':'C','History & Political Education':'B','Economics':'C'};
+    renderParentProfile({name,school:document.getElementById('p-school').value||'Unknown School',grades:demoGrades,career:'Medicine'});
+  },800);
+}
+function loadDemoParent(){
+  renderParentProfile({name:'Grace Akello',school:'Arua Public S.S.S',grades:{'Mathematics':'A','Physics':'A','Chemistry':'A','Biology':'B','English Language':'B','Geography':'B','History & Political Education':'C','Economics':'C'},career:'Engineering (Civil/Electrical/Mechanical)'});
+}
+function renderParentProfile(d){
+  const ranked=rankCombos(d.grades);
+  const top3=ranked.slice(0,3);
+  const bestCareers=Object.keys(CAREER_MAP).map(c=>{const e=evalCareerByGrades(c,d.grades);return{career:c,...e};}).filter(r=>r.status==='YES').sort((a,b)=>b.score-a.score).slice(0,6);
+  const gradesHtml=Object.entries(d.grades).map(([s,g])=>`<tr><td>${s}</td><td><span class="badge ${g==='A'?'bg-teal':g==='B'?'bg-sky':g==='C'?'bg-gold':'bg-rose'}">${g}</span></td></tr>`).join('');
+  const combosHtml=top3.map((c,i)=>`<tr><td><strong>${c.code}</strong> <span style="color:var(--muted);font-size:.79rem;">${c.full}</span></td><td><span class="badge ${c.pct>=70?'bg-teal':'bg-gold'}">${c.pct}%</span></td><td style="font-size:.77rem;color:var(--muted)">${c.sub_req}</td></tr>`).join('');
+  document.getElementById('parentOut').innerHTML=`
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;padding-bottom:1.1rem;border-bottom:1px solid var(--border);">
+        <div style="width:50px;height:50px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">👤</div>
+        <div><div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;">${d.name}</div><div style="font-size:.82rem;color:var(--muted);">${d.school} · Target: ${d.career||'Not specified'}</div></div>
+      </div>
+      <div class="card-title">O-Level Grades</div>
+      <div class="tbl-wrap"><table><tbody>${gradesHtml}</tbody></table></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top 3 Recommended Combinations</div>
+      <div class="tbl-wrap"><table><thead><tr><th>Combination</th><th>Match</th><th>Subsidiary</th></tr></thead><tbody>${combosHtml}</tbody></table></div>
+    </div>
+    ${bestCareers.length?`<div class="card">
+      <div class="card-title">Best Career Matches</div>
+      <div class="career-grid">${bestCareers.map(r=>`<div class="career-tile tier-best"><div class="ct-ico">${r.career.includes('Medicine')?'🩺':r.career.includes('Engineer')?'⚙️':r.career.includes('Computer')?'💻':r.career.includes('Law')?'⚖️':'🎓'}</div><div class="ct-name">${r.career}</div><span class="badge bg-teal">✓</span><div class="ct-pct">${r.score}%</div></div>`).join('')}</div>
+    </div>`:''}
+    <div class="alert alert-gold" style="margin-top:.5rem;">💡 <strong>For Parents:</strong> A-Level choice depends on your child's passion and ability — not just grades. Consult with school counselors and consider the holistic factors described in Kaziba Stephen's guide.</div>
+  `;
+}
+
+// ═══════════════════ UNIVERSITIES ═══════════════════
+function renderUnis(){
+  const filter=document.getElementById('uni-filter')?.value||'';
+  const list=filter?UNIS.filter(u=>u.category.includes(filter)):UNIS;
+  let h=`<div class="uni-grid">`;
+  list.forEach(u=>{
+    h+=`<div class="uni-card${u.featured?' featured':''}">
+      <div class="uni-head">
+        <div class="uni-ico" style="background:rgba(255,255,255,.05)">${u.icon}</div>
+        <div>
+          <div class="uni-name">${u.name}</div>
+          <div class="uni-loc">📍 ${u.loc} · <span class="badge ${u.type==='Public'?'bg-teal':'bg-violet'}" style="font-size:.67rem;">${u.type}</span></div>
+        </div>
+      </div>
+      <div class="uni-progs">${u.progs.slice(0,6).map(p=>`<span class="prog-tag">${p}</span>`).join('')}${u.progs.length>6?`<span class="prog-tag">+${u.progs.length-6} more</span>`:''}</div>
+    </div>`;
+  });
+  h+='</div>';
+  const el=document.getElementById('uniOut');
+  if(el) el.innerHTML=h;
+}
+
+// ═══════════════════ AI CHAT ═══════════════════
+const SYSTEM_PROMPT=`You are EduPath AI Advisor, an expert educational guidance counselor for Uganda specializing in:
+1. A-Level subject combinations for Ugandan students (based on PUJAB/Kaziba Stephen's guide)
+2. Uganda job market trends and career prospects in 2025
+3. Salary expectations for various professions in Uganda
+4. University programmes at Makerere, Mbarara, Gulu, KIU, UCU, Kyambogo and other Ugandan universities
+5. Career path guidance for students in Uganda
+
+The 30+ A-Level combinations include Science (PCB, PCM, BCM, PEM, PMTD, PAM, PEntM, PAGM, BCFN, BCA, BAG) and Arts (HEG, HEL, MEG, MEE, HED, HLG, LEE, DEG, HEEnt, etc.)
+
+Uganda Job Market Context (2025):
+- Healthcare: High demand — Doctors, Nurses, Pharmacists needed urgently. Government salaries: UGX 1.5M-8M/month, Private: up to 20M+
+- Engineering: Growing demand due to infrastructure projects (oil pipeline, roads, power). Salaries: UGX 2M-15M/month
+- ICT/Tech: Booming sector. Software developers earn UGX 2.5M-20M/month. Remote work opportunities growing
+- Education: Stable demand, government + private. Teachers earn UGX 600K-3M/month  
+- Agriculture: 70%+ of population, Agribusiness managers UGX 1.5M-8M/month
+- Law: Competitive. Junior lawyers start UGX 1M-3M, Senior up to 20M+
+- Business/Finance: Growing, Accountants earn UGX 1.5M-6M/month
+- Oil & Gas: Emerging (Tilenga project) — Geoscientists/Engineers in high demand
+- Tourism: Recovering post-COVID, growing again
+
+Key Uganda Universities: Makerere (top ranked), Mbarara (MUST — medical focus), Gulu University, KIU (Kampala), UCU (Mukono), Kyambogo, Busitema, Lira, Kabale.
+
+Give practical, specific advice grounded in Ugandan context. Be encouraging but honest. Mention specific salary ranges in UGX. Reference specific universities and their programmes. Keep responses clear, structured and helpful for S.4 students.`;
+
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg) return;
+  input.value='';
+  addMsg('user',msg);
+  document.getElementById('chatSugs').style.display='none';
+  const typingId=addTyping();
+  try{
+    const messages=chatHistory.map(m=>({role:m.role,content:m.content}));
+    messages.push({role:'user',content:msg});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:SYSTEM_PROMPT,
+        messages
+      })
+    });
+    removeTyping(typingId);
+    if(!res.ok) throw new Error('API error '+res.status);
+    const data=await res.json();
+    const reply=data.content.map(b=>b.type==='text'?b.text:'').join('');
+    chatHistory.push({role:'user',content:msg});
+    chatHistory.push({role:'assistant',content:reply});
+    if(chatHistory.length>20) chatHistory=chatHistory.slice(-20);
+    addMsg('ai',reply);
+  } catch(err){
+    removeTyping(typingId);
+    addMsg('ai',`I'm having trouble connecting right now. Based on my knowledge:\n\n**For your question about "${msg}":**\nPlease check the Combinations tab or Universities page for structured information, or try again in a moment.\n\n*Note: Full AI features require an active internet connection.*`);
+  }
+}
+
+function sendSuggestion(el){
+  document.getElementById('chatInput').value=el.textContent;
+  sendChat();
+}
+
+function addMsg(role,text){
+  const msgs=document.getElementById('chatMessages');
+  const isAI=role==='ai';
+  const now=new Date().toLocaleTimeString('en-UG',{hour:'2-digit',minute:'2-digit'});
+  const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br/>');
+  const div=document.createElement('div');
+  div.className=`msg msg-${role}`;
+  div.innerHTML=`
+    <div class="msg-av ${isAI?'msg-av-ai':'msg-av-u'}">${isAI?'🤖':'👤'}</div>
+    <div><div class="msg-bubble ${isAI?'bubble-ai':'bubble-user'}">${formatted}</div><div class="msg-time">${now}</div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function addTyping(){
+  const msgs=document.getElementById('chatMessages');
+  const id='typ_'+Date.now();
+  msgs.innerHTML+=`<div class="msg msg-ai" id="${id}">
+    <div class="msg-av msg-av-ai">🤖</div>
+    <div><div class="msg-bubble bubble-ai"><div class="typing"><span></span><span></span><span></span></div></div></div></div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+  return id;
+}
+function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
+function clearChat(){
+  chatHistory=[];
+  document.getElementById('chatMessages').innerHTML=`<div class="msg msg-ai">
+    <div class="msg-av msg-av-ai">🤖</div>
+    <div><div class="msg-bubble bubble-ai">Chat cleared. How can I help you?</div></div></div>`;
+  document.getElementById('chatSugs').style.display='flex';
+}
+
+// ═══════════════════ SCHOOL ═══════════════════
+function handleUpload(input){
+  const f=input.files[0];if(!f)return;
+  document.getElementById('upProg').style.display='block';
+  document.getElementById('upStatus').textContent='Processing: '+f.name;
+  animateProg(()=>{document.getElementById('upStatus').textContent='✓ Done — loading demo data';loadDemoStudents();});
+}
+function animateProg(cb){
+  const fill=document.getElementById('progFill');let p=0;
+  const iv=setInterval(()=>{p+=Math.random()*15;if(p>=100){p=100;clearInterval(iv);setTimeout(cb,300);}fill.style.width=p+'%';},120);
+}
+function loadDemoStudents(){
+  schoolStudents=[
+    {name:'John Opiyo',math:'A',phys:'A',chem:'B',bio:'C',eng:'B',geo:'B',hist:'C',econ:'B',lit:'C',career:'Engineering (Civil/Electrical/Mechanical)'},
+    {name:'Sarah Adong',math:'B',phys:'B',chem:'A',bio:'A',eng:'A',geo:'C',hist:'B',econ:'C',lit:'B',career:'Medicine'},
+    {name:'David Ayeko',math:'C',phys:'D',chem:'C',bio:'A',eng:'B',geo:'B',hist:'A',econ:'B',lit:'C',career:'Agriculture / Agribusiness'},
+    {name:'Grace Akello',math:'A',phys:'C',chem:'B',bio:'B',eng:'A',geo:'A',hist:'B',econ:'A',lit:'A',career:'Law'},
+    {name:'Michael Ongom',math:'B',phys:'B',chem:'B',bio:'B',eng:'C',geo:'C',hist:'C',econ:'C',lit:'C',career:'Computer Science / Software Engineering'},
+    {name:'Florence Amito',math:'D',phys:'D',chem:'C',bio:'B',eng:'A',geo:'B',hist:'A',econ:'A',lit:'A',career:'Journalism / Communication'},
+    {name:'Peter Ogwang',math:'A',phys:'A',chem:'A',bio:'B',eng:'B',geo:'C',hist:'C',econ:'B',lit:'C',career:'Engineering (Civil/Electrical/Mechanical)'},
+    {name:'Agnes Aber',math:'C',phys:'C',chem:'B',bio:'A',eng:'B',geo:'B',hist:'C',econ:'B',lit:'B',career:'Nursing'},
+    {name:'Robert Ocen',math:'B',phys:'C',chem:'C',bio:'C',eng:'A',geo:'B',hist:'B',econ:'A',lit:'A',career:'Journalism / Communication'},
+    {name:'Lydia Amolo',math:'A',phys:'B',chem:'A',bio:'C',eng:'C',geo:'A',hist:'C',econ:'A',lit:'B',career:'Business / Commerce / Accounting'},
+  ];
+  renderSchoolReport();
+}
+function makeGradesFromRow(s){
+  return{'Mathematics':s.math,'Physics':s.phys,'Chemistry':s.chem,'Biology':s.bio,'English Language':s.eng,'Geography':s.geo,'History & Political Education':s.hist,'Economics':s.econ,'Literature in English':s.lit||''};
+}
+function renderSchoolReport(){
+  let ok=0,guid=0,no=0;
+  let rows='';
+  schoolStudents.forEach(s=>{
+    const g=makeGradesFromRow(s);
+    const ranked=rankCombos(g);
+    const best=ranked[0];
+    let statusBadge='';
+    if(s.career){
+      const ev=evalCareerByGrades(s.career,g);
+      if(ev.status==='YES'){ok++;statusBadge='<span class="badge bg-teal">Compatible</span>';}
+      else if(ev.status==='GUIDANCE'){guid++;statusBadge='<span class="badge bg-gold">Guidance</span>';}
+      else{no++;statusBadge='<span class="badge bg-rose">Needs Change</span>';}
+    } else {guid++;statusBadge='<span class="badge bg-muted">No Career Set</span>';}
+    rows+=`<tr><td style="font-weight:600">${s.name}</td><td><strong>${best.code}</strong></td><td style="font-size:.79rem;color:var(--muted)">${best.full}</td><td style="font-size:.8rem">${s.career||'—'}</td><td>${statusBadge}</td><td style="font-family:'Syne',sans-serif;font-weight:700">${best.pct}%</td></tr>`;
+  });
+  document.getElementById('d-total').textContent=schoolStudents.length;
+  document.getElementById('d-ok').textContent=ok;
+  document.getElementById('d-guid').textContent=guid;
+  document.getElementById('d-no').textContent=no;
+  document.getElementById('schoolReport').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;">
+      <strong style="font-family:'Syne',sans-serif">Report — ${schoolStudents.length} Students</strong>
+      <div style="display:flex;gap:.55rem;">
+        <button class="btn btn-ghost" style="font-size:.79rem" onclick="alert('PDF export requires Django backend deployment.')">⬇ PDF</button>
+        <button class="btn btn-teal" style="font-size:.79rem" onclick="alert('Excel export requires Django backend deployment.')">⬇ Excel</button>
+      </div>
+    </div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Student</th><th>Best Combo</th><th>Full Name</th><th>Career Interest</th><th>Status</th><th>Match %</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>
+    <div class="alert alert-teal" style="margin-top:1rem;">✅ ${ok} compatible · ${guid} need guidance · ${no} need career change</div>`;
+  const tabs=document.querySelectorAll('#school .tab');
+  tabs.forEach(t=>t.classList.remove('on'));
+  tabs[2].classList.add('on');
+  document.querySelectorAll('#school .tab-pane').forEach(p=>p.classList.remove('on'));
+  document.getElementById('sc-report').classList.add('on');
+}
+function addManual(){
+  const name=document.getElementById('m-name').value.trim();
+  if(!name){alert('Enter student name.');return;}
+  schoolStudents.push({name,math:document.getElementById('m-math').value,phys:document.getElementById('m-phys').value,
+    chem:document.getElementById('m-chem').value,bio:document.getElementById('m-bio').value,
+    eng:document.getElementById('m-eng').value,geo:document.getElementById('m-geo').value,
+    hist:document.getElementById('m-hist').value,econ:document.getElementById('m-econ').value,
+    lit:document.getElementById('m-lit').value,career:document.getElementById('m-career').value});
+  renderSchoolReport();
+}
+
+// ═══════════════════ UTILITY ═══════════════════
+function showLoader(txt){document.getElementById('loaderTxt').textContent=txt||'Loading…';document.getElementById('loader').classList.add('on');}
+function hideLoader(){document.getElementById('loader').classList.remove('on');}
+function closeModal(){document.getElementById('modalBg').classList.remove('on');}
+
+// ═══════════════════ POPULATE SELECTS ═══════════════════
+function populateSelects(){
+  const careers=Object.keys(CAREER_MAP).sort();
+  ['cc-career','m-career'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el||el.options.length>1) return;
+    careers.forEach(c=>{const o=new Option(c,c);el.appendChild(o);});
+  });
+}
+
+// ═══════════════════ DRAG-DROP ═══════════════════
+function initDrop(){
+  const dz=document.getElementById('dropZone');
+  if(!dz)return;
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');
+    if(e.dataTransfer.files[0]){document.getElementById('fileIn').files=e.dataTransfer.files;handleUpload(document.getElementById('fileIn'));}});
+}
+
+// ═══════════════════ INIT ═══════════════════
+window.addEventListener('load',()=>{
+  buildGradeForm();
+  populateSelects();
+  populateGuideSelects();
+  renderTips();
+  renderUnis();
+  initDrop();
+  // auto-resize chat textarea
+  const ta=document.getElementById('chatInput');
+  if(ta) ta.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px';});
+});
+</script>
+</body>
+</html>
