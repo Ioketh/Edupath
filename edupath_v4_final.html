@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>EduPath Uganda — A-Level Guide & AI Career Advisor</title>
+<!-- EduPath Uganda v4.0 -->
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 /* ═══════════════════════════════════════════
@@ -263,35 +264,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:60px;
 .issue-row:last-child{border:none;}
 .issue-dot{color:var(--rose);flex-shrink:0;}
 
-/* ═══════════════ SCHOOL ADVERTISEMENTS SPACE ═══════════════ */
-.school-ads-section{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
-  padding:2rem;margin:2rem 0;text-align:center;}
-.school-ads-header{display:flex;align-items:center;justify-content:center;gap:.75rem;
-  margin-bottom:1.5rem;font-family:'Syne',sans-serif;}
-.school-ads-header .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;}
-.school-ads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;margin:2rem 0;}
-.school-ad-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--r2);
-  padding:1.5rem;text-align:center;transition:all .3s;cursor:pointer;}
-.school-ad-card:hover{transform:translateY(-4px);border-color:var(--gold);}
-.school-ad-icon{width:70px;height:70px;border-radius:50%;margin:0 auto 1rem;
-  display:flex;align-items:center;justify-content:center;font-size:2rem;
-  background:linear-gradient(135deg,rgba(245,200,66,.1),rgba(245,200,66,.2));}
-.school-ad-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.3rem;}
-.school-ad-location{font-size:.8rem;color:var(--muted2);margin-bottom:.5rem;}
-.school-ad-badge{padding:.25rem .8rem;border-radius:100px;font-size:.7rem;font-weight:600;display:inline-block;}
-.school-ad-badge.premium{background:rgba(245,200,66,.1);color:var(--gold);border:1px solid rgba(245,200,66,.2);}
-.school-ad-badge.standard{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2);}
-.claim-ad-space{background:rgba(255,255,255,.02);border:2px dashed var(--border);border-radius:var(--r);
-  padding:2rem;margin:2rem 0;text-align:center;cursor:pointer;transition:all .3s;}
-.claim-ad-space:hover{border-color:var(--gold);background:rgba(245,200,66,.02);}
-.claim-ad-space h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:.5rem;}
-.claim-ad-space p{color:var(--muted2);margin-bottom:1rem;}
-.ad-stats{display:flex;justify-content:center;gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
-.ad-stat{text-align:center;}
-.ad-stat .num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--gold);}
-.ad-stat .label{font-size:.75rem;color:var(--muted);}
+/* ═══════════════ UNIVERSITY CARDS ═══════════════ */
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem;}
+.uni-card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.3rem;transition:all .25s;cursor:pointer;}
+.uni-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.uni-card.featured{border-color:rgba(245,200,66,.25);}
+.uni-head{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.9rem;}
+.uni-ico{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.uni-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;line-height:1.3;}
+.uni-loc{font-size:.76rem;color:var(--muted);margin-top:.18rem;}
+.uni-progs{display:flex;gap:.35rem;flex-wrap:wrap;}
+.prog-tag{background:rgba(255,255,255,.04);border:1px solid var(--border);
+  padding:.16rem .5rem;border-radius:4px;font-size:.72rem;color:var(--muted2);}
 
-/* ═══════════════ AI CHAT IMPROVEMENTS ═══════════════ */
+/* ═══════════════ AI CHAT ═══════════════ */
 .chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:460px;
   background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
 .chat-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);
@@ -471,12 +459,12 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand"><div class="dot"></div>EduPath Uganda</div>
+  <div class="nav-brand"><div class="dot"></div>EduPath</div>
   <div class="nav-center">
     <button class="nav-link" onclick="go('landing')">Home</button>
     <button class="nav-link" onclick="go('student')">Students</button>
     <button class="nav-link" onclick="go('parent')">Parents</button>
-    <button class="nav-link" onclick="go('schools-ad')">Partner Schools</button>
+    <button class="nav-link" onclick="go('schools-advert')">🏫 Schools Advertise</button>
     <button class="nav-link" onclick="go('ai-advisor')">AI Advisor</button>
   </div>
   <div class="nav-right">
@@ -493,9 +481,9 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div>
-        <div class="hero-eyebrow"><span class="pulse"></span>Uganda's Official A-Level Combination Guide</div>
+        <div class="hero-eyebrow"><span class="pulse"></span>Uganda A-Level Guidance System · PUJAB & NCDC Aligned</div>
         <h1>Uganda's Smartest<br/><span class="hl">A-Level Guide</span><br/>+ <span class="hl2">AI Advisor</span></h1>
-        <p class="hero-sub">Enter your S.4 O-Level results and get ranked A-Level combinations, career paths, and an AI that answers all your questions about the Ugandan job market and education system.</p>
+        <p class="hero-sub">Enter your S.4 O-Level results and get ranked A-Level combinations, career paths, Uganda university programmes, and an AI that answers all your questions about the job market.</p>
         <div class="hero-actions">
           <button class="hbtn hbtn-primary" onclick="go('student')">🎓 Get My Combinations</button>
           <button class="hbtn hbtn-outline" onclick="go('ai-advisor')">🤖 Ask AI Advisor</button>
@@ -503,7 +491,7 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
         <div class="hero-stats">
           <div><div class="hstat-n" style="color:var(--gold)">30+</div><div class="hstat-l">Combinations</div></div>
           <div><div class="hstat-n" style="color:var(--teal)">60+</div><div class="hstat-l">Degree Programmes</div></div>
-          <div><div class="hstat-n" style="color:var(--violet)">50+</div><div class="hstat-l">Partner Schools</div></div>
+          <div><div class="hstat-n" style="color:var(--violet)">15+</div><div class="hstat-l">Uganda Universities</div></div>
           <div><div class="hstat-n" style="color:var(--sky)">AI</div><div class="hstat-l">Career Advisor</div></div>
         </div>
       </div>
@@ -523,7 +511,7 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
         <div class="hcard">
           <div class="hcard-top">
             <div class="hcard-ico" style="background:rgba(45,212,191,.1)">🏆</div>
-            <div><div class="hcard-title">Top Combinations Ranked</div><div class="hcard-sub">Based on NCDC & UNEB Guidelines</div></div>
+            <div><div class="hcard-title">Top Combinations Ranked</div><div class="hcard-sub">PUJAB & NCDC Aligned · 2025</div></div>
           </div>
           <div class="bar-row">
             <div class="bar-label"><span>PCB/Sub-Math</span><span>96%</span></div>
@@ -557,13 +545,13 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
   <div class="section" style="background:var(--ink2);border-top:1px solid var(--border);">
     <div class="section-inner">
       <div class="stag stag-gold">Core Features</div>
-      <h2>Uganda's Official A-Level Guide System</h2>
-      <p class="lead">Every combination, degree programme and career pathway is sourced from NCDC, UNEB and Ministry of Education guidelines.</p>
+      <h2>Uganda's Most Complete A-Level Guide System</h2>
+      <p class="lead">Every combination, degree programme and career pathway is sourced from PUJAB and the official NCDC curriculum framework for Uganda.</p>
       <div class="feat-grid">
         <div class="feat-card" onclick="go('student')"><div class="feat-ico" style="background:rgba(245,200,66,.1)">🏆</div><h3>Ranked Combinations</h3><p>30+ combinations from PCB/Sub-Math to HEG/Sub-Math ranked against your O-Level grades.</p></div>
-        <div class="feat-card" onclick="go('student')"><div class="feat-ico" style="background:rgba(45,212,191,.1)">💡</div><h3>60+ Degree Programmes</h3><p>Medicine, Engineering, Law, Commerce, Education all mapped to your results.</p></div>
+        <div class="feat-card" onclick="go('student')"><div class="feat-ico" style="background:rgba(45,212,191,.1)">💡</div><h3>60+ Degree Programmes</h3><p>Medicine, Engineering, Law, Commerce, Education and Emerging Courses all mapped to your results.</p></div>
         <div class="feat-card" onclick="go('ai-advisor')"><div class="feat-ico" style="background:rgba(167,139,250,.1)">🤖</div><h3>AI Career Advisor</h3><p>Ask anything about Uganda's job market, salary expectations, career trends, and which path suits you.</p></div>
-        <div class="feat-card" onclick="go('schools-ad')"><div class="feat-ico" style="background:rgba(56,189,248,.1)">🏫</div><h3>Partner Schools</h3><p>Discover and connect with top secondary schools across Uganda that advertise with us.</p></div>
+        <div class="feat-card" onclick="go('schools-advert')"><div class="feat-ico" style="background:rgba(56,189,248,.1)">🏫</div><h3>School Advertising</h3><p>Schools and institutions can advertise programmes, open days and enrolment — reaching thousands of S.4 graduates.</p></div>
         <div class="feat-card" onclick="go('school-auth')"><div class="feat-ico" style="background:rgba(251,113,133,.1)">📤</div><h3>School Reports</h3><p>Schools upload bulk student records and generate comprehensive evaluation and guidance reports.</p></div>
         <div class="feat-card" onclick="go('parent')"><div class="feat-ico" style="background:rgba(74,222,128,.1)">👨‍👩‍👧</div><h3>Parent Profiles</h3><p>Parents view child's recommended combinations, degree options and career paths instantly — no login.</p></div>
       </div>
@@ -576,44 +564,21 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
       <div class="stag stag-teal">Who Uses EduPath?</div>
       <h2>Designed for Every Stakeholder</h2>
       <div class="roles-grid">
-        <div class="role-card"><div class="role-av" style="background:rgba(245,200,66,.1)">🎓</div><h3>Students</h3><p>No login needed. Enter grades, get ranked combinations, best careers, and talk to the AI Advisor.</p><button class="role-btn" onclick="go('student')">Open Student Portal →</button></div>
-        <div class="role-card"><div class="role-av" style="background:rgba(45,212,191,.1)">👨‍👩‍👧</div><h3>Parents</h3><p>No login needed. Search your child's name to see full guidance and combination recommendations.</p><button class="role-btn" onclick="go('parent')">Open Parent Portal →</button></div>
-        <div class="role-card"><div class="role-av" style="background:rgba(167,139,250,.1)">🏫</div><h3>Schools</h3><p>School login required. Upload student records, run bulk evaluations, generate PDF/Excel reports.</p><button class="role-btn" onclick="go('school-auth')">School Login →</button></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCHOOL ADVERTISEMENTS SPACE ON LANDING -->
-  <div class="section" style="background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-    <div class="section-inner">
-      <div class="stag stag-gold">🏫 Featured Partner Schools</div>
-      <h2>Top Schools Across Uganda</h2>
-      <p class="lead">Discover and connect with leading secondary schools that trust EduPath for student guidance.</p>
-      
-      <div class="school-ads-grid" id="featuredSchoolsLanding"></div>
-      
-      <div class="claim-ad-space" onclick="openAdModal()">
-        <h3>📢 Advertise Your School Here</h3>
-        <p>Reach thousands of students and parents across Uganda. Get premium visibility for your institution.</p>
-        <button class="btn btn-gold">Claim Your Space →</button>
-      </div>
-      
-      <div class="ad-stats">
-        <div class="ad-stat"><div class="num">50+</div><div class="label">Partner Schools</div></div>
-        <div class="ad-stat"><div class="num">15,000+</div><div class="label">Monthly Students</div></div>
-        <div class="ad-stat"><div class="num">All Regions</div><div class="label">Nationwide Reach</div></div>
+        <div class="role-card"><div class="role-av" style="background:rgba(245,200,66,.1)">🎓</div><h3>Students</h3><p>No login needed. Enter grades, get ranked combinations, best careers, university options and talk to the AI Advisor.</p><button class="role-btn" onclick="go('student')">Open Student Portal →</button></div>
+        <div class="role-card"><div class="role-av" style="background:rgba(45,212,191,.1)">👨‍👩‍👧</div><h3>Parents</h3><p>No login needed. Search your child's name to see full guidance, combination recommendations and career path analysis.</p><button class="role-btn" onclick="go('parent')">Open Parent Portal →</button></div>
+        <div class="role-card"><div class="role-av" style="background:rgba(167,139,250,.1)">🏫</div><h3>Schools</h3><p>School login required. Upload student records, run bulk evaluations, generate PDF/Excel reports for counseling sessions.</p><button class="role-btn" onclick="go('school-auth')">School Login →</button></div>
       </div>
     </div>
   </div>
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand"><h3>EduPath Uganda</h3><p>A-Level Combination Guide powered by official NCDC and UNEB guidelines. Helping students across Uganda make smarter academic choices.</p></div>
+      <div class="footer-brand"><h3>EduPath Uganda</h3><p>Uganda's A-Level Combination & Career Guidance System — powered by PUJAB guidelines, the NCDC curriculum framework, and AI. Helping S.4 graduates across Uganda make smarter academic choices.</p></div>
       <div class="footer-col"><h4>Portals</h4><a onclick="go('student')">Student Portal</a><a onclick="go('parent')">Parent Portal</a><a onclick="go('school-auth')">School Login</a></div>
-      <div class="footer-col"><h4>Tools</h4><a onclick="go('ai-advisor')">AI Advisor</a><a onclick="go('schools-ad')">Partner Schools</a></div>
-      <div class="footer-col"><h4>Info</h4><a>NCDC Framework</a><a>UNEB Guidelines</a><a>Ministry of Education</a></div>
+      <div class="footer-col"><h4>Tools</h4><a onclick="go('ai-advisor')">AI Advisor</a><a onclick="go('schools-advert')">School Advertising</a></div>
+      <div class="footer-col"><h4>Information</h4><a>NCDC Framework</a><a>PUJAB Guidelines</a><a onclick="go('schools-advert')">Advertise Your School</a></div>
     </div>
-    <div class="footer-bot">© 2025 EduPath Uganda · Official A-Level Guide System</div>
+    <div class="footer-bot">© 2025 EduPath Uganda · Powered by PUJAB & NCDC Guidelines · <a onclick="go('schools-advert')" style="color:var(--gold);cursor:pointer;">Advertise Your School Here</a></div>
   </footer>
 </div>
 
@@ -625,18 +590,6 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
     <div class="app-body">
       <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Student Portal</span></div>
       <div class="ph"><div class="ph-tag tag-gold">🎓 Free — No Login Required</div><h2>Student Portal</h2><p>Enter your O-Level results to get ranked A-Level combinations, degree programmes and career guidance.</p></div>
-      
-      <!-- School Ads Banner inside Student Portal -->
-      <div class="school-ads-section" style="margin-bottom:2rem;padding:1rem;" onclick="go('schools-ad')">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-          <div style="display:flex;align-items:center;gap:.5rem;">
-            <span style="font-size:1.5rem;">🏫</span>
-            <span><strong>Featured Schools:</strong> <span id="studentSchoolTicker">Loading...</span></span>
-          </div>
-          <button class="btn btn-ghost" style="font-size:.75rem;">View All Partner Schools →</button>
-        </div>
-      </div>
-      
       <div class="tabs">
         <button class="tab on" onclick="switchTab('st','st-grades',this)">📋 Enter Grades</button>
         <button class="tab" onclick="switchTab('st','st-combos',this)">🏆 My Combinations</button>
@@ -661,7 +614,8 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
             <button class="btn btn-gold" onclick="analyseAll()">Analyse My Results →</button>
           </div>
         </div>
-        <div class="alert alert-muted">📌 Grade scale: <strong>A=6 · B=5 · C=4 · D=3 · E=2 · F=1</strong>. Enter at least 4 subjects.</div>
+        <div class="alert alert-muted">📌 Grade scale: <strong>A=6 · B=5 · C=4 · D=3 · E=2 · F=1</strong>. Enter at least 4 subjects. All NCDC Lower Secondary subjects are listed below.</div>
+        <div class="alert alert-gold">⭐ <strong>Tip:</strong> For best results, enter grades for all subjects you sat. The system uses your top-performing subjects to rank combinations from the PUJAB & NCDC official framework.</div>
       </div>
 
       <!-- COMBINATIONS -->
@@ -710,7 +664,7 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
         </div>
         <div id="guideOut"></div>
         <div class="card" style="margin-top:1.1rem;">
-          <div class="card-title"><span class="ico">💡</span>25 Success Tips for Ugandan Students</div>
+          <div class="card-title"><span class="ico">💡</span>25 A-Level Success Tips for Ugandan Students</div>
           <div id="tipsOut"></div>
         </div>
       </div>
@@ -726,15 +680,6 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
     <div class="app-body">
       <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Parent Portal</span></div>
       <div class="ph"><div class="ph-tag tag-teal">👨‍👩‍👧 Free — No Login Required</div><h2>Parent Portal</h2><p>Find your child's academic profile and combination guidance instantly.</p></div>
-      
-      <!-- School Ads Banner -->
-      <div class="school-ads-section" style="margin-bottom:2rem;padding:1rem;" onclick="go('schools-ad')">
-        <div style="display:flex;align-items:center;gap:.5rem;">
-          <span style="font-size:1.5rem;">🏫</span>
-          <span><strong>Partner Schools Near You:</strong> <span id="parentSchoolTicker">Loading...</span></span>
-        </div>
-      </div>
-      
       <div class="card">
         <div class="card-title"><span class="ico">🔍</span>Find a Student Profile</div>
         <div class="fg">
@@ -752,105 +697,130 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
 </div>
 
 <!-- ╔══════════════════════════════════════════════╗
-     ║            SCHOOLS ADVERTISEMENT PAGE        ║
+     ║         SCHOOL ADVERTISING PAGE             ║
      ╚══════════════════════════════════════════════╝ -->
-<div id="schools-ad" class="page">
+<div id="schools-advert" class="page">
   <div class="app-shell">
     <div class="wide-body">
-      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>Partner Schools</span></div>
-      <div class="ph"><div class="ph-tag tag-violet">🏫 Uganda Secondary Schools</div><h2>Partner Schools Directory</h2><p>Discover top secondary schools across Uganda that trust EduPath for student guidance.</p></div>
-      
-      <div class="fg" style="margin-bottom:1.5rem;max-width:500px;">
-        <div class="fld"><label>Filter by Region</label>
-          <select id="school-region-filter" onchange="renderSchoolsAds()">
-            <option value="">All Regions</option>
-            <option value="central">Central Region</option>
-            <option value="western">Western Region</option>
-            <option value="eastern">Eastern Region</option>
-            <option value="northern">Northern Region</option>
-            <option value="kampala">Kampala</option>
-          </select>
+      <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>School Advertising</span></div>
+      <div class="ph">
+        <div class="ph-tag tag-gold">📢 Reach S.4 Graduates Across Uganda</div>
+        <h2>Advertise Your School on EduPath</h2>
+        <p>Thousands of S.4 students and parents use EduPath every season to choose A-Level combinations and schools. Put your institution in front of the right audience.</p>
+      </div>
+
+      <!-- WHY ADVERTISE -->
+      <div class="card" style="background:linear-gradient(135deg,rgba(245,200,66,.06),rgba(45,212,191,.04));border-color:rgba(245,200,66,.18);margin-bottom:1.5rem;">
+        <div class="card-title">📊 Why Advertise on EduPath?</div>
+        <div class="fg3">
+          <div style="text-align:center;padding:.75rem;">
+            <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--gold)">5,000+</div>
+            <div style="font-size:.8rem;color:var(--muted2)">Monthly active students</div>
+          </div>
+          <div style="text-align:center;padding:.75rem;">
+            <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--teal)">S.4</div>
+            <div style="font-size:.8rem;color:var(--muted2)">Target: students choosing A-Level schools</div>
+          </div>
+          <div style="text-align:center;padding:.75rem;">
+            <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--violet)">UG-Wide</div>
+            <div style="font-size:.8rem;color:var(--muted2)">Arua, Kampala, Gulu and nationwide</div>
+          </div>
         </div>
       </div>
-      
-      <div class="school-ads-grid" id="schoolsAdsGrid"></div>
-      
-      <div class="claim-ad-space" onclick="openAdModal()">
-        <h3>📢 Is Your School Missing?</h3>
-        <p>Join our network of partner schools and get premium visibility to thousands of students and parents across Uganda.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <button class="btn btn-gold">Claim Your School's Space →</button>
-          <button class="btn btn-ghost">Download Media Kit</button>
+
+      <!-- AD PACKAGES -->
+      <div class="card-title" style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:1rem;">📦 Advertising Packages</div>
+      <div class="fg3" style="margin-bottom:2rem;">
+        <div class="card" style="border-color:rgba(255,255,255,.1);text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:.5rem;">📌</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.4rem;">Basic Listing</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gold);margin-bottom:.75rem;">Free</div>
+          <ul style="list-style:none;text-align:left;font-size:.82rem;color:var(--muted2);line-height:2;">
+            <li>✓ School name + location</li>
+            <li>✓ 3 programmes listed</li>
+            <li>✓ Contact number</li>
+            <li>✗ Featured placement</li>
+            <li>✗ Logo upload</li>
+          </ul>
+          <button class="btn btn-ghost btn-full" style="margin-top:1rem;" onclick="showAdForm('basic')">Apply Free →</button>
+        </div>
+        <div class="card" style="border-color:rgba(245,200,66,.35);background:rgba(245,200,66,.04);text-align:center;position:relative;">
+          <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.7rem;font-weight:700;padding:.18rem .75rem;border-radius:0 0 8px 8px;">POPULAR</div>
+          <div style="font-size:1.5rem;margin-bottom:.5rem;margin-top:.8rem;">⭐</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.4rem;">Featured School</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gold);margin-bottom:.75rem;">UGX 150,000<span style="font-size:.7rem;font-weight:400;color:var(--muted)">/term</span></div>
+          <ul style="list-style:none;text-align:left;font-size:.82rem;color:var(--muted2);line-height:2;">
+            <li>✓ Gold featured card</li>
+            <li>✓ Unlimited programmes</li>
+            <li>✓ Logo + photo</li>
+            <li>✓ Contact + website link</li>
+            <li>✓ Priority placement</li>
+          </ul>
+          <button class="btn btn-gold btn-full" style="margin-top:1rem;" onclick="showAdForm('featured')">Get Featured →</button>
+        </div>
+        <div class="card" style="border-color:rgba(167,139,250,.25);text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:.5rem;">🚀</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.4rem;">Premium Banner</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--violet);margin-bottom:.75rem;">UGX 400,000<span style="font-size:.7rem;font-weight:400;color:var(--muted)">/term</span></div>
+          <ul style="list-style:none;text-align:left;font-size:.82rem;color:var(--muted2);line-height:2;">
+            <li>✓ Banner on Student Portal</li>
+            <li>✓ AI Advisor mentions school</li>
+            <li>✓ All featured benefits</li>
+            <li>✓ Analytics dashboard</li>
+            <li>✓ Term + Holiday campaigns</li>
+          </ul>
+          <button class="btn btn-violet btn-full" style="margin-top:1rem;" onclick="showAdForm('premium')">Go Premium →</button>
         </div>
       </div>
-      
-      <div class="ad-stats">
-        <div class="ad-stat"><div class="num">50+</div><div class="label">Partner Schools</div></div>
-        <div class="ad-stat"><div class="num">15,000+</div><div class="label">Monthly Visitors</div></div>
-        <div class="ad-stat"><div class="num">4</div><div class="label">Regions Covered</div></div>
-        <div class="ad-stat"><div class="num">UGX 500k</div><div class="label">Starting/month</div></div>
+
+      <!-- CURRENT ADVERTISERS (demo) -->
+      <div class="card-title" style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:1rem;">🏫 Schools Currently Listed</div>
+      <div id="advertiserGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;margin-bottom:2rem;"></div>
+
+      <!-- AD SUBMISSION FORM -->
+      <div class="card" id="adFormCard" style="display:none;">
+        <div class="card-title"><span id="adFormTitle">📋 School Listing Application</span></div>
+        <div class="fg">
+          <div class="fld"><label>School / Institution Name *</label><input id="ad-name" type="text" placeholder="e.g. Arua Public Secondary School"/></div>
+          <div class="fld"><label>School Type</label>
+            <select id="ad-type"><option>Government</option><option>Private</option><option>Religious (Catholic)</option><option>Religious (Protestant)</option><option>Religious (Islamic)</option></select>
+          </div>
+          <div class="fld"><label>District / Location *</label><input id="ad-loc" type="text" placeholder="e.g. Arua City, West Nile"/></div>
+          <div class="fld"><label>Contact Phone *</label><input id="ad-phone" type="tel" placeholder="0772 000 000"/></div>
+          <div class="fld"><label>Email Address</label><input id="ad-email" type="email" placeholder="admin@school.ug"/></div>
+          <div class="fld"><label>Website / Social Media</label><input id="ad-web" type="text" placeholder="www.school.ug or Facebook page"/></div>
+          <div class="fld fg-full"><label>A-Level Combinations Offered (comma separated)</label><input id="ad-combos" type="text" placeholder="e.g. PCB, PCM, HEG, HEL, MEG"/></div>
+          <div class="fld fg-full"><label>Short School Description (max 120 characters)</label><textarea id="ad-desc" rows="2" maxlength="120" placeholder="Brief description of your school's strengths, boarding options, facilities…"></textarea></div>
+          <div class="fld"><label>Boarding Available?</label><select id="ad-boarding"><option>Day Only</option><option>Day & Boarding</option><option>Boarding Only</option></select></div>
+          <div class="fld"><label>Number of A-Level Students (approx)</label><input id="ad-students" type="number" placeholder="e.g. 120"/></div>
+        </div>
+        <div class="form-row">
+          <button class="btn btn-ghost" onclick="document.getElementById('adFormCard').style.display='none'">Cancel</button>
+          <button class="btn btn-gold" onclick="submitAdForm()">Submit Application →</button>
+        </div>
       </div>
-      
-      <!-- Premium Packages -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:3rem 0;">
-        <div class="card" style="text-align:center;">
-          <h3 style="font-family:'Syne',sans-serif;margin-bottom:1rem;">Basic Listing</h3>
-          <div style="font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:.5rem;">UGX 500k</div>
-          <p style="color:var(--muted2);margin-bottom:1.5rem;">per term</p>
-          <ul style="list-style:none;text-align:left;margin-bottom:1.5rem;">
-            <li style="padding:.3rem 0;">✓ School profile page</li>
-            <li style="padding:.3rem 0;">✓ Contact information</li>
-            <li style="padding:.3rem 0;">✓ Logo display</li>
-            <li style="padding:.3rem 0;">✓ 500 monthly views</li>
-          </ul>
-          <button class="btn btn-ghost btn-full">Select Plan</button>
-        </div>
-        <div class="card" style="text-align:center;border-color:var(--gold);">
-          <h3 style="font-family:'Syne',sans-serif;margin-bottom:1rem;">Premium</h3>
-          <div style="font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:.5rem;">UGX 1.2M</div>
-          <p style="color:var(--muted2);margin-bottom:1.5rem;">per term</p>
-          <ul style="list-style:none;text-align:left;margin-bottom:1.5rem;">
-            <li style="padding:.3rem 0;">✓ Everything in Basic</li>
-            <li style="padding:.3rem 0;">✓ Featured on homepage</li>
-            <li style="padding:.3rem 0;">✓ Banner advertisement</li>
-            <li style="padding:.3rem 0;">✓ Video profile (2 min)</li>
-            <li style="padding:.3rem 0;">✓ 2000+ monthly views</li>
-          </ul>
-          <button class="btn btn-gold btn-full">Select Plan</button>
-        </div>
-        <div class="card" style="text-align:center;">
-          <h3 style="font-family:'Syne',sans-serif;margin-bottom:1rem;">Platinum</h3>
-          <div style="font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:.5rem;">UGX 2.5M</div>
-          <p style="color:var(--muted2);margin-bottom:1.5rem;">per term</p>
-          <ul style="list-style:none;text-align:left;margin-bottom:1.5rem;">
-            <li style="padding:.3rem 0;">✓ Everything in Premium</li>
-            <li style="padding:.3rem 0;">✓ Top placement in search</li>
-            <li style="padding:.3rem 0;">✓ Newsletter feature</li>
-            <li style="padding:.3rem 0;">✓ Social media promotion</li>
-            <li style="padding:.3rem 0;">✓ 5000+ monthly views</li>
-          </ul>
-          <button class="btn btn-ghost btn-full">Select Plan</button>
-        </div>
+
+      <div id="adSuccessMsg" style="display:none;" class="alert alert-teal">
+        ✅ <strong>Application received!</strong> Our team will review and contact you within 24 hours to activate your listing. For urgent listings call: <strong>0700 EDU PATH</strong>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ╔══════════════════════════════════════════════╗
-     ║            AI ADVISOR (IMPROVED)             ║
+     ║            AI ADVISOR                        ║
      ╚══════════════════════════════════════════════╝ -->
 <div id="ai-advisor" class="page">
   <div class="app-shell">
     <div class="app-body">
       <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><span>AI Career Advisor</span></div>
-      <div class="ph"><div class="ph-tag tag-teal">🤖 Powered by Advanced AI</div><h2>Uganda Education & Career Advisor</h2><p>Get personalized advice on A-Level combinations, university admissions, and career paths in Uganda.</p></div>
-      
+      <div class="ph"><div class="ph-tag tag-teal">🤖 Powered by Claude AI</div><h2>AI Career Advisor</h2><p>Ask anything about Uganda's job market, A-Level combinations, universities and your future career.</p></div>
       <div class="chat-wrap">
         <div class="chat-header">
           <div class="ai-avatar">🤖</div>
           <div class="chat-header-info">
             <div class="name">EduPath AI Advisor</div>
-            <div class="status"><span class="status-dot"></span>Online · Uganda Education Expert</div>
+            <div class="status"><span class="status-dot"></span>Online · Powered by Claude</div>
           </div>
           <div style="margin-left:auto;display:flex;gap:.5rem;">
             <button class="btn btn-ghost" style="font-size:.76rem;padding:.32rem .7rem;" onclick="clearChat()">Clear</button>
@@ -860,46 +830,35 @@ pre{background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-size:.75rem;
           <div class="msg msg-ai">
             <div class="msg-av msg-av-ai">🤖</div>
             <div>
-              <div class="msg-bubble bubble-ai">👋 **Karibu! Welcome to your Uganda Education Advisor!** 🇺🇬
-
-I can help you with:
-• **A-Level combinations** - Which subjects match your career goals
-• **University admissions** - Entry requirements for Makerere, Kyambogo, Gulu, Mbarara, and more
-• **Career guidance** - Job market trends in Uganda for 2025-2030
-• **Scholarship opportunities** - Government and private funding
-• **Salary expectations** - What different professions earn in Uganda
-• **Study tips** - How to excel in your O-Level and A-Level exams
-
-**Ask me anything about your education journey in Uganda!**</div>
+              <div class="msg-bubble bubble-ai">👋 <strong>Hello! I'm your EduPath AI — Uganda's academic guidance counselor.</strong><br/><br/>
+                I know the Ugandan education system deeply — O-Level grades, A-Level combinations, PUJAB entry requirements, university fees, and the 2025 Uganda job market.<br/><br/>
+                <strong>You can ask me things like:</strong><br/>
+                • "I got Division II with aggregates 14 — what combinations suit me?"<br/>
+                • "Is PCB or PCM better for medicine at Makerere?"<br/>
+                • "What is the salary for a nurse in Uganda?"<br/>
+                • "My parents want science but I love literature — what do I do?"<br/>
+                • "Which school in Arua offers HEG combination?"<br/><br/>
+                What would you like to know?
+              </div>
               <div class="msg-time">Now</div>
             </div>
           </div>
         </div>
         <div class="chat-input-area">
           <div class="chat-suggestions" id="chatSugs">
-            <span class="sug" onclick="sendSuggestion(this)">What A-Level combos for Medicine in Uganda?</span>
-            <span class="sug" onclick="sendSuggestion(this)">Makerere University entry requirements</span>
-            <span class="sug" onclick="sendSuggestion(this)">Which careers pay most in Uganda?</span>
-            <span class="sug" onclick="sendSuggestion(this)">PCB vs PCM - which is better?</span>
-            <span class="sug" onclick="sendSuggestion(this)">How to get a government scholarship?</span>
-            <span class="sug" onclick="sendSuggestion(this)">What's the job market like for engineers?</span>
+            <span class="sug" onclick="sendSuggestion(this)">I got aggregate 16 Division II — what combinations suit me?</span>
+            <span class="sug" onclick="sendSuggestion(this)">PCB or PCM for medicine at Makerere?</span>
+            <span class="sug" onclick="sendSuggestion(this)">What jobs are in demand in Uganda 2025?</span>
+            <span class="sug" onclick="sendSuggestion(this)">My parents want science but I love arts — help!</span>
+            <span class="sug" onclick="sendSuggestion(this)">What is the salary for an engineer in Uganda?</span>
+            <span class="sug" onclick="sendSuggestion(this)">Makerere government sponsorship — how competitive is it?</span>
+            <span class="sug" onclick="sendSuggestion(this)">Is HEG good for law?</span>
           </div>
           <div class="chat-input-row">
             <textarea id="chatInput" placeholder="Ask about combinations, careers, universities, job market…" rows="1"
               onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
             <button class="send-btn" onclick="sendChat()">➤</button>
           </div>
-        </div>
-      </div>
-      
-      <!-- AI Context Panel -->
-      <div class="card" style="margin-top:1rem;">
-        <div class="card-title"><span class="ico">📊</span>Uganda Education Quick Facts</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
-          <div><span style="color:var(--muted2);">Top Universities:</span> Makerere, Kyambogo, Gulu, Mbarara (MUST), KIU</div>
-          <div><span style="color:var(--muted2);">Popular Careers:</span> Medicine, Engineering, ICT, Law, Education</div>
-          <div><span style="color:var(--muted2);">A-Level Combinations:</span> 30+ including PCB, PCM, HEG, MEG</div>
-          <div><span style="color:var(--muted2);">Avg. Graduate Salary:</span> UGX 1.5M - 8M per month</div>
         </div>
       </div>
     </div>
@@ -913,7 +872,7 @@ I can help you with:
   <div class="auth-screen">
     <div class="auth-box">
       <div class="auth-logo"><h2>🏫 School Portal</h2><p>Administrator access — login required</p></div>
-      <div class="alert alert-muted" style="font-size:.79rem;margin-bottom:1.2rem;">🔒 Students & Parents use their free portals without login. School login is for administrators.</div>
+      <div class="alert alert-muted" style="font-size:.79rem;margin-bottom:1.2rem;">🔒 Students & Parents use their free portals without login. School login is for administrators generating bulk reports.</div>
       <div class="fld" style="margin-bottom:.85rem;"><label>School Email</label><input type="email" id="s-email" placeholder="admin@school.ug"/></div>
       <div class="fld" style="margin-bottom:.85rem;"><label>School Name</label><input type="text" id="s-school-name" placeholder="e.g. Arua Public S.S.S"/></div>
       <div class="fld" style="margin-bottom:1.2rem;"><label>Password</label><input type="password" id="s-pass" placeholder="••••••••"/></div>
@@ -933,15 +892,6 @@ I can help you with:
     <div class="app-body">
       <div class="bread"><a onclick="go('landing')">Home</a><span class="bread-sep">›</span><a onclick="go('school-auth')">Login</a><span class="bread-sep">›</span><span id="schName">School Dashboard</span></div>
       <div class="ph"><div class="ph-tag tag-violet">🏫 School Administrator</div><h2>School Dashboard</h2><p>Upload student records and generate combination guidance reports.</p></div>
-      
-      <!-- Ad Space for School Dashboard -->
-      <div class="school-ads-section" style="margin-bottom:2rem;padding:.75rem;" onclick="go('schools-ad')">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span>🏫 <strong>Promote Your School</strong> — Get featured on our platform</span>
-          <button class="btn btn-ghost" style="font-size:.75rem;">Learn More →</button>
-        </div>
-      </div>
-      
       <div class="stats-row">
         <div class="stat-box"><div class="num" style="color:var(--sky)" id="d-total">0</div><div class="lbl">Students</div></div>
         <div class="stat-box"><div class="num" style="color:var(--teal)" id="d-ok">0</div><div class="lbl">Compatible</div></div>
@@ -1023,8 +973,9 @@ const O_SUBJECTS=[
   'Fine Art','Music','Clothing and Textiles'
 ];
 
-// ─── A-LEVEL COMBINATIONS ───
+// ─── A-LEVEL COMBINATIONS (PUJAB & NCDC Aligned) ───
 const COMBOS=[
+  // SCIENCE
   {code:'PCB',full:'Physics, Chemistry, Biology',subs:['Physics','Chemistry','Biology'],sub_req:'Sub-Math',type:'Science',icon:'🔬'},
   {code:'PCM',full:'Physics, Chemistry, Mathematics',subs:['Physics','Chemistry','Mathematics'],sub_req:'ICT',type:'Science',icon:'⚗️'},
   {code:'BCM',full:'Biology, Chemistry, Mathematics',subs:['Biology','Chemistry','Mathematics'],sub_req:'ICT',type:'Science',icon:'🧬'},
@@ -1036,29 +987,110 @@ const COMBOS=[
   {code:'BCFN',full:'Biology, Chemistry, Foods and Nutrition',subs:['Biology','Chemistry','Nutrition & Food Technology'],sub_req:'Sub-Math',type:'Science',icon:'🥗'},
   {code:'BCA',full:'Biology, Chemistry, Agriculture',subs:['Biology','Chemistry','Agriculture'],sub_req:'Sub-Math',type:'Science',icon:'🌿'},
   {code:'BAG',full:'Biology, Agriculture, Geography',subs:['Biology','Agriculture','Geography'],sub_req:'Sub-Math',type:'Science',icon:'🌍'},
+  // ARTS
   {code:'HEG',full:'History, Economics, Geography',subs:['History & Political Education','Economics','Geography'],sub_req:'Sub-Math',type:'Arts',icon:'🗺️'},
   {code:'HEntG',full:'History, Entrepreneurship, Geography',subs:['History & Political Education','Entrepreneurship','Geography'],sub_req:'ICT',type:'Arts',icon:'🌐'},
   {code:'HDG',full:'History, CRE/IRE, Geography',subs:['History & Political Education','Religious Education','Geography'],sub_req:'ICT',type:'Arts',icon:'✝️'},
   {code:'HED',full:'History, Economics, CRE/IRE',subs:['History & Political Education','Economics','Religious Education'],sub_req:'Sub-Math',type:'Arts',icon:'📖'},
   {code:'HEL',full:'History, Economics, Literature',subs:['History & Political Education','Economics','Literature in English'],sub_req:'Sub-Math',type:'Arts',icon:'📚'},
-  {code:'HLG',full:'History, Literature, Geography',subs:['History & Political Education','Literature in English','Geography'],sub_req:'ICT',type:'Arts',icon:'🗺️'},
+  {code:'HLD',full:'History, Literature, CRE/IRE',subs:['History & Political Education','Literature in English','Religious Education'],sub_req:'ICT',type:'Arts',icon:'📜'},
+  {code:'DEG',full:'CRE/IRE, Entrepreneurship, Geography',subs:['Religious Education','Entrepreneurship','Geography'],sub_req:'ICT',type:'Arts',icon:'🙏'},
+  {code:'LED',full:'Literature, Entrepreneurship, CRE/IRE',subs:['Literature in English','Entrepreneurship','Religious Education'],sub_req:'ICT',type:'Arts',icon:'✍️'},
+  {code:'GEA',full:'Geography, Economics, Art',subs:['Geography','Economics','Art and Design'],sub_req:'Sub-Math',type:'Arts',icon:'🎭'},
   {code:'MEG',full:'Mathematics, Economics, Geography',subs:['Mathematics','Economics','Geography'],sub_req:'Sub-Math',type:'Arts',icon:'📊'},
+  {code:'MEA',full:'Mathematics, Economics, Art',subs:['Mathematics','Economics','Art and Design'],sub_req:'ICT',type:'Arts',icon:'🖌️'},
   {code:'MEE',full:'Mathematics, Economics, Entrepreneurship',subs:['Mathematics','Economics','Entrepreneurship'],sub_req:'ICT',type:'Arts',icon:'💼'},
   {code:'LEE',full:'Literature, Economics, Entrepreneurship',subs:['Literature in English','Economics','Entrepreneurship'],sub_req:'ICT',type:'Arts',icon:'📰'},
+  {code:'HEI',full:'History, Economics, IRE',subs:['History & Political Education','Economics','Religious Education'],sub_req:'Sub-Math',type:'Arts',icon:'☪️'},
+  {code:'HEEnt',full:'History, Economics, Entrepreneurship',subs:['History & Political Education','Economics','Entrepreneurship'],sub_req:'Sub-Math',type:'Arts',icon:'🏛️'},
+  {code:'HLG',full:'History, Literature, Geography',subs:['History & Political Education','Literature in English','Geography'],sub_req:'ICT',type:'Arts',icon:'🗺️'},
+  {code:'HLI',full:'History, Literature, IRE',subs:['History & Political Education','Literature in English','Religious Education'],sub_req:'ICT',type:'Arts',icon:'🕌'},
+  {code:'FEL',full:'French, Entrepreneurship, Literature',subs:['Kiswahili','Entrepreneurship','Literature in English'],sub_req:'ICT',type:'Arts',icon:'🇫🇷'},
+  {code:'HDCT',full:'History, CRE, Clothing & Textile',subs:['History & Political Education','Religious Education','Clothing and Textiles'],sub_req:'ICT',type:'Arts',icon:'🧵'},
 ];
 
-// ─── DEGREE PROGRAMMES ───
+// ─── DEGREE PROGRAMMES (from PUJAB Booklet) ───
 const DEGREES=[
-  {prog:'Bachelor of Medicine & Surgery (MBChB)',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Medical Doctor','Surgeon'],combos:['PCB','BCA','BCM'],icon:'🩺'},
-  {prog:'Bachelor of Pharmacy',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Pharmacist','Clinical Researcher'],combos:['PCB','BCM','BCA'],icon:'💊'},
-  {prog:'Bachelor of Nursing Science',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Agriculture','Mathematics'],careers:['Registered Nurse','Midwife'],combos:['PCB','BCFN','BCA'],icon:'👩‍⚕️'},
-  {prog:'BSc. Civil Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Civil Engineer','Structural Engineer'],combos:['PCM','PEM','PMTD'],icon:'🏗️'},
-  {prog:'BSc. Electrical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Electrical Engineer','Power Engineer'],combos:['PCM','PEM'],icon:'⚡'},
-  {prog:'BSc. Mechanical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Mechanical Engineer','Manufacturing Engineer'],combos:['PCM','PEM','PMTD'],icon:'⚙️'},
-  {prog:'BSc. Computer Science',cat:'Computing',essential:['Mathematics'],relevant:['Physics','Economics'],careers:['Software Developer','Data Scientist'],combos:['PCM','PEM','MEG','MEE'],icon:'💻'},
-  {prog:'Bachelor of Commerce',cat:'Business',essential:['Economics','Mathematics'],relevant:['Physics','Geography'],careers:['Accountant','Business Consultant'],combos:['MEG','HEG','PEM','MEE'],icon:'💼'},
-  {prog:'Bachelor of Laws (LLB)',cat:'Law',essential:['Any two A-Level subjects'],relevant:['History','Literature'],careers:['Lawyer','Legal Consultant'],combos:['HEL','HED','HLG','HEG'],icon:'⚖️'},
-  {prog:'Bachelor of Journalism',cat:'Arts',essential:['History','Literature'],relevant:['Economics','Geography'],careers:['Journalist','PR Officer'],combos:['HEL','LEE','HLG'],icon:'📰'},
+  // Health Sciences
+  {prog:'Bachelor of Medicine & Surgery (MBChB)',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Medical Doctor','Surgeon','General Practitioner','Medical Researcher'],combos:['PCB','BCA','BCM'],icon:'🩺'},
+  {prog:'Bachelor of Pharmacy',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Pharmacist','Clinical Researcher','Pharmaceutical Scientist'],combos:['PCB','BCM','BCA'],icon:'💊'},
+  {prog:'Bachelor of Nursing Science',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Agriculture','Mathematics','Physics','Nutrition & Food Technology'],careers:['Registered Nurse','Midwife','Public Health Nurse'],combos:['PCB','BCFN','BCA'],icon:'👩‍⚕️'},
+  {prog:'Bachelor of Dental Surgery',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics'],careers:['Dentist','Oral Surgeon','Orthodontist'],combos:['PCB','BCM'],icon:'🦷'},
+  {prog:'BSc. Biomedical Sciences',cat:'Health Science',essential:['Biology','Chemistry'],relevant:['Physics','Mathematics'],careers:['Biomedical Scientist','Laboratory Technician','Geneticist'],combos:['PCB','BCM','BCFN'],icon:'🧬'},
+  {prog:'BSc. Medical Radiography',cat:'Health Science',essential:['Biology','Physics'],relevant:['Mathematics','Chemistry'],careers:['Radiographer','Sonographer','Medical Imaging Specialist'],combos:['PCB','PCM'],icon:'🔬'},
+  {prog:'BSc. Biomedical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Biology','Chemistry'],careers:['Biomedical Engineer','Medical Equipment Designer','Healthcare Technologist'],combos:['PCM','PEM'],icon:'⚕️'},
+  {prog:'BSc. Optometry',cat:'Health Science',essential:['Biology','Physics'],relevant:['Chemistry','Mathematics'],careers:['Optometrist','Vision Scientist'],combos:['PCB','PCM'],icon:'👁️'},
+  // Engineering
+  {prog:'BSc. Civil Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Civil Engineer','Structural Engineer','Construction Manager'],combos:['PCM','PEM','PMTD'],icon:'🏗️'},
+  {prog:'BSc. Electrical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Electrical Engineer','Power Systems Engineer','Telecommunications Engineer'],combos:['PCM','PEM'],icon:'⚡'},
+  {prog:'BSc. Mechanical Engineering',cat:'Engineering',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['Mechanical Engineer','Automotive Engineer','Manufacturing Engineer'],combos:['PCM','PEM','PMTD'],icon:'⚙️'},
+  {prog:'BSc. Computer Science',cat:'Computing',essential:['Mathematics'],relevant:['Physics','Chemistry','Economics'],careers:['Software Developer','Data Scientist','Cybersecurity Specialist','AI Engineer'],combos:['PCM','PEM','MEG','MEE'],icon:'💻'},
+  {prog:'BSc. Software Engineering',cat:'Computing',essential:['Mathematics'],relevant:['Physics','Economics','Geography'],careers:['Software Engineer','App Developer','Systems Analyst'],combos:['PCM','PEM','MEE'],icon:'👨‍💻'},
+  {prog:'Bachelor of Information Systems & Technology',cat:'Computing',essential:['Mathematics','Economics'],relevant:['Physics','Geography'],careers:['IT Manager','Systems Administrator','Business Analyst'],combos:['MEE','PEM','MEG'],icon:'🖥️'},
+  {prog:'BSc. Agricultural Engineering',cat:'Agriculture',essential:['Mathematics','Physics'],relevant:['Chemistry','Agriculture'],careers:['Agricultural Engineer','Irrigation Engineer','Farm Equipment Designer'],combos:['PCM','PAGM','PEM'],icon:'🚜'},
+  {prog:'BSc. Agriculture',cat:'Agriculture',essential:['Biology','Chemistry','Agriculture'],relevant:['Mathematics','Geography'],careers:['Agronomist','Crop Scientist','Farm Manager'],combos:['BCA','BAG','BCFN'],icon:'🌾'},
+  {prog:'Bachelor of Agribusiness Management',cat:'Agriculture',essential:['Mathematics','Biology','Chemistry'],relevant:['Economics','Geography'],careers:['Agribusiness Manager','Agricultural Economist','Farm Business Consultant'],combos:['BCM','BCA','MEG'],icon:'🌱'},
+  {prog:'BSc. Food Science & Technology',cat:'Agriculture',essential:['Biology','Chemistry'],relevant:['Physics','Nutrition & Food Technology'],careers:['Food Scientist','Quality Control Officer','Nutritionist'],combos:['BCFN','BCA','PCB'],icon:'🍽️'},
+  {prog:'BSc. Human Nutrition & Dietetics',cat:'Health Science',essential:['Biology','Chemistry','Nutrition & Food Technology'],relevant:['Agriculture','Physics'],careers:['Dietitian','Clinical Nutritionist','Public Health Nutritionist'],combos:['BCFN','BCA','PCB'],icon:'🥗'},
+  {prog:'Bachelor of Environmental Science',cat:'Agriculture',essential:['Biology','Chemistry','Physics'],relevant:['Mathematics','Geography'],careers:['Environmental Scientist','Conservation Specialist','Climate Change Analyst'],combos:['PCB','BCA','BAG'],icon:'🌍'},
+  {prog:'Bachelor of Veterinary Medicine',cat:'Agriculture',essential:['Biology','Chemistry'],relevant:['Mathematics','Physics','Agriculture'],careers:['Veterinary Doctor','Animal Health Specialist','Wildlife Conservationist'],combos:['PCB','BCA','BCFN'],icon:'🐾'},
+  // Business
+  {prog:'Bachelor of Commerce',cat:'Business',essential:['Economics','Mathematics'],relevant:['Physics','Geography'],careers:['Accountant','Auditor','Business Consultant','Investment Banker'],combos:['MEG','HEG','PEM','MEE'],icon:'💼'},
+  {prog:'Bachelor of Business Administration',cat:'Business',essential:['Economics','Entrepreneurship'],relevant:['Mathematics','History'],careers:['Business Manager','Entrepreneur','Marketing Executive','HR Manager'],combos:['MEE','HEEnt','HEntG','LEE'],icon:'📊'},
+  {prog:'Bachelor of Arts (Economics)',cat:'Business',essential:['Economics'],relevant:['Mathematics','Geography'],careers:['Economist','Policy Advisor','Financial Planner','Market Analyst'],combos:['HEG','MEG','MEE','HEL'],icon:'📈'},
+  {prog:'BSc. Actuarial Science',cat:'Business',essential:['Mathematics'],relevant:['Physics','Economics'],careers:['Actuary','Risk Manager','Financial Analyst','Insurance Analyst'],combos:['PCM','PEM','MEG'],icon:'🔢'},
+  {prog:'BSc. Quantitative Economics',cat:'Business',essential:['Mathematics','Economics'],relevant:['Physics','Geography'],careers:['Economist','Financial Consultant','Data Scientist'],combos:['MEG','PEM','MEE'],icon:'📉'},
+  {prog:'BSc. Statistics',cat:'Business',essential:['Mathematics'],relevant:['Economics','Physics'],careers:['Statistician','Data Analyst','Market Researcher'],combos:['PCM','PEM','MEG'],icon:'📐'},
+  // Law
+  {prog:'Bachelor of Laws (LLB)',cat:'Law',essential:['Any two A-Level subjects'],relevant:['History','Literature','Economics'],careers:['Lawyer','Judge','Legal Consultant','Human Rights Advocate'],combos:['HEL','HED','HLG','HEG'],icon:'⚖️'},
+  // Arts/Humanities
+  {prog:'Bachelor of Journalism & Communication',cat:'Arts',essential:['History','Literature','Economics'],relevant:['Geography','CRE/IRE','Languages'],careers:['Journalist','Media Analyst','Public Relations Officer','News Editor'],combos:['HEL','LEE','HLG','FEL'],icon:'📰'},
+  {prog:'Bachelor of Arts (Education)',cat:'Education',essential:['History','Literature','Geography','Economics'],relevant:['Languages','Music','Art'],careers:['Secondary School Teacher','Curriculum Developer','Education Consultant'],combos:['HEG','HEL','HLD','HLG'],icon:'👩‍🏫'},
+  {prog:'BSc. Education (Biological)',cat:'Education',essential:['Biology','Chemistry'],relevant:['Physics','Mathematics'],careers:['Science Teacher','Lab Technician','Research Scientist'],combos:['PCB','BCA','BCM'],icon:'🔬'},
+  {prog:'BSc. Education (Physical)',cat:'Education',essential:['Mathematics','Physics'],relevant:['Chemistry','Biology'],careers:['Physics/Chemistry Teacher','Curriculum Designer'],combos:['PCM','PEM'],icon:'⚛️'},
+  {prog:'BSc. Education (Economics)',cat:'Education',essential:['Mathematics','Economics'],relevant:['Chemistry','Biology'],careers:['Economics Teacher','Financial Analyst','Business Consultant'],combos:['MEG','PEM','MEE'],icon:'📊'},
+  {prog:'Bachelor of Applied Psychology',cat:'Arts',essential:['Any two A-Level subjects'],relevant:['Biology','History','Economics'],careers:['Clinical Psychologist','Counsellor','Human Resource Specialist'],combos:['HEG','HEL','HED','PCB'],icon:'🧠'},
+  {prog:'Bachelor of Tourism & Hospitality Management',cat:'Arts',essential:['Economics','Geography'],relevant:['Biology','Entrepreneurship'],careers:['Hotel Manager','Tour Operator','Travel Consultant'],combos:['HEntG','HEG','GEA','MEG'],icon:'✈️'},
+  {prog:'Bachelor of Architecture',cat:'Engineering',essential:['Mathematics','Fine Art'],relevant:['Physics','Economics'],careers:['Architect','Urban Planner','Interior Designer'],combos:['PAM','PCM','PEM','PMTD'],icon:'🏛️'},
+  {prog:'BSc. AI & Machine Learning',cat:'Computing',essential:['Mathematics','Physics'],relevant:['Chemistry','Economics'],careers:['AI Research Scientist','Machine Learning Engineer','Robotics Engineer','Data Scientist'],combos:['PCM','PEM','BCM'],icon:'🤖'},
+  {prog:'BSc. Networking & Cyber Security',cat:'Computing',essential:['Mathematics','Physics'],relevant:['Economics'],careers:['Cybersecurity Analyst','Network Engineer','Penetration Tester'],combos:['PCM','PEM','MEE'],icon:'🔐'},
+  {prog:'BSc. Industrial Chemistry',cat:'Science',essential:['Chemistry','Mathematics'],relevant:['Biology','Physics'],careers:['Industrial Chemist','Chemical Engineer','Quality Control Analyst'],combos:['PCM','BCM','PCB'],icon:'⚗️'},
+  {prog:'BSc. Biotechnology',cat:'Science',essential:['Biology','Chemistry','Agriculture'],relevant:['Mathematics','Physics'],careers:['Biotechnologist','Genetic Engineer','Biomedical Researcher'],combos:['BCA','BCM','BCFN','PCB'],icon:'🧫'},
+  {prog:'BSc. Petroleum Geoscience & Production',cat:'Science',essential:['Chemistry','Physics','Mathematics'],relevant:['Biology','Economics'],careers:['Petroleum Geologist','Oil & Gas Engineer','Environmental Consultant'],combos:['PCM','PCB','PEM'],icon:'⛽'},
+];
+
+// ─── UGANDA UNIVERSITIES ───
+const UNIS=[
+  {name:'Makerere University',abbr:'MAK',loc:'Kampala',type:'Public',icon:'🏛️',category:['science','engineering','arts','business','education'],featured:true,
+   progs:['Medicine & Surgery','Engineering (Civil, Electrical, Mechanical)','Computer Science','Law','Economics','Education','Agriculture','Nursing','Pharmacy','Architecture','Fine Art','Social Sciences']},
+  {name:'Mbarara University of Science & Technology',abbr:'MUST',loc:'Mbarara',type:'Public',icon:'🔬',category:['science','engineering'],featured:true,
+   progs:['Medicine & Surgery','Nursing','Pharmacy','Computer Science','Environmental Health','Biomedical Sciences','Software Engineering']},
+  {name:'Gulu University',abbr:'GU',loc:'Gulu',type:'Public',icon:'📚',category:['arts','business','education','science'],featured:true,
+   progs:['Medicine & Surgery','Education (Arts & Science)','Business Administration','Agriculture','Social Sciences','Law','Computer Science']},
+  {name:'Busitema University',abbr:'BUBU',loc:'Tororo/Busia',type:'Public',icon:'⚙️',category:['engineering','science'],featured:false,
+   progs:['Civil Engineering','Electrical Engineering','Agricultural Engineering','Computer Science','Nursing','Fisheries & Aquaculture']},
+  {name:'Mountains of the Moon University',abbr:'MMU',loc:'Fort Portal',type:'Private',icon:'🏔️',category:['arts','business','education'],featured:false,
+   progs:['Tourism & Hospitality','Business Administration','Education','Community Psychology','Agriculture']},
+  {name:'Uganda Christian University',abbr:'UCU',loc:'Mukono',type:'Private',icon:'⛪',category:['arts','business','education'],featured:true,
+   progs:['Law','Business Administration','Social Sciences','Journalism & Communication','Education','Computer Science','Nursing']},
+  {name:'Kyambogo University',abbr:'KYU',loc:'Kampala',type:'Public',icon:'🏫',category:['education','engineering','arts'],featured:true,
+   progs:['Education (BSc, BA, BEd)','Engineering','Vocational Studies','Fine Art & Industrial Design','Music, Dance & Drama','Social Sciences']},
+  {name:'Islamic University in Uganda',abbr:'IUIU',loc:'Mbale/Kampala',type:'Private',icon:'🕌',category:['arts','business','education','science'],featured:false,
+   progs:['Law','Business Administration','Education','Medicine & Surgery','Agriculture','Computer Science','Islamic Studies']},
+  {name:'Uganda Martyrs University',abbr:'UMU',loc:'Nkozi/Kampala',type:'Private',icon:'✝️',category:['arts','business','education','science'],featured:false,
+   progs:['Public Health','Social Sciences','Business Administration','Education','Computer Science','Agriculture']},
+  {name:'Nkumba University',abbr:'NU',loc:'Entebbe',type:'Private',icon:'✈️',category:['business','arts'],featured:false,
+   progs:['Tourism & Hospitality','Business Administration','Computer Science','Social Sciences','Education','Library & Information Science']},
+  {name:'Ndejje University',abbr:'NDU',loc:'Ndejje',type:'Private',icon:'🌿',category:['arts','business','education'],featured:false,
+   progs:['Education','Business Administration','Computer Science','Agriculture','Social Sciences']},
+  {name:'Lira University',abbr:'LU',loc:'Lira',type:'Public',icon:'🌾',category:['arts','education','science'],featured:false,
+   progs:['Medicine & Surgery','Education','Business Administration','Computer Science','Agriculture','Public Health']},
+  {name:'Kabale University',abbr:'KAB',loc:'Kabale',type:'Public',icon:'🏡',category:['arts','business','education'],featured:false,
+   progs:['Education','Business Administration','Computer Science','Agriculture','Social Sciences','Nursing']},
+  {name:'Bishop Stuart University',abbr:'BSU',loc:'Mbarara',type:'Private',icon:'📖',category:['arts','business','education'],featured:false,
+   progs:['Business Administration','Education','Social Sciences','Computer Science','Agriculture']},
+  {name:'Kampala International University',abbr:'KIU',loc:'Kampala/Ishaka',type:'Private',icon:'🌍',category:['science','business','arts','education'],featured:true,
+   progs:['Medicine & Surgery','Nursing','Pharmacy','Business Administration','Computer Science','Law','Education','Engineering']},
 ];
 
 // ─── CAREER → COMBO MAPPING ───
@@ -1070,54 +1102,49 @@ const CAREER_MAP={
   'Nursing':['PCB','BCFN','BCA'],
   'Agriculture / Agribusiness':['BCA','BAG','BCFN','PAGM'],
   'Law':['HEL','HEG','HED','HLG'],
-  'Journalism / Communication':['HEL','LEE','HLG'],
-  'Business / Commerce / Accounting':['MEG','MEE','HEG'],
+  'Journalism / Communication':['HEL','LEE','HLG','FEL'],
+  'Business / Commerce / Accounting':['MEG','MEE','HEG','HEEnt'],
   'Education (Science)':['PCM','PCB','BCM'],
-  'Education (Arts)':['HEG','HEL','HLG'],
+  'Education (Arts)':['HEG','HEL','HLD','HLG'],
+  'Architecture':['PAM','PCM','PMTD'],
+  'Food Science / Nutrition':['BCFN','BCA','PCB'],
+  'Environmental Science':['PCB','BCA','BAG'],
+  'Veterinary Medicine':['PCB','BCA','BCFN'],
+  'AI / Machine Learning / Data Science':['PCM','PEM','BCM'],
+  'Tourism & Hospitality':['HEntG','HEG','GEA'],
+  'Psychology / Social Work':['HEG','HEL','HED'],
+  'Economics / Finance':['MEG','MEE','PEM','HEG'],
+  'Fine Art / Design / Multimedia':['PAM','MEA','GEA'],
+  'Industrial Chemistry':['PCM','BCM','PCB'],
+  'Biotechnology':['BCA','BCM','BCFN'],
 };
 
-// ─── SCHOOL ADVERTISEMENTS DATA ───
-const SCHOOL_ADS = [
-  {name:'Arua Public Secondary School',location:'Arua City',region:'northern',students:1200,type:'Government',premium:true,icon:'🏫',description:'Leading co-ed school in West Nile with excellent science facilities.'},
-  {name:'St. Joseph\'s College Layibi',location:'Gulu',region:'northern',students:1500,type:'Government',premium:true,icon:'⛪',description:'Top performing school with rich history and academic excellence.'},
-  {name:'Namilyango College',location:'Mukono',region:'central',students:1400,type:'Government',premium:true,icon:'🏛️',description:'Prestigious boys\' school with outstanding O-Level and A-Level results.'},
-  {name:'Gayaza High School',location:'Gayaza',region:'central',students:1600,type:'Government',premium:true,icon:'👧',description:'Premier girls\' school known for academic excellence and discipline.'},
-  {name:'Kibuli Secondary School',location:'Kampala',region:'kampala',students:1800,type:'Government',premium:false,icon:'🕌',description:'Diverse school in Kampala with strong science and arts programs.'},
-  {name:'Mbarara High School',location:'Mbarara',region:'western',students:1300,type:'Government',premium:true,icon:'🏔️',description:'Historic school in western Uganda with excellent performance.'},
-  {name:'Busoga College Mwiri',location:'Jinja',region:'eastern',students:1500,type:'Government',premium:true,icon:'🌊',description:'Famous boys\' school on Mwiri Hill with proud traditions.'},
-  {name:'Mt. St. Mary\'s Namagunga',location:'Mukono',region:'central',students:1400,type:'Government',premium:true,icon:'⛰️',description:'Top girls\' boarding school with strong academic record.'},
-  {name:'Gulu High School',location:'Gulu',region:'northern',students:1100,type:'Government',premium:false,icon:'📚',description:'Diverse school serving the northern region with dedicated staff.'},
-  {name:'Kampala High School',location:'Kampala',region:'kampala',students:2000,type:'Private',premium:false,icon:'🌆',description:'Large day school in Kampala with affordable fees.'},
-  {name:'St. Mary\'s College Kisubi',location:'Kisubi',region:'central',students:1500,type:'Government',premium:true,icon:'⚓',description:'Elite boys\' school (SMACK) with international recognition.'},
-  {name:'King\'s College Budo',location:'Mityana',region:'central',students:1400,type:'Government',premium:true,icon:'👑',description:'Royal school with rich heritage and academic excellence.'},
-];
-
-const TIPS = [
-  'Focus on your weaker subjects early — don\'t wait until exams approach.',
-  'Create a study timetable and stick to it consistently.',
-  'Practice with past UNEB papers to understand exam patterns.',
-  'Form study groups with classmates to discuss difficult topics.',
-  'Take regular breaks during study sessions to maintain concentration.',
-  'Use mnemonics and memory techniques for subject content.',
-  'Stay healthy — eat well, exercise, and get enough sleep.',
-  'Ask teachers for help when you don\'t understand something.',
-  'Set specific, achievable goals for each study session.',
-  'Review your notes within 24 hours of learning new material.',
-  'Use diagrams and mind maps for complex subjects.',
-  'Teach concepts to others to reinforce your understanding.',
-  'Stay organized with folders and notes for each subject.',
-  'Minimize distractions like phones during study time.',
-  'Take practice exams under timed conditions.',
-  'Focus on understanding concepts, not just memorizing facts.',
-  'Use highlighters and sticky notes to mark important information.',
-  'Reward yourself after achieving study goals.',
-  'Stay positive and believe in your ability to succeed.',
-  'Review and revise regularly, not just before exams.',
-  'Use online resources and educational videos for difficult topics.',
-  'Participate actively in class discussions.',
-  'Keep a study journal to track your progress.',
-  'Balance study with relaxation and hobbies.',
-  'Remember that consistent effort leads to success.',
+const TIPS=[
+  'Have the Right Mindset — approach subjects with focus and motivation.',
+  'Attitude is Key — cultivate a growth mindset. A positive attitude helps you stay resilient.',
+  'Choose Subjects Aligned with Career Goals — not just peer influence.',
+  'Follow Your Heart, Not the Crowd — choose subjects matching your interests and strengths.',
+  'Prioritise Learning a Skill — critical thinking, research, and time management matter.',
+  'Plan and Be Self-Driven — develop a study schedule and stay disciplined.',
+  'Utilise Textbooks — make notes, summarise key points, and revisit difficult topics.',
+  'Engage in Research — explore online platforms, academic journals, and peer discussions.',
+  'Master Time Management — create a timetable that balances study, breaks and revision.',
+  'Seek Help When Needed — ask teachers, classmates or tutors about difficult topics.',
+  'Stay Consistent with Revision — start early and avoid cramming.',
+  'Build Exam Techniques — practice past papers and mock exams regularly.',
+  'Stay Physically and Mentally Healthy — eat well, sleep enough, and recharge.',
+  'Stay Positive and Believe in Yourself — confidence enhances performance.',
+  'Engage with Learning Beyond the Classroom — extracurriculars expand knowledge.',
+  'Develop Critical Thinking Skills — analyse, evaluate, and apply information critically.',
+  'Stay Organised — keep study materials and notes well-organised.',
+  'Set Realistic Goals — break long-term goals into smaller achievable steps.',
+  'Balance Social Life and Studies — maintain a healthy work-life balance.',
+  'Be Adaptable to Changes — if something is not working, try a new approach.',
+  'Track Your Progress — regularly assess each subject and adjust your study plan.',
+  'Build Confidence — recognise your strengths and acknowledge your progress.',
+  'Avoid Procrastination — break tasks down and use techniques like Pomodoro.',
+  'Stay Informed and Updated — keep up with news relevant to your subjects.',
+  'Reflect on Your Learning — identify areas for improvement regularly.',
 ];
 
 // ═══════════════════ STATE ═══════════════════
@@ -1125,34 +1152,6 @@ let GRADES={};
 let schoolStudents=[];
 let chatHistory=[];
 let schoolName='';
-let currentUser = null;
-
-// ═══════════════════ AUTHENTICATION ═══════════════════
-function login(email, password, userType) {
-  // In a real app, this would validate against a backend
-  // For demo, we'll accept any credentials
-  currentUser = { email, userType };
-  localStorage.setItem('eduPathUser', JSON.stringify(currentUser));
-  return true;
-}
-
-function logout() {
-  currentUser = null;
-  localStorage.removeItem('eduPathUser');
-  go('landing');
-}
-
-function checkAuth() {
-  const saved = localStorage.getItem('eduPathUser');
-  if (saved) {
-    try {
-      currentUser = JSON.parse(saved);
-    } catch {
-      currentUser = null;
-    }
-  }
-  return currentUser;
-}
 
 // ═══════════════════ NAVIGATION ═══════════════════
 function go(id){
@@ -1160,9 +1159,8 @@ function go(id){
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('on'));
   window.scrollTo(0,0);
-  if(id==='schools-ad') renderSchoolsAds();
+  if(id==='schools-advert') renderAdvertisers();
   if(id==='student') buildGradeForm();
-  if(id==='ai-advisor') updateAIContext();
 }
 
 function switchTab(scope,paneId,btn){
@@ -1178,538 +1176,9 @@ function schoolLogin(){
   const p=document.getElementById('s-pass').value;
   const sn=document.getElementById('s-school-name').value||'School';
   if(!e||!p){alert('Please enter email and password.');return;}
-  
-  if(login(e, p, 'school_admin')) {
-    schoolName=sn;
-    document.getElementById('schName').textContent=sn+' — Dashboard';
-    go('school');
-  } else {
-    alert('Login failed. Please check your credentials.');
-  }
-}
-
-// ═══════════════════ SCHOOL ADS ═══════════════════
-function renderSchoolsAds(){
-  const filter=document.getElementById('school-region-filter')?.value||'';
-  const grid=document.getElementById('schoolsAdsGrid');
-  if(!grid) return;
-  
-  let filtered = SCHOOL_ADS;
-  if(filter) {
-    filtered = SCHOOL_ADS.filter(s => s.region === filter);
-  }
-  
-  let h = '';
-  filtered.forEach(s => {
-    h += `<div class="school-ad-card" onclick="viewSchoolDetails('${s.name}')">
-      <div class="school-ad-icon">${s.icon}</div>
-      <div class="school-ad-name">${s.name}</div>
-      <div class="school-ad-location">📍 ${s.location}</div>
-      <span class="school-ad-badge ${s.premium ? 'premium' : 'standard'}">${s.premium ? '⭐ Premium' : 'Standard'}</span>
-      <div style="margin-top:.8rem;font-size:.8rem;color:var(--muted2);">${s.students}+ students</div>
-    </div>`;
-  });
-  
-  grid.innerHTML = h;
-  
-  // Update tickers
-  const schoolNames = SCHOOL_ADS.slice(0,3).map(s => s.name).join(' · ');
-  ['studentSchoolTicker', 'parentSchoolTicker'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.textContent = schoolNames;
-  });
-  
-  // Update featured schools on landing
-  const featuredGrid = document.getElementById('featuredSchoolsLanding');
-  if(featuredGrid) {
-    let featured = SCHOOL_ADS.filter(s => s.premium).slice(0,3);
-    let fh = '';
-    featured.forEach(s => {
-      fh += `<div class="school-ad-card" style="padding:1rem;" onclick="viewSchoolDetails('${s.name}')">
-        <div class="school-ad-icon" style="width:50px;height:50px;font-size:1.5rem;">${s.icon}</div>
-        <div class="school-ad-name" style="font-size:1rem;">${s.name}</div>
-        <div class="school-ad-location">${s.location}</div>
-      </div>`;
-    });
-    featuredGrid.innerHTML = fh;
-  }
-}
-
-function viewSchoolDetails(name){
-  const school = SCHOOL_ADS.find(s => s.name === name);
-  if(!school) return;
-  
-  const modalBody = document.getElementById('modalBody');
-  modalBody.innerHTML = `
-    <h2 style="font-family:'Syne',sans-serif;margin-bottom:.5rem;">${school.icon} ${school.name}</h2>
-    <p style="color:var(--muted2);margin-bottom:1rem;">📍 ${school.location} · ${school.type}</p>
-    <div style="background:rgba(255,255,255,.02);border-radius:8px;padding:1rem;margin-bottom:1rem;">
-      <p>${school.description}</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
-      <div><span style="color:var(--muted2);">Students:</span><br><strong>${school.students}+</strong></div>
-      <div><span style="color:var(--muted2);">Region:</span><br><strong>${school.region}</strong></div>
-    </div>
-    <div style="background:rgba(245,200,66,.05);border-radius:8px;padding:1rem;margin:1rem 0;">
-      <strong>📞 Contact Information</strong><br>
-      <p style="margin-top:.5rem;">Email: info@${school.name.toLowerCase().replace(/\s+/g,'')}.ug<br>
-      Phone: +256 XXX XXX XXX<br>
-      Website: www.${school.name.toLowerCase().replace(/\s+/g,'')}.ug</p>
-    </div>
-    <button class="btn btn-gold btn-full" onclick="closeModal()">Close</button>
-  `;
-  document.getElementById('modalBg').classList.add('on');
-}
-
-function openAdModal(){
-  const modalBody = document.getElementById('modalBody');
-  modalBody.innerHTML = `
-    <h2 style="font-family:'Syne',sans-serif;margin-bottom:1rem;">📢 Advertise Your School</h2>
-    <p style="margin-bottom:1rem;">Reach thousands of students and parents across Uganda.</p>
-    <div style="background:rgba(245,200,66,.05);border-radius:8px;padding:1rem;margin-bottom:1rem;">
-      <strong>Contact our advertising team:</strong><br>
-      <p style="margin-top:.5rem;">📧 ads@edupath.ug<br>
-      📞 +256 700 123 456<br>
-      💬 WhatsApp: +256 700 123 456</p>
-    </div>
-    <p style="color:var(--muted2);margin-bottom:1rem;">Or fill out this form and we'll contact you:</p>
-    <div class="fld"><label>School Name</label><input type="text" placeholder="Your school name"/></div>
-    <div class="fld"><label>Contact Person</label><input type="text" placeholder="Full name"/></div>
-    <div class="fld"><label>Email</label><input type="email" placeholder="admin@school.ug"/></div>
-    <div class="fld"><label>Phone</label><input type="tel" placeholder="+256 XXX XXX XXX"/></div>
-    <div class="form-row">
-      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-gold" onclick="alert('Thank you! Our team will contact you soon.');closeModal();">Submit Inquiry</button>
-    </div>
-  `;
-  document.getElementById('modalBg').classList.add('on');
-}
-
-// ═══════════════════ IMPROVED AI ADVISOR ═══════════════════
-const UGANDA_EDUCATION_CONTEXT = `
-You are EduPath AI Advisor, an expert on Ugandan education with comprehensive knowledge of:
-1. Uganda National Curriculum Development Centre (NCDC) guidelines
-2. Uganda National Examinations Board (UNEB) requirements
-3. A-Level subject combinations approved in Uganda (30+ combinations including Science: PCB, PCM, BCM, PEM; Arts: HEG, HEL, MEG, etc.)
-4. All Ugandan universities: Makerere, Kyambogo, Gulu, Mbarara (MUST), KIU, UCU, Ndejje, Busitema, Kabale, Lira, Mountains of the Moon, etc.
-5. Entry requirements for every degree programme in Uganda
-6. Uganda job market trends, salary expectations, and career prospects
-7. Government and private scholarship opportunities
-8. UNEB grading system and how to interpret results
-9. Study tips and exam preparation strategies
-
-Uganda Job Market Context (2025):
-- Healthcare: Doctors (UGX 2-8M/month), Nurses (UGX 1.5-4M), Pharmacists (UGX 2-6M)
-- Engineering: Civil/Electrical (UGX 2.5-15M/month) - high demand for oil & gas projects
-- ICT/Tech: Software developers (UGX 2.5-20M/month), Cybersecurity (UGX 3-12M)
-- Education: Teachers (UGX 600k-3M), University lecturers (UGX 2-8M)
-- Law: Junior lawyers (UGX 1-3M), Senior (UGX 5-20M+)
-- Business: Accountants (UGX 1.5-6M), Bankers (UGX 2-8M)
-- Agriculture: Agribusiness managers (UGX 1.5-8M)
-- Oil & Gas: Emerging sector with high salaries (UGX 5-25M)
-
-Give practical, specific advice for Ugandan students. Be encouraging but honest. Always mention specific universities, programmes, and salary ranges in UGX.`;
-
-function updateAIContext(){
-  // Add any user-specific context if needed
-  const hasGrades = Object.keys(GRADES).length > 0;
-  if(hasGrades) {
-    // Could add personalized context based on user's grades
-  }
-}
-
-async function sendChat(){
-  const input=document.getElementById('chatInput');
-  const msg=input.value.trim();
-  if(!msg) return;
-  input.value='';
-  addMsg('user',msg);
-  document.getElementById('chatSugs').style.display='none';
-  const typingId=addTyping();
-  
-  // Simulate AI response with Ugandan education context
-  setTimeout(() => {
-    removeTyping(typingId);
-    
-    let reply = generateAIResponse(msg);
-    addMsg('ai',reply);
-    
-    chatHistory.push({role:'user',content:msg});
-    chatHistory.push({role:'assistant',content:reply});
-    if(chatHistory.length>20) chatHistory=chatHistory.slice(-20);
-    
-    document.getElementById('chatSugs').style.display='flex';
-  }, 1500);
-}
-
-function generateAIResponse(query){
-  query = query.toLowerCase();
-  
-  // Medicine responses
-  if(query.includes('medicine') || query.includes('doctor') || query.includes('mbchb')) {
-    return `**For Medicine in Uganda:** 🇺🇬
-
-**Required A-Level Combination:** PCB (Physics, Chemistry, Biology) or BCM
-
-**Minimum Grades:** At least 2 Principal passes (C or better) in Biology and Chemistry, with a subsidiary in Physics or Mathematics.
-
-**Top Universities:**
-• Makerere University (MBChB) - Most competitive, cut-off points usually 20+
-• Mbarara University (MUST) - Excellent medical school
-• Gulu University - Growing medical program
-• KIU - Private option with lower entry requirements
-
-**Career Outlook:** Doctors in Uganda earn UGX 2-8 million/month in government, up to UGX 15M+ in private practice. High demand in rural areas.
-
-**Tip:** If your Biology is weak, consider Pharmacy or Nursing as alternatives.`;
-  }
-  
-  // Engineering responses
-  else if(query.includes('engineer')) {
-    return `**Engineering in Uganda:** ⚙️
-
-**Required Combination:** PCM (Physics, Chemistry, Mathematics) or PEM
-
-**Popular Specializations:**
-• Civil Engineering - Infrastructure, roads, buildings
-• Electrical Engineering - Power, telecommunications
-• Mechanical Engineering - Manufacturing, automotive
-• Software Engineering - Tech sector (growing fast!)
-
-**Top Universities:**
-• Makerere University (College of Engineering)
-• Kyambogo University (Practical focus)
-• Busitema University (Rural engineering focus)
-• KIU (Private option)
-
-**Salary Range:** 
-• Graduate engineers: UGX 1.5-3M/month
-• Experienced: UGX 4-10M/month
-• Oil & Gas sector: UGX 8-25M/month
-
-**Job Market:** High demand due to oil pipeline, infrastructure projects, and growing tech sector.`;
-  }
-  
-  // Law responses
-  else if(query.includes('law') || query.includes('lawyer') || query.includes('llb')) {
-    return `**Studying Law in Uganda:** ⚖️
-
-**A-Level Requirements:** Any combination, but HEL (History, Economics, Literature) is preferred.
-
-**Minimum:** 2 Principal passes
-
-**Top Law Schools:**
-• Makerere University (Top-ranked)
-• Uganda Christian University (UCU) - Mukono
-• Islamic University in Uganda (IUIU)
-• KIU - Kampala
-
-**Path to Practice:**
-1. Complete LLB (4 years)
-2. Postgraduate Diploma in Legal Practice (LDC - 1 year)
-3. Enrollment as advocate
-
-**Salary Range:**
-• Junior lawyers: UGX 1-3M/month
-• Senior associates: UGX 5-12M
-• Partners: UGX 15-30M+
-
-**Tip:** Law is competitive - aim for at least 14-16 points at A-Level for Makerere.`;
-  }
-  
-  // Computer Science / IT responses
-  else if(query.includes('computer') || query.includes('software') || query.includes('it') || query.includes('tech')) {
-    return `**Computer Science & IT in Uganda:** 💻
-
-**Required Combination:** PCM or MEG (Mathematics essential)
-
-**Programmes:**
-• BSc Computer Science
-• BSc Software Engineering
-• BSc Information Technology
-• BSc Computer Engineering
-
-**Top Universities:**
-• Makerere University (CIT - College of Computing)
-• Kyambogo University
-• Gulu University
-• KIU
-• UCU
-
-**Hot Skills in 2025:**
-• Mobile app development (Flutter, React Native)
-• Web development (React, Node.js)
-• Data Science & AI
-• Cybersecurity
-• Cloud computing
-
-**Salary Range:**
-• Fresh graduates: UGX 1.5-3M/month
-• 3+ years experience: UGX 4-8M
-• Senior developers/leads: UGX 8-20M
-• Remote work for international companies: UGX 10-30M
-
-**Job Market:** Booming! Remote work opportunities, growing tech hubs in Kampala.`;
-  }
-  
-  // Business/Commerce responses
-  else if(query.includes('business') || query.includes('commerce') || query.includes('accounting') || query.includes('finance')) {
-    return `**Business & Commerce in Uganda:** 💼
-
-**Required Combination:** MEG, HEG, or MEE
-
-**Popular Degrees:**
-• Bachelor of Commerce (Accounting, Finance, Marketing)
-• Bachelor of Business Administration
-• Bachelor of Economics
-• Bachelor of Procurement
-
-**Top Universities:**
-• Makerere University (Business School - ranked #1)
-• Kyambogo University
-• UCU - Mukono
-• Nkumba University (Hospitality focus)
-
-**Professional Certifications (Add value):**
-• CPA (Certified Public Accountant)
-• ACCA
-• CIM (Marketing)
-• CIPS (Procurement)
-
-**Salary Range:**
-• Accountants: UGX 1.5-6M/month
-• Bankers: UGX 2-8M
-• Finance managers: UGX 5-15M
-• Business owners: Unlimited
-
-**Job Market:** Steady demand, especially in banking, NGOs, and corporate sector.`;
-  }
-  
-  // Education/Teaching responses
-  else if(query.includes('teach') || query.includes('education') || query.includes('teacher')) {
-    return `**Teaching Career in Uganda:** 📚
-
-**Required Combinations:**
-• Science Education: PCM, PCB, BCM
-• Arts Education: HEL, HEG, MEG
-
-**Degree Programmes:**
-• Bachelor of Arts with Education
-• Bachelor of Science with Education
-• Bachelor of Education (Primary/Secondary)
-
-**Top Universities:**
-• Kyambogo University (Leading education institution)
-• Makerere University (School of Education)
-• Gulu University (Strong northern focus)
-• Ndejje University
-• Uganda Martyrs University
-
-**Salary Range:**
-• Government secondary teachers: UGX 600k-2M/month
-• Private schools: UGX 500k-1.5M
-• International schools: UGX 2-6M
-• University lecturers: UGX 2-8M
-
-**Demand:** High demand for Science and Mathematics teachers, especially in rural areas. Government recruitment ongoing.`;
-  }
-  
-  // Agriculture responses
-  else if(query.includes('agric') || query.includes('farming') || query.includes('agribusiness')) {
-    return `**Agriculture & Agribusiness in Uganda:** 🌾
-
-**Required Combinations:** BCA, BAG, PAGM
-
-**Programmes:**
-• Bachelor of Agriculture
-• Bachelor of Agribusiness Management
-• Bachelor of Agricultural Engineering
-• Bachelor of Food Science & Technology
-
-**Top Universities:**
-• Makerere University (CAES - College of Agricultural Sciences)
-• Gulu University (Strong agricultural focus)
-• Busitema University (Faculty of Agriculture)
-• Kyambogo University
-• Uganda Martyrs University
-
-**Career Opportunities:**
-• Agribusiness Manager - UGX 1.5-8M
-• Agricultural Officer - UGX 1.2-4M (Government)
-• Crop Scientist - UGX 2-6M
-• Food Technologist - UGX 1.5-5M
-• Farm Manager - UGX 1-7M
-
-**Why Agriculture?** 70%+ of Uganda's economy, huge opportunities in value addition, export, and agribusiness. Government prioritizes agriculture sector.`;
-  }
-  
-  // Nursing/Health responses
-  else if(query.includes('nurs') || query.includes('health')) {
-    return `**Nursing & Health Sciences in Uganda:** 👩‍⚕️
-
-**Required Combinations:** PCB or BCFN
-
-**Programmes:**
-• Bachelor of Nursing Science
-• Bachelor of Midwifery
-• Bachelor of Public Health
-• Diploma in Nursing (for lower points)
-
-**Top Institutions:**
-• Makerere University (School of Health Sciences)
-• Mbarara University (MUST)
-• Gulu University
-• Lira University
-• Clarke International University (Private)
-• Various Nursing Schools (Diploma level)
-
-**Salary Range:**
-• Diploma nurses: UGX 800k-1.5M/month
-• Degree nurses: UGX 1.5-3.5M
-• Specialized (Midwifery, Public Health): UGX 2-5M
-• Nursing officers: UGX 2-4M
-
-**Job Market:** Critical shortage of nurses in Uganda, especially in rural areas. Government recruitment ongoing. International opportunities (UK, Canada) available with additional certification.`;
-  }
-  
-  // Scholarships/funding responses
-  else if(query.includes('scholarship') || query.includes('funding') || query.includes('sponsorship')) {
-    return `**Scholarship Opportunities in Uganda:** 💰
-
-**Government Scholarships:**
-• District Quota Scheme - For top students from each district
-• President's Scholarship - For exceptional performers
-• Ministry of Education scholarships for teachers
-
-**Private Scholarships:**
-• Mastercard Foundation Scholars Program (Makerere, UCU, Gulu)
-• Equity Leaders Program (Full university scholarships)
-• KCB Scholarship Program
-• Stanbic Bright Future Scholarship
-• Aga Khan Foundation Scholarships
-
-**External Opportunities:**
-• Commonwealth Scholarships (for Masters/PhD)
-• Chevening Scholarships (UK)
-• DAAD Scholarships (Germany)
-• Fulbright Program (USA)
-
-**Tips to Win Scholarships:**
-1. Maintain excellent grades (minimum 15-20 points at A-Level)
-2. Develop leadership skills through extracurricular activities
-3. Participate in community service
-4. Start searching early - many deadlines are 6-12 months before study
-5. Write compelling personal statements
-
-**Note:** Most government scholarships require you to study at public universities (Makerere, Kyambogo, Gulu, Mbarara, Busitema).`;
-  }
-  
-  // University entry requirements
-  else if(query.includes('university') || query.includes('entry requirement') || query.includes('cut off')) {
-    return `**Uganda University Entry Requirements:** 🏛️
-
-**General Minimum Requirements:**
-• At least 5 passes at O-Level including English
-• At least 2 Principal passes at A-Level (in relevant subjects)
-• Some courses require specific subjects and grades
-
-**Cut-off Points (Approximate for 2025):**
-
-*Makerere University:*
-• Medicine: 20-22 points
-• Engineering: 16-19 points
-• Law: 18-20 points
-• Commerce: 14-17 points
-• Computer Science: 14-18 points
-• Arts/Social Sciences: 12-15 points
-
-*Kyambogo University:*
-• Education programmes: 10-14 points
-• Engineering: 12-16 points
-• Business: 10-14 points
-
-*Gulu University:*
-• Medicine: 18-20 points
-• Agriculture: 10-14 points
-• Education: 8-12 points
-
-*Private Universities (KIU, UCU, Ndejje):*
-• Generally more flexible, may accept 5-8 points for some courses
-• Higher fees but easier admission
-
-**How Points Are Calculated:**
-• A = 6, B = 5, C = 4, D = 3, E = 2, O = 1, F = 0
-• Best 3 A-Level subjects count
-• Some universities include General Paper
-
-**Tip:** Always check specific faculty requirements as they may change yearly.`;
-  }
-  
-  // Default response for other queries
-  else {
-    return `Thank you for your question about "${query.substring(0,50)}..."
-
-Based on the Ugandan education context:
-
-📚 **Quick Answer:** I'm here to help with A-Level combinations, university admissions, career guidance, and job market information specific to Uganda.
-
-**You can ask me about:**
-• Which A-Level subjects to choose for specific careers
-• Entry requirements for any Ugandan university
-• Salary expectations for different professions
-• Scholarship opportunities
-• Study tips and exam preparation
-• Job market trends in Uganda
-
-**Example questions:**
-• "What A-Level combinations do I need for Law at Makerere?"
-• "How much do software engineers earn in Kampala?"
-• "Can I study Nursing with BCM combination?"
-• "What's the cut-off points for Medicine at Gulu?"
-
-Feel free to ask a more specific question, and I'll give you detailed, practical advice for your situation! 🇺🇬
-
-*Remember: Your success depends on your dedication and hard work, not just your subject choices.*`;
-  }
-}
-
-function sendSuggestion(el){
-  document.getElementById('chatInput').value=el.textContent;
-  sendChat();
-}
-
-function addMsg(role,text){
-  const msgs=document.getElementById('chatMessages');
-  const isAI=role==='ai';
-  const now=new Date().toLocaleTimeString('en-UG',{hour:'2-digit',minute:'2-digit'});
-  const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br/>');
-  const div=document.createElement('div');
-  div.className=`msg msg-${role}`;
-  div.innerHTML=`
-    <div class="msg-av ${isAI?'msg-av-ai':'msg-av-u'}">${isAI?'🤖':'👤'}</div>
-    <div><div class="msg-bubble ${isAI?'bubble-ai':'bubble-user'}">${formatted}</div><div class="msg-time">${now}</div></div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop=msgs.scrollHeight;
-}
-
-function addTyping(){
-  const msgs=document.getElementById('chatMessages');
-  const id='typ_'+Date.now();
-  msgs.innerHTML+=`<div class="msg msg-ai" id="${id}">
-    <div class="msg-av msg-av-ai">🤖</div>
-    <div><div class="msg-bubble bubble-ai"><div class="typing"><span></span><span></span><span></span></div></div></div></div>`;
-  msgs.scrollTop=msgs.scrollHeight;
-  return id;
-}
-
-function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
-
-function clearChat(){
-  chatHistory=[];
-  document.getElementById('chatMessages').innerHTML=`<div class="msg msg-ai">
-    <div class="msg-av msg-av-ai">🤖</div>
-    <div><div class="msg-bubble bubble-ai">Chat cleared. How can I help you with your Ugandan education journey?</div></div></div>`;
-  document.getElementById('chatSugs').style.display='flex';
+  schoolName=sn;
+  document.getElementById('schName').textContent=sn+' — Dashboard';
+  go('school');
 }
 
 // ═══════════════════ GRADE FORM ═══════════════════
@@ -1763,6 +1232,7 @@ function analyseAll(){
     renderCombos();
     renderBestCareers();
     renderDegrees();
+    // jump to combos tab
     const tabs=document.querySelectorAll('#student .tab');
     tabs.forEach(t=>t.classList.remove('on'));
     tabs[1].classList.add('on');
@@ -1821,7 +1291,7 @@ function renderCombos(){
       </div></div>`;
   });
   h+='</div>';
-  h+=`<div class="alert alert-gold" style="margin-top:1rem;">📌 <strong>Note:</strong> All candidates with Principal Mathematics must register Subsidiary ICT. Combinations with Economics (no Math) require Sub-Math.</div>`;
+  h+=`<div class="alert alert-gold" style="margin-top:1rem;">📌 <strong>PUJAB Subsidiary Rules:</strong> All candidates with Principal Mathematics must register Subsidiary ICT. Combinations with Economics (no Math) require Sub-Math. Science combos without Principal Math also need Sub-Math. Always confirm with your chosen school.</div>`;
   document.getElementById('combosOut').innerHTML=h;
 }
 
@@ -1849,19 +1319,24 @@ function renderBestCareers(){
   const yes=results.filter(r=>r.status==='YES');
   const guide=results.filter(r=>r.status==='GUIDANCE');
   const no=results.filter(r=>r.status==='NO');
-  const icons={'Medicine':'🩺','Engineering':'⚙️','Computer Science':'💻',
-    'Pharmacy':'💊','Nursing':'👩‍⚕️','Agriculture':'🌾','Law':'⚖️',
-    'Journalism':'📰','Business':'💼',
-    'Education':'📚'};
+  const icons={'Medicine':'🩺','Engineering (Civil/Electrical/Mechanical)':'⚙️','Computer Science / Software Engineering':'💻',
+    'Pharmacy':'💊','Nursing':'👩‍⚕️','Agriculture / Agribusiness':'🌾','Law':'⚖️',
+    'Journalism / Communication':'📰','Business / Commerce / Accounting':'💼',
+    'Education (Science)':'🔬','Education (Arts)':'📖','Architecture':'🏛️',
+    'Food Science / Nutrition':'🍽️','Environmental Science':'🌍','Veterinary Medicine':'🐾',
+    'AI / Machine Learning / Data Science':'🤖','Tourism & Hospitality':'✈️',
+    'Psychology / Social Work':'🧠','Economics / Finance':'📈','Fine Art / Design / Multimedia':'🎨',
+    'Industrial Chemistry':'⚗️','Biotechnology':'🧬'};
   let h='';
   if(yes.length){
     h+=`<div class="card" style="border-color:rgba(45,212,191,.2);">
       <div class="card-title" style="color:var(--teal);">✅ Careers You Are Well-Suited For (${yes.length})</div>
+      <p style="color:var(--muted2);font-size:.84rem;margin-bottom:1rem;">Your O-Level grades meet the requirements for these careers. <strong style="color:var(--txt)">Click any to run a full compatibility check.</strong></p>
       <div class="career-grid">`;
     yes.forEach((r,i)=>{
       const delay=i*0.05;
       h+=`<div class="career-tile tier-best" style="animation-delay:${delay}s" onclick="pickCareerCheck('${r.career}')">
-        <div class="ct-ico">${icons[r.career.split(' ')[0]]||'🎓'}</div>
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
         <div class="ct-name">${r.career}</div>
         <span class="badge bg-teal">✓ Qualified</span>
         <div class="ct-pct">${r.score}% match</div>
@@ -1871,11 +1346,11 @@ function renderBestCareers(){
   }
   if(guide.length){
     h+=`<div class="card">
-      <div class="card-title" style="color:var(--gold);">⚡ Careers Within Reach (${guide.length})</div>
+      <div class="card-title" style="color:var(--gold);">⚡ Careers Within Reach With More Work (${guide.length})</div>
       <div class="career-grid">`;
     guide.forEach((r,i)=>{
       h+=`<div class="career-tile tier-possible" style="animation-delay:${i*0.05}s" onclick="pickCareerCheck('${r.career}')">
-        <div class="ct-ico">${icons[r.career.split(' ')[0]]||'🎓'}</div>
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
         <div class="ct-name">${r.career}</div>
         <span class="badge bg-gold">⚡ Possible</span>
         <div class="ct-pct">${r.score}% match</div>
@@ -1889,7 +1364,7 @@ function renderBestCareers(){
       <div class="career-grid">`;
     no.forEach((r,i)=>{
       h+=`<div class="career-tile tier-stretch" style="animation-delay:${i*0.05}s" onclick="pickCareerCheck('${r.career}')">
-        <div class="ct-ico">${icons[r.career.split(' ')[0]]||'🎓'}</div>
+        <div class="ct-ico">${icons[r.career]||'🎓'}</div>
         <div class="ct-name">${r.career}</div>
         <span class="badge bg-rose">Needs work</span>
         <div class="ct-pct">${r.score}% match</div>
@@ -1909,7 +1384,7 @@ function renderDegrees(){
     return{...d,score};
   }).sort((a,b)=>b.score-a.score);
   const cats=[...new Set(scored.map(d=>d.cat))];
-  let h='<div class="alert alert-gold" style="margin-bottom:1rem;">🎓 <strong>Degree Programmes</strong> ranked by how well your O-Level results match requirements.</div>';
+  let h='<div class="alert alert-gold" style="margin-bottom:1rem;">🎓 <strong>Degree Programmes</strong> ranked by how well your O-Level results match university entry requirements (from PUJAB Booklet & NCDC Framework).</div>';
   cats.forEach(cat=>{
     const catDegrees=scored.filter(d=>d.cat===cat);
     h+=`<div class="card" style="margin-bottom:1rem;">
@@ -1927,7 +1402,7 @@ function renderDegrees(){
           </div>
         </div>
         <div style="flex-shrink:0;text-align:right;">
-          <span class="badge ${matchCls}">${d.score>60?'Strong':d.score>30?'Possible':'Indirect'}</span>
+          <span class="badge ${matchCls}">${d.score>60?'Strong Match':d.score>30?'Possible':'Indirect'}</span>
           <div style="font-size:.72rem;color:var(--muted);margin-top:.25rem;">Essential: ${d.essential.join(', ')}</div>
         </div>
       </div>`;
@@ -1945,6 +1420,7 @@ function pickCareerCheck(career){
   document.querySelectorAll('#student .tab-pane').forEach(p=>p.classList.remove('on'));
   document.getElementById('st-check').classList.add('on');
   doCareerCheck();
+  window.scrollTo(0,300);
 }
 
 function doCareerCheck(){
@@ -1973,7 +1449,7 @@ function doCareerCheck(){
         <div style="margin-top:1rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;">
           ${reqCombos.map(c=>`<span class="cpill cpill-teal">${c.code} · ${c.pct}%</span>`).join('')}
         </div>
-        <div style="margin-top:.9rem;font-size:.84rem;color:var(--muted2);">Best combination: <strong>${bestReq.code} — ${bestReq.full}</strong></div>
+        <div style="margin-top:.9rem;font-size:.84rem;color:var(--muted2);">Best combination to pursue: <strong style="color:var(--txt)">${bestReq.code} — ${bestReq.full}</strong></div>
       </div>`;
     } else {
       const altCareers=Object.keys(CAREER_MAP).filter(c=>{const e=evalCareerByGrades(c);return e.status==='YES';}).slice(0,3);
@@ -2040,7 +1516,7 @@ function renderGuide(){
   if(career&&CAREER_MAP[career]){
     const codes=CAREER_MAP[career];
     h+=`<div class="card"><div class="card-title">💼 ${career} — Subject Requirements</div>
-      <p style="color:var(--muted2);font-size:.87rem;margin-bottom:1rem;">Recommended A-Level combinations:</p>
+      <p style="color:var(--muted2);font-size:.87rem;margin-bottom:1rem;">Recommended A-Level combinations and O-Level subjects to prioritise:</p>
       ${codes.map(code=>{const c=COMBOS.find(x=>x.code===code);return c?`<div style="background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:9px;padding:.75rem;margin-bottom:.55rem;">
         <div style="font-family:'Syne',sans-serif;font-size:.86rem;font-weight:700;margin-bottom:.35rem;">${code} — ${c.full}</div>
         <div style="display:flex;gap:.3rem;flex-wrap:wrap;">${c.subs.map(s=>`<span class="sub-tag">${s}</span>`).join('')}</div>
@@ -2070,11 +1546,9 @@ function viewParent(){
     renderParentProfile({name,school:document.getElementById('p-school').value||'Unknown School',grades:demoGrades,career:'Medicine'});
   },800);
 }
-
 function loadDemoParent(){
-  renderParentProfile({name:'Grace Akello',school:'Arua Public S.S.S',grades:{'Mathematics':'A','Physics':'A','Chemistry':'A','Biology':'B','English Language':'B','Geography':'B','History & Political Education':'C','Economics':'C'},career:'Engineering'});
+  renderParentProfile({name:'Grace Akello',school:'Arua Public S.S.S',grades:{'Mathematics':'A','Physics':'A','Chemistry':'A','Biology':'B','English Language':'B','Geography':'B','History & Political Education':'C','Economics':'C'},career:'Engineering (Civil/Electrical/Mechanical)'});
 }
-
 function renderParentProfile(d){
   const ranked=rankCombos(d.grades);
   const top3=ranked.slice(0,3);
@@ -2096,10 +1570,311 @@ function renderParentProfile(d){
     </div>
     ${bestCareers.length?`<div class="card">
       <div class="card-title">Best Career Matches</div>
-      <div class="career-grid">${bestCareers.map(r=>`<div class="career-tile tier-best"><div class="ct-ico">${r.career.includes('Medicine')?'🩺':r.career.includes('Engineering')?'⚙️':r.career.includes('Computer')?'💻':r.career.includes('Law')?'⚖️':'🎓'}</div><div class="ct-name">${r.career}</div><span class="badge bg-teal">✓</span><div class="ct-pct">${r.score}%</div></div>`).join('')}</div>
+      <div class="career-grid">${bestCareers.map(r=>`<div class="career-tile tier-best"><div class="ct-ico">${r.career.includes('Medicine')?'🩺':r.career.includes('Engineer')?'⚙️':r.career.includes('Computer')?'💻':r.career.includes('Law')?'⚖️':'🎓'}</div><div class="ct-name">${r.career}</div><span class="badge bg-teal">✓</span><div class="ct-pct">${r.score}%</div></div>`).join('')}</div>
     </div>`:''}
-    <div class="alert alert-gold" style="margin-top:.5rem;">💡 <strong>For Parents:</strong> A-Level choice should consider your child's passion and ability — not just grades. Consult with school counselors.</div>
+    <div class="alert alert-gold" style="margin-top:.5rem;">💡 <strong>For Parents:</strong> A-Level choice depends on your child's passion, ability and career goals — not just grades. Please consult with school counselors and consider all factors holistically before making this important decision.</div>
   `;
+}
+
+// ═══════════════════ SCHOOL ADVERTISING ═══════════════════
+const DEMO_ADVERTISERS=[
+  {name:'Arua Public Secondary School',type:'Government',loc:'Arua City',combos:['PCB','PCM','HEG','HEL'],boarding:'Day & Boarding',desc:'Leading government school in West Nile. Strong science and arts departments.',featured:true,phone:'0772 100 001'},
+  {name:'St. Joseph\'s College Ombaci',type:'Religious (Catholic)',loc:'Arua District',combos:['PCB','HEG','HEL','MEG'],boarding:'Day & Boarding',desc:'Faith-based excellence. Strong humanities and science track record.',featured:true,phone:'0772 100 002'},
+  {name:'Mvara S.S.S',type:'Government',loc:'Arua City',combos:['PCM','BCM','HEG','MEE'],boarding:'Day Only',desc:'One of Arua\'s oldest schools with strong STEM faculty.',featured:false,phone:'0772 100 003'},
+  {name:'Your School Here',type:'Private',loc:'Advertise Your Location',combos:['Your Combinations'],boarding:'',desc:'Click "Get Featured" above to place your school here and reach thousands of S.4 students.',featured:false,phone:'',isPlaceholder:true},
+];
+
+function renderAdvertisers(){
+  const grid=document.getElementById('advertiserGrid');
+  if(!grid) return;
+  grid.innerHTML=DEMO_ADVERTISERS.map(s=>`
+    <div style="background:var(--ink2);border:1px solid ${s.featured?'rgba(245,200,66,.3)':s.isPlaceholder?'rgba(255,255,255,.05)':'var(--border)'};border-radius:var(--r);padding:1.25rem;${s.isPlaceholder?'opacity:.55;':''}transition:all .25s;" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem;">
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-size:.9rem;font-weight:800;margin-bottom:.18rem;">${s.name}</div>
+          <div style="font-size:.76rem;color:var(--muted);">📍 ${s.loc} · ${s.type}</div>
+        </div>
+        ${s.featured?'<span class="badge bg-gold">⭐ Featured</span>':s.isPlaceholder?'<button class="btn btn-gold" style="font-size:.73rem;padding:.28rem .75rem;" onclick="showAdForm(\'featured\')">+ List</button>':''}
+      </div>
+      <div style="font-size:.8rem;color:var(--muted2);margin-bottom:.75rem;line-height:1.5;">${s.desc}</div>
+      <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem;">${s.combos.map(c=>`<span style="background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.15);padding:.15rem .45rem;border-radius:4px;font-size:.71rem;color:var(--gold);font-weight:600;">${c}</span>`).join('')}</div>
+      ${s.boarding?`<div style="font-size:.76rem;color:var(--muted);">🏠 ${s.boarding}</div>`:''}
+      ${s.phone?`<div style="font-size:.78rem;color:var(--teal);margin-top:.4rem;">📞 ${s.phone}</div>`:''}
+    </div>`).join('');
+}
+
+function showAdForm(tier){
+  const card=document.getElementById('adFormCard');
+  document.getElementById('adFormTitle').textContent=
+    tier==='basic'?'📋 Free School Listing Application':
+    tier==='featured'?'⭐ Featured School Application (UGX 150,000/term)':
+    '🚀 Premium Banner Application (UGX 400,000/term)';
+  card.style.display='block';
+  card.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitAdForm(){
+  const name=document.getElementById('ad-name').value.trim();
+  if(!name){alert('Please enter your school name.');return;}
+  document.getElementById('adFormCard').style.display='none';
+  document.getElementById('adSuccessMsg').style.display='flex';
+  document.getElementById('adSuccessMsg').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════════ AI CHAT ═══════════════════
+const SYSTEM_PROMPT=`You are EduPath AI — Uganda's most knowledgeable academic guidance counselor for Senior 4 (S.4) students transitioning to A-Level (Senior 5 & 6). You have deep expertise in the Ugandan education system and must ALWAYS give responses grounded in Uganda's specific context.
+
+## YOUR CORE IDENTITY
+You speak directly to Ugandan S.4 students, their parents, and school counselors. You are warm, encouraging, practical, and honest. You always give specific, actionable advice — never vague.
+
+## UGANDAN EDUCATION SYSTEM KNOWLEDGE
+
+### O-Level (UCE) Grading
+- Grade 1 (Distinction): 80-100% — Excellent
+- Grade 2 (Credit): 70-79% — Very Good  
+- Grade 3 (Credit): 60-69% — Good
+- Grade 4 (Pass): 50-59% — Average
+- Grade 5/6 (Pass): 40-49% — Weak
+- Grade 7/8 (Fail): Below 40%
+- Aggregate Score: sum of best 8 subjects. Lower = better (e.g. Aggregate 8 = 8 grade 1s)
+- Division I (Agg 8-20), Division II (21-29), Division III (30-33), Division IV (34-36), Fail (37+)
+
+### A-Level Structure (UACE)
+- 3 Principal Subjects + 2 Subsidiary Subjects (Sub-Math OR ICT + General Paper)
+- Lasts 2 years: S.5 and S.6
+- Graded: A (80+), B (70-79), C (60-69), D (50-59), E (40-49), O (35-39), F (below 35)
+- UACE Points: A=6, B=5, C=4, D=3, E=2, F=1
+- University entry: minimum 2 principal passes (D or better) at A-Level
+
+### UNEB and PUJAB Rules
+- UNEB sets exams; PUJAB (Public Universities Joint Admissions Board) handles university admissions
+- Makerere cut-off points change each year — always tell students to check latest PUJAB booklet
+- Government sponsorship (State-sponsored): very competitive, limited slots, top performers
+- Private sponsorship: pay fees yourself — most students take private if grades allow
+- Diploma programmes: an alternative for students who don't meet degree requirements
+
+### Key Subject Combination Rules (PUJAB/NCDC)
+SCIENCE combinations:
+- PCB/Sub-Math: Physics, Chemistry, Biology + Subsidiary Mathematics + GP
+- PCM/ICT: Physics, Chemistry, Mathematics + Subsidiary ICT + GP
+- BCM/ICT: Biology, Chemistry, Mathematics + Sub-ICT + GP
+- PEM/ICT: Physics, Economics, Mathematics + Sub-ICT + GP
+- BCFN/Sub-Math: Biology, Chemistry, Foods & Nutrition + Sub-Math + GP
+- BCA/Sub-Math: Biology, Chemistry, Agriculture + Sub-Math + GP
+
+ARTS combinations:
+- HEG/Sub-Math: History, Economics, Geography + Sub-Math + GP
+- HEL/Sub-Math: History, Economics, Literature + Sub-Math + GP
+- MEG/Sub-Math: Mathematics, Economics, Geography + Sub-Math + GP
+- MEE/ICT: Mathematics, Economics, Entrepreneurship + Sub-ICT + GP
+- LEE/ICT: Literature, Economics, Entrepreneurship + Sub-ICT + GP
+
+RULES:
+- If you take Principal Mathematics → you MUST take Subsidiary ICT
+- If you take Economics WITHOUT Mathematics → you MUST take Subsidiary Mathematics
+- Science combinations without Principal Mathematics → must take Subsidiary Mathematics
+
+### University Entry Requirements (PUJAB)
+Medicine (MBChB): Biology + Chemistry essential, plus one of Math/Physics. Very competitive.
+Engineering: Mathematics + Physics essential. Civil, Electrical, Mechanical all need these.
+Computer Science: Mathematics essential, plus one of Physics/Chemistry/Economics.
+Law (LLB): Any two principal passes. Arts combinations work well.
+Pharmacy: Biology + Chemistry essential.
+Education (Science): Depends on teaching subjects — Biology/Chemistry for Bio Ed, Math/Physics for Physical Ed.
+Commerce/Business: Economics and/or Mathematics.
+Agriculture: Biology + Chemistry (or Agriculture + Biology/Chemistry).
+Nursing: Biology + Chemistry essential.
+
+### Government vs Private University Fees (approx 2024/25)
+Makerere Medicine (Govt sponsored): FREE
+Makerere Engineering (Govt): ~UGX 450,000/year tuition + functional fees ~2.5M
+Private sponsorship Makerere: UGX 3M-8M/year depending on programme
+Private universities (KIU, UCU, etc.): UGX 1.5M-6M/year
+Student loan scheme: Uganda Students Loan Scheme available — encourage students to check
+
+## UGANDA JOB MARKET 2025
+
+### HIGH DEMAND Sectors
+1. HEALTHCARE — Critical shortage nationwide
+   - Medical Officers (Govt): UGX 2.8M-4.5M/month
+   - Specialists: UGX 6M-20M+/month private
+   - Nurses (Govt entry): UGX 700K-1.5M | Private hospitals: 1.5M-3M
+   - Pharmacists: UGX 1.5M-4M
+   - Allied health (lab techs, radiographers): UGX 800K-2.5M
+
+2. ICT / TECHNOLOGY — Fastest growing sector
+   - Software developers: UGX 2M-15M/month (remote work possible, USD rates)
+   - Data Scientists: UGX 3M-12M
+   - Cybersecurity: UGX 2.5M-10M
+   - IT Support/Networking: UGX 800K-3M
+   - Mobile Money/Fintech is booming — MTN MoMo, Airtel Money expanding
+
+3. ENGINEERING — Driven by infrastructure boom
+   - Civil Engineers: UGX 2M-8M (UNRA, KCCA, private contractors)
+   - Oil & Gas (Tilenga, EACOP project): UGX 5M-25M+ for petroleum engineers
+   - Electrical Engineers: UGX 2M-7M (REA electrification expanding)
+   - Water engineers: UGX 2M-6M (NWSC, NGO projects)
+
+4. EDUCATION — Stable, always needed
+   - Government teachers (TSC): UGX 700K-1.8M basic + allowances
+   - Private school teachers: UGX 500K-2.5M depending on school
+   - Lecturers at universities: UGX 2M-6M
+   - Head teachers: UGX 1.5M-4M
+
+5. AGRICULTURE / AGRIBUSINESS
+   - Agricultural officers (Govt): UGX 800K-2M
+   - Agribusiness managers (private/NGO): UGX 1.5M-5M
+   - Extension workers: UGX 800K-1.8M
+   - Uganda's agriculture sector receiving major investment (coffee, cocoa exports growing)
+
+6. LAW & GOVERNANCE
+   - State attorneys (DPP/AG): UGX 1.5M-3M
+   - Private practice (junior): UGX 1M-3M, Senior partners: 10M-50M+
+   - Magistrates: UGX 2M-4M
+   - Legal Aid organizations, NGO legal officers: UGX 1.5M-4M
+
+7. BUSINESS / FINANCE
+   - Accountants (entry, CPA pursuing): UGX 800K-2M
+   - Chartered Accountants (ICPAU): UGX 3M-10M
+   - Bank officers: UGX 1.2M-4M
+   - Financial analysts: UGX 2M-6M
+   - Telecom companies (MTN, Airtel): 2M-8M
+
+8. EMERGING OPPORTUNITIES
+   - Renewable energy (solar expansion): UGX 1.5M-5M
+   - Carbon credits / environmental consulting
+   - Tourism recovery: UGX 1M-4M hotel management
+   - Media / journalism: UGX 600K-3M (independent media growing)
+   - Social work / NGO sector: UGX 1M-4M
+
+### Sectors That Are Competitive / Difficult Entry
+- Architecture (few firms, many graduates)
+- Fine Art (creative economy underdeveloped)
+- Geology without oil connection
+
+## HOW TO RESPOND
+
+### When a student asks about combinations:
+1. Ask their O-Level results first if they haven't shared them
+2. Give specific combination recommendations with reasons
+3. Mention the subsidiary subject rule clearly
+4. Connect combination to career options
+5. Mention which schools offer that combination
+
+### When asked about careers:
+1. Give honest job market assessment in Uganda
+2. Give realistic salary ranges in UGX
+3. Mention government vs private sector comparison
+4. Mention relevant Uganda universities and their entry requirements
+5. Discuss growth outlook over next 5-10 years
+
+### When a student seems confused or discouraged:
+- Be encouraging but realistic
+- Mention that vocational training (UBTEB) is a valid alternative
+- Mention BTVET (Business, Technical, Vocational Education and Training) programmes
+- Mention Uganda's student loan scheme
+- Remind them that success depends on attitude, hard work, and consistency
+
+### Common Uganda-specific questions you MUST handle well:
+- "Can I do medicine with PCM?" — Yes, PCM works (Physics, Chemistry + Math implies strong sciences)
+- "Is law easy to get into?" — Relatively accessible combination-wise, but competitive for govt sponsorship
+- "What if I got Division IV?" — Be honest, explain options: retake, vocational, diploma routes
+- "Makerere or private?" — Explain govt sponsorship competition, private options, fees
+- "Which combination for accounting?" — MEG, HEG, MEE all work; Math + Economics is ideal
+- "My parents want me to do science but I love arts" — Validate student's choice, give arts career data
+- "Is engineering worth it in Uganda?" — YES, especially with oil and infrastructure boom
+- "What about nursing?" — Highlight dignity of profession, demand, salary growth, career paths
+
+### Format your responses:
+- Use **bold** for key terms and important points
+- Use numbered lists for step-by-step advice
+- Keep responses under 350 words unless a very complex question requires more
+- Always end with an encouraging note or a follow-up question
+- NEVER give responses that are just generic — always anchor to Uganda
+
+You are the most helpful education counselor a Ugandan S.4 student has ever had. You genuinely care about their future.`;
+
+
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg) return;
+  input.value='';
+  addMsg('user',msg);
+  document.getElementById('chatSugs').style.display='none';
+  const typingId=addTyping();
+  try{
+    const messages=chatHistory.map(m=>({role:m.role,content:m.content}));
+    messages.push({role:'user',content:msg});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:SYSTEM_PROMPT,
+        messages
+      })
+    });
+    removeTyping(typingId);
+    if(!res.ok) throw new Error('API error '+res.status);
+    const data=await res.json();
+    const reply=data.content.map(b=>b.type==='text'?b.text:'').join('');
+    chatHistory.push({role:'user',content:msg});
+    chatHistory.push({role:'assistant',content:reply});
+    if(chatHistory.length>20) chatHistory=chatHistory.slice(-20);
+    addMsg('ai',reply);
+  } catch(err){
+    removeTyping(typingId);
+    const fallbacks={
+      'medicine':'For **Medicine (MBChB)**, you need **Biology + Chemistry** as essential subjects. Add Physics or Mathematics as your third. The best combinations are PCB/Sub-Math or BCM/ICT. Entry at Makerere is very competitive — aim for aggregate 8-12 at O-Level and strong A-Level results.',
+      'engineer':'For **Engineering**, you need **Mathematics + Physics** without fail. PCM/ICT is the top combination. Uganda has high demand for engineers right now — oil pipeline (EACOP), UNRA road projects, and REA electrification are all hiring. Salaries range from UGX 2M-15M/month.',
+      'law':'For **Law (LLB)**, any two principal passes work — arts combinations like HEL, HEG, or HLD are ideal. Law is accessible combination-wise but government sponsorship at Makerere is competitive. Private LLB programmes are available at UCU, KIU, IUIU.',
+      'computer':'For **Computer Science / Software Engineering**, you need **Mathematics** plus one of Physics, Chemistry, or Economics. PCM or PEM work well. ICT sector is booming in Uganda — remote work opportunities also exist paying USD rates.',
+    };
+    const lower=msg.toLowerCase();
+    let reply='I\'m having trouble connecting to the AI right now. ';
+    for(const[k,v] of Object.entries(fallbacks)){if(lower.includes(k)){reply+=v;break;}}
+    if(reply.length<80) reply+='Please use the Combinations and Career Check tabs for immediate guidance, or try asking again in a moment. You can also use the Student Portal to analyse your specific O-Level results.';
+    addMsg('ai',reply);
+  }
+}
+
+function sendSuggestion(el){
+  document.getElementById('chatInput').value=el.textContent;
+  sendChat();
+}
+
+function addMsg(role,text){
+  const msgs=document.getElementById('chatMessages');
+  const isAI=role==='ai';
+  const now=new Date().toLocaleTimeString('en-UG',{hour:'2-digit',minute:'2-digit'});
+  const formatted=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br/>');
+  const div=document.createElement('div');
+  div.className=`msg msg-${role}`;
+  div.innerHTML=`
+    <div class="msg-av ${isAI?'msg-av-ai':'msg-av-u'}">${isAI?'🤖':'👤'}</div>
+    <div><div class="msg-bubble ${isAI?'bubble-ai':'bubble-user'}">${formatted}</div><div class="msg-time">${now}</div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function addTyping(){
+  const msgs=document.getElementById('chatMessages');
+  const id='typ_'+Date.now();
+  msgs.innerHTML+=`<div class="msg msg-ai" id="${id}">
+    <div class="msg-av msg-av-ai">🤖</div>
+    <div><div class="msg-bubble bubble-ai"><div class="typing"><span></span><span></span><span></span></div></div></div></div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+  return id;
+}
+function removeTyping(id){const el=document.getElementById(id);if(el)el.remove();}
+function clearChat(){
+  chatHistory=[];
+  document.getElementById('chatMessages').innerHTML=`<div class="msg msg-ai">
+    <div class="msg-av msg-av-ai">🤖</div>
+    <div><div class="msg-bubble bubble-ai">Chat cleared. How can I help you?</div></div></div>`;
+  document.getElementById('chatSugs').style.display='flex';
 }
 
 // ═══════════════════ SCHOOL ═══════════════════
@@ -2109,32 +1884,28 @@ function handleUpload(input){
   document.getElementById('upStatus').textContent='Processing: '+f.name;
   animateProg(()=>{document.getElementById('upStatus').textContent='✓ Done — loading demo data';loadDemoStudents();});
 }
-
 function animateProg(cb){
   const fill=document.getElementById('progFill');let p=0;
   const iv=setInterval(()=>{p+=Math.random()*15;if(p>=100){p=100;clearInterval(iv);setTimeout(cb,300);}fill.style.width=p+'%';},120);
 }
-
 function loadDemoStudents(){
   schoolStudents=[
-    {name:'John Opiyo',math:'A',phys:'A',chem:'B',bio:'C',eng:'B',geo:'B',hist:'C',econ:'B',lit:'C',career:'Engineering'},
+    {name:'John Opiyo',math:'A',phys:'A',chem:'B',bio:'C',eng:'B',geo:'B',hist:'C',econ:'B',lit:'C',career:'Engineering (Civil/Electrical/Mechanical)'},
     {name:'Sarah Adong',math:'B',phys:'B',chem:'A',bio:'A',eng:'A',geo:'C',hist:'B',econ:'C',lit:'B',career:'Medicine'},
-    {name:'David Ayeko',math:'C',phys:'D',chem:'C',bio:'A',eng:'B',geo:'B',hist:'A',econ:'B',lit:'C',career:'Agriculture'},
+    {name:'David Ayeko',math:'C',phys:'D',chem:'C',bio:'A',eng:'B',geo:'B',hist:'A',econ:'B',lit:'C',career:'Agriculture / Agribusiness'},
     {name:'Grace Akello',math:'A',phys:'C',chem:'B',bio:'B',eng:'A',geo:'A',hist:'B',econ:'A',lit:'A',career:'Law'},
-    {name:'Michael Ongom',math:'B',phys:'B',chem:'B',bio:'B',eng:'C',geo:'C',hist:'C',econ:'C',lit:'C',career:'Computer Science'},
-    {name:'Florence Amito',math:'D',phys:'D',chem:'C',bio:'B',eng:'A',geo:'B',hist:'A',econ:'A',lit:'A',career:'Journalism'},
-    {name:'Peter Ogwang',math:'A',phys:'A',chem:'A',bio:'B',eng:'B',geo:'C',hist:'C',econ:'B',lit:'C',career:'Engineering'},
+    {name:'Michael Ongom',math:'B',phys:'B',chem:'B',bio:'B',eng:'C',geo:'C',hist:'C',econ:'C',lit:'C',career:'Computer Science / Software Engineering'},
+    {name:'Florence Amito',math:'D',phys:'D',chem:'C',bio:'B',eng:'A',geo:'B',hist:'A',econ:'A',lit:'A',career:'Journalism / Communication'},
+    {name:'Peter Ogwang',math:'A',phys:'A',chem:'A',bio:'B',eng:'B',geo:'C',hist:'C',econ:'B',lit:'C',career:'Engineering (Civil/Electrical/Mechanical)'},
     {name:'Agnes Aber',math:'C',phys:'C',chem:'B',bio:'A',eng:'B',geo:'B',hist:'C',econ:'B',lit:'B',career:'Nursing'},
-    {name:'Robert Ocen',math:'B',phys:'C',chem:'C',bio:'C',eng:'A',geo:'B',hist:'B',econ:'A',lit:'A',career:'Journalism'},
-    {name:'Lydia Amolo',math:'A',phys:'B',chem:'A',bio:'C',eng:'C',geo:'A',hist:'C',econ:'A',lit:'B',career:'Business'},
+    {name:'Robert Ocen',math:'B',phys:'C',chem:'C',bio:'C',eng:'A',geo:'B',hist:'B',econ:'A',lit:'A',career:'Journalism / Communication'},
+    {name:'Lydia Amolo',math:'A',phys:'B',chem:'A',bio:'C',eng:'C',geo:'A',hist:'C',econ:'A',lit:'B',career:'Business / Commerce / Accounting'},
   ];
   renderSchoolReport();
 }
-
 function makeGradesFromRow(s){
   return{'Mathematics':s.math,'Physics':s.phys,'Chemistry':s.chem,'Biology':s.bio,'English Language':s.eng,'Geography':s.geo,'History & Political Education':s.hist,'Economics':s.econ,'Literature in English':s.lit||''};
 }
-
 function renderSchoolReport(){
   let ok=0,guid=0,no=0;
   let rows='';
@@ -2159,8 +1930,8 @@ function renderSchoolReport(){
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;">
       <strong style="font-family:'Syne',sans-serif">Report — ${schoolStudents.length} Students</strong>
       <div style="display:flex;gap:.55rem;">
-        <button class="btn btn-ghost" style="font-size:.79rem" onclick="alert('PDF export coming soon!')">⬇ PDF</button>
-        <button class="btn btn-teal" style="font-size:.79rem" onclick="alert('Excel export coming soon!')">⬇ Excel</button>
+        <button class="btn btn-ghost" style="font-size:.79rem" onclick="alert('PDF export requires Django backend deployment.')">⬇ PDF</button>
+        <button class="btn btn-teal" style="font-size:.79rem" onclick="alert('Excel export requires Django backend deployment.')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap"><table>
@@ -2174,7 +1945,6 @@ function renderSchoolReport(){
   document.querySelectorAll('#school .tab-pane').forEach(p=>p.classList.remove('on'));
   document.getElementById('sc-report').classList.add('on');
 }
-
 function addManual(){
   const name=document.getElementById('m-name').value.trim();
   if(!name){alert('Enter student name.');return;}
@@ -2211,23 +1981,17 @@ function initDrop(){
     if(e.dataTransfer.files[0]){document.getElementById('fileIn').files=e.dataTransfer.files;handleUpload(document.getElementById('fileIn'));}});
 }
 
-// ═══════════════════ CHECK AUTH ON LOAD ═══════════════════
+// ═══════════════════ INIT ═══════════════════
 window.addEventListener('load',()=>{
   buildGradeForm();
   populateSelects();
   populateGuideSelects();
   renderTips();
-  renderSchoolsAds();
+  renderAdvertisers();
   initDrop();
-  
+  // auto-resize chat textarea
   const ta=document.getElementById('chatInput');
   if(ta) ta.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px';});
-  
-  // Check for saved login
-  const user = checkAuth();
-  if(user && user.userType === 'school_admin') {
-    // Could auto-redirect to school dashboard if needed
-  }
 });
 </script>
 </body>
